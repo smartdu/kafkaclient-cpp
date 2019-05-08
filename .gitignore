@@ -14,3 +14,5 @@
 /Debug
 /test/Debug
 /.vs
+/.build
+/.libs
