@@ -1,0 +1,16 @@
+*.slo
+*.lo
+*.o
+
+*.so
+*.dylib
+
+*.lai
+*.la
+*.a
+
+*.dll
+
+/Debug
+/test/Debug
+/.vs
