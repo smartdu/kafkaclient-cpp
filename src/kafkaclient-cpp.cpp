@@ -8,16 +8,20 @@
 
 void test()
 {
-
 	char buffer[1024];
-	FILE *file = fopen("D:\\version.bin", "rb");
+	FILE *file = fopen("version.bin", "rb");
 	int ret = fread(buffer, 1, sizeof(buffer), file);
-	ByteBuffer *b = ByteBuffer::wrap(buffer + 8, ret - 8);
+	fclose(file);
 
+	ByteBuffer *b = ByteBuffer::wrap(buffer + 8, ret - 8);
 	short version = 2;
 
 	ApiVersionsResponse *v = ApiVersionsResponse::parse(b, version);
-	
-	printf("");
+	std::list<ApiVersion> versions = v->apiVersions();
+	for (auto iter : versions)
+	{
+		printf("api_key = %d, min_version = %d, max_version = %d\n", iter.apiKey, iter.minVersion, iter.maxVersion);
+	}
+	delete v;
 	return;
 }
