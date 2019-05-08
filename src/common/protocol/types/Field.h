@@ -5,6 +5,7 @@
 class Type;
 class Object;
 #include <list>
+#include <string>
 
 class Field
 {

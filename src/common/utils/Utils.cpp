@@ -1,7 +1,7 @@
 #include "Utils.h"
 #include <stdio.h>
 #include "ByteArray.h"
-#include "String.h"
+#include "String0.h"
 
 ByteArray* Utils::utf8(String *o)
 {

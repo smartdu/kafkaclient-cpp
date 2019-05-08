@@ -27,6 +27,13 @@ include_directories(${CMAKE_SOURCE_DIR}/src/common/utils)
 
 set(HEADER_FILE ${CMAKE_SOURCE_DIR}/include/kafkaclient-cpp.h)
 aux_source_directory(./src SOURCE_FILE)
+aux_source_directory(./src/common SOURCE_FILE)
+aux_source_directory(./src/common/exceptions SOURCE_FILE)
+aux_source_directory(./src/common/protocol SOURCE_FILE)
+aux_source_directory(./src/common/protocol/types SOURCE_FILE)
+aux_source_directory(./src/common/record SOURCE_FILE)
+aux_source_directory(./src/common/resource SOURCE_FILE)
+aux_source_directory(./src/common/utils SOURCE_FILE)
 
 add_library(${OUTPUT_NAME}${D_SUFFIX} SHARED ${SOURCE_FILE})
 

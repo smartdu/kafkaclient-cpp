@@ -5,6 +5,7 @@
 class ObjectArray;
 class Object;
 #include <list>
+#include "ObjectArray.h"
 
 class Arrays
 {
