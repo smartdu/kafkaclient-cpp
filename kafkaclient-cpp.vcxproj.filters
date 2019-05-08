@@ -117,9 +117,6 @@
     <ClInclude Include="src\ByteArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\excptions\IllegalArgumentException.h">
-      <Filter>Header Files\common\exceptions</Filter>
-    </ClInclude>
     <ClInclude Include="src\String0.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -162,16 +159,19 @@
     <ClInclude Include="include\kafkaclient-cpp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\excptions\BufferUnderflowException.h">
-      <Filter>Header Files\common\exceptions</Filter>
-    </ClInclude>
     <ClInclude Include="src\Bits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\excptions\BufferOverflowException.h">
+    <ClInclude Include="src\common\exceptions\BufferOverflowException.h">
       <Filter>Header Files\common\exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\excptions\KafkaException.h">
+    <ClInclude Include="src\common\exceptions\BufferUnderflowException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\IllegalArgumentException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\KafkaException.h">
       <Filter>Header Files\common\exceptions</Filter>
     </ClInclude>
   </ItemGroup>
@@ -230,9 +230,6 @@
     <ClCompile Include="src\ByteArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\excptions\IllegalArgumentException.cpp">
-      <Filter>Source Files\common\exceptions</Filter>
-    </ClCompile>
     <ClCompile Include="src\String0.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -272,16 +269,19 @@
     <ClCompile Include="src\kafkaclient-cpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\excptions\BufferUnderflowException.cpp">
-      <Filter>Source Files\common\exceptions</Filter>
-    </ClCompile>
     <ClCompile Include="src\Bits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\excptions\BufferOverflowException.cpp">
+    <ClCompile Include="src\common\exceptions\BufferOverflowException.cpp">
       <Filter>Source Files\common\exceptions</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\excptions\KafkaException.cpp">
+    <ClCompile Include="src\common\exceptions\BufferUnderflowException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\IllegalArgumentException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\KafkaException.cpp">
       <Filter>Source Files\common\exceptions</Filter>
     </ClCompile>
   </ItemGroup>
