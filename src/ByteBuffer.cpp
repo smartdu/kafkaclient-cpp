@@ -7,6 +7,7 @@
 #include "BufferUnderflowException.h"
 #include "BufferOverflowException.h"
 #include "Bits.h"
+#include <string.h>
 
 ByteBuffer::~ByteBuffer()
 {

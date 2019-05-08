@@ -1,5 +1,6 @@
 #include "ByteArray.h"
 #include <string>
+#include <string.h>
 #include "String0.h"
 
 ByteArray::ByteArray(const char *data, int size)
