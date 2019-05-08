@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{80E7F1CA-5E0C-4E36-B105-3F843E2799DC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\Windows\user\duwei\kafkaclient-cpp\src\common;E:\Windows\user\duwei\kafkaclient-cpp\include;E:\Windows\user\duwei\kafkaclient-cpp\src\common\requests;E:\Windows\user\duwei\kafkaclient-cpp\src\common\record;E:\Windows\user\duwei\kafkaclient-cpp\src\common\resource;E:\Windows\user\duwei\kafkaclient-cpp\src\common\excptions;E:\Windows\user\duwei\kafkaclient-cpp\src;E:\Windows\user\duwei\kafkaclient-cpp\src\common\utils;E:\Windows\user\duwei\kafkaclient-cpp\src\common\protocol\types;E:\Windows\user\duwei\kafkaclient-cpp\src\common\protocol;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;KAFKACLIENTCPP_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;KAFKACLIENTCPP_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\kafkaclient-cpp.h" />
+    <ClInclude Include="src\BaseRecords.h" />
+    <ClInclude Include="src\Bits.h" />
+    <ClInclude Include="src\Boolean.h" />
+    <ClInclude Include="src\Byte.h" />
+    <ClInclude Include="src\ByteArray.h" />
+    <ClInclude Include="src\ByteBuffer.h" />
+    <ClInclude Include="src\common\excptions\BufferOverflowException.h" />
+    <ClInclude Include="src\common\excptions\BufferUnderflowException.h" />
+    <ClInclude Include="src\common\excptions\IllegalArgumentException.h" />
+    <ClInclude Include="src\common\excptions\KafkaException.h" />
+    <ClInclude Include="src\common\protocol\ApiKeys.h" />
+    <ClInclude Include="src\common\protocol\CommonFields.h" />
+    <ClInclude Include="src\common\protocol\Errors.h" />
+    <ClInclude Include="src\common\protocol\types\ArrayOf.h" />
+    <ClInclude Include="src\common\protocol\types\BoundField.h" />
+    <ClInclude Include="src\common\protocol\types\Field.h" />
+    <ClInclude Include="src\common\protocol\types\Schema.h" />
+    <ClInclude Include="src\common\protocol\types\SchemaException.h" />
+    <ClInclude Include="src\common\protocol\types\Struct.h" />
+    <ClInclude Include="src\common\protocol\types\Type.h" />
+    <ClInclude Include="src\common\record\RecordBatch.h" />
+    <ClInclude Include="src\common\requests\AbstractRequest.h" />
+    <ClInclude Include="src\common\requests\AbstractRequestResponse.h" />
+    <ClInclude Include="src\common\requests\AbstractResponse.h" />
+    <ClInclude Include="src\common\requests\ApiVersionsRequest.h" />
+    <ClInclude Include="src\common\requests\ApiVersionsResponse.h" />
+    <ClInclude Include="src\common\requests\ResponseHeader.h" />
+    <ClInclude Include="src\common\resource\PatternType.h" />
+    <ClInclude Include="src\common\utils\Arrays.h" />
+    <ClInclude Include="src\common\utils\ByteUtils.h" />
+    <ClInclude Include="src\common\utils\Utils.h" />
+    <ClInclude Include="src\Integer.h" />
+    <ClInclude Include="src\Long.h" />
+    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\ObjectArray.h" />
+    <ClInclude Include="src\Short.h" />
+    <ClInclude Include="src\String0.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Bits.cpp" />
+    <ClCompile Include="src\Boolean.cpp" />
+    <ClCompile Include="src\Byte.cpp" />
+    <ClCompile Include="src\ByteArray.cpp" />
+    <ClCompile Include="src\ByteBuffer.cpp" />
+    <ClCompile Include="src\common\excptions\BufferOverflowException.cpp" />
+    <ClCompile Include="src\common\excptions\BufferUnderflowException.cpp" />
+    <ClCompile Include="src\common\excptions\IllegalArgumentException.cpp" />
+    <ClCompile Include="src\common\excptions\KafkaException.cpp" />
+    <ClCompile Include="src\common\protocol\ApiKeys.cpp" />
+    <ClCompile Include="src\common\protocol\CommonFields.cpp" />
+    <ClCompile Include="src\common\protocol\Errors.cpp" />
+    <ClCompile Include="src\common\protocol\types\ArrayOf.cpp" />
+    <ClCompile Include="src\common\protocol\types\BoundField.cpp" />
+    <ClCompile Include="src\common\protocol\types\Field.cpp" />
+    <ClCompile Include="src\common\protocol\types\Schema.cpp" />
+    <ClCompile Include="src\common\protocol\types\SchemaException.cpp" />
+    <ClCompile Include="src\common\protocol\types\Struct.cpp" />
+    <ClCompile Include="src\common\protocol\types\Type.cpp" />
+    <ClCompile Include="src\common\requests\AbstractRequest.cpp" />
+    <ClCompile Include="src\common\requests\AbstractRequestResponse.cpp" />
+    <ClCompile Include="src\common\requests\AbstractResponse.cpp" />
+    <ClCompile Include="src\common\requests\ApiVersionsRequest.cpp" />
+    <ClCompile Include="src\common\requests\ApiVersionsResponse.cpp" />
+    <ClCompile Include="src\common\requests\ResponseHeader.cpp" />
+    <ClCompile Include="src\common\resource\PatternType.cpp" />
+    <ClCompile Include="src\common\utils\Arrays.cpp" />
+    <ClCompile Include="src\common\utils\ByteUtils.cpp" />
+    <ClCompile Include="src\common\utils\Utils.cpp" />
+    <ClCompile Include="src\Integer.cpp" />
+    <ClCompile Include="src\kafkaclient-cpp.cpp" />
+    <ClCompile Include="src\Long.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\ObjectArray.cpp" />
+    <ClCompile Include="src\Short.cpp" />
+    <ClCompile Include="src\String0.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
