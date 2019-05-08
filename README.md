@@ -16,7 +16,7 @@
 ## Linux
 执行[build.sh](./build.sh)会在`.libs`下生成`include`，`lib`目录
 ## Windows
-用VS2017打开[kafkaclient-cpp.sln](./kafkaclient-cpp.sln)，`Platform Toolset`使用`Visual Studio 2010 (v100)`
+用VS2017打开[kafkaclient-cpp.sln](./kafkaclient-cpp.sln)，`Platform Toolset`使用`Visual Studio 2012 (v110)`
 
 # 遗留问题
   * 内存管理（代码里到处是new，没有delete，后续使用智能指针）
