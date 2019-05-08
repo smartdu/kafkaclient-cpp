@@ -1,6 +1,11 @@
 #!/bin/bash
 
+PWD=`cd $(dirname $0); pwd`
+KPWD=$PWD
+
+rm -rf .libs .build
 mkdir -p .libs .build
-cd .build
-cmake -DCMAKE_BUILD_TYPE=Debug -DD_SUFFIX=_d -DPLATFORM=CentOS-x64 -DCMAKE_INSTALL_PREFIX=/svn/kafkaclient-cpp/.libs/ /svn/kafkaclient-cpp/
+cd $PWD/.build
+
+cmake -DCMAKE_BUILD_TYPE=Debug -DD_SUFFIX=_d -DPLATFORM=CentOS-x64 -DCMAKE_INSTALL_PREFIX=$KPWD/.libs/ $KPWD 
 make && make install
