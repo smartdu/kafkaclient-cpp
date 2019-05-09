@@ -3,9 +3,9 @@
 #include "ByteUtils.h"
 
 #define CLEAR_BIT(_n_)	\
-	 _n_ = (_n_ & ~(1 << (sizeof(_n_)*8-1)))
+	 _n_ = (_n_ & ~(1UL << (sizeof(_n_)*8-1)))
 #define CLEAR_BIT1(_n_)	\
-	(_n_ & ~(1 << (sizeof(_n_)*8-1)))
+	(_n_ & ~(1UL << (sizeof(_n_)*8-1)))
 
 static IllegalArgumentException illegalVarintException(int value) {
 	throw IllegalArgumentException("Varint is too long, the most significant bit in the 5th byte is set, "
