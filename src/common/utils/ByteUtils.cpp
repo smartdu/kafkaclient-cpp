@@ -8,12 +8,12 @@
 	(_n_ & ~(1UL << (sizeof(_n_)*8-1)))
 
 static IllegalArgumentException illegalVarintException(int value) {
-	throw IllegalArgumentException("Varint is too long, the most significant bit in the 5th byte is set, "
+	return IllegalArgumentException("Varint is too long, the most significant bit in the 5th byte is set, "
 		"converted value: " + std::to_string(value));
 }
 
 static IllegalArgumentException illegalVarlongException(long long value) {
-	throw new IllegalArgumentException("Varlong is too long, most significant bit in the 10th byte is set, "
+	return IllegalArgumentException("Varlong is too long, most significant bit in the 10th byte is set, "
 		"converted value: " + std::to_string(value));
 }
 

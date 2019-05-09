@@ -65,7 +65,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Windows\user\duwei\kafkaclient-cpp\src\common;E:\Windows\user\duwei\kafkaclient-cpp\include;E:\Windows\user\duwei\kafkaclient-cpp\src\common\requests;E:\Windows\user\duwei\kafkaclient-cpp\src\common\record;E:\Windows\user\duwei\kafkaclient-cpp\src\common\resource;E:\Windows\user\duwei\kafkaclient-cpp\src\common\excptions;E:\Windows\user\duwei\kafkaclient-cpp\src;E:\Windows\user\duwei\kafkaclient-cpp\src\common\utils;E:\Windows\user\duwei\kafkaclient-cpp\src\common\protocol\types;E:\Windows\user\duwei\kafkaclient-cpp\src\common\protocol;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\common;.\include;.\src\common\requests;.\src\common\record;.\src\common\resource;.\src\common\exceptions;.\src;.\src\common\utils;.\src\common\protocol\types;.\src\common\protocol;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
