@@ -11,6 +11,10 @@ public:
 	static Errors* NONE;
 
 	Errors(int code, const char *defaultExceptionString);
+	virtual ~Errors()
+	{
+
+	}
 
 	static Errors* forCode(short code);
 

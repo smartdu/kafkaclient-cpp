@@ -16,11 +16,15 @@ public:
 	bool hasDefaultValue;
 	Object *defaultValue;
 
+	Field();
 	Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);
 	Field(const char *name, Type *type, const char *docString);
 	Field(const char *name, Type *type, const char *docString, Object *defaultValue);
 	Field(const char *name, Type *type);
-	Field();
+	virtual ~Field()
+	{
+
+	}
 
 protected:
 	void init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);

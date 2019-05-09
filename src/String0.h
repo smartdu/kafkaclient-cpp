@@ -10,6 +10,10 @@ class String
 public:
 	String(const char *value);
 	String(std::string &value);
+	virtual ~String()
+	{
+
+	}
 
 	operator std::string&()
 	{

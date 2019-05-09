@@ -9,6 +9,10 @@ class Byte
 {
 public:
 	Byte(char value);
+	virtual ~Byte()
+	{
+
+	}
 
 	operator char()
 	{

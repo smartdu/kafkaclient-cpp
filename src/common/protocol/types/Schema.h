@@ -17,6 +17,10 @@ class Schema
 public:
 	Schema(std::list<Field*> fs);
 	Schema(int num, ...);
+	virtual ~Schema()
+	{
+
+	}
 
 	virtual void write(ByteBuffer *buffer, Object *o);
 

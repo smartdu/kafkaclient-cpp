@@ -9,6 +9,10 @@ class Boolean
 {
 public:
 	Boolean(bool value);
+	virtual ~Boolean()
+	{
+
+	}
 
 	operator bool()
 	{

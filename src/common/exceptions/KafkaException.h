@@ -10,6 +10,10 @@ class KafkaException
 {
 public:
 	KafkaException(const char *message);
+	virtual ~KafkaException()
+	{
+
+	}
 
 	virtual std::string toString();
 

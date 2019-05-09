@@ -9,6 +9,10 @@ class BufferOverflowException
 {
 public:
 	BufferOverflowException(std::string message);
+	virtual ~BufferOverflowException()
+	{
+
+	}
 };
 
 #endif // !__KFK_BUFFEROVERFLOWEXCEPTION_H__

@@ -14,6 +14,10 @@ class AbstractResponse
 {
 public:
 	static const int DEFAULT_THROTTLE_TIME = 0;
+	virtual ~AbstractResponse()
+	{
+
+	}
 
 	ByteBuffer* serialize(short version, ResponseHeader *responseHeader);
 

@@ -9,6 +9,10 @@ class AbstractRequest
 {
 public:
 	AbstractRequest();
+	virtual ~AbstractRequest()
+	{
+
+	}
 
 	short version();
 

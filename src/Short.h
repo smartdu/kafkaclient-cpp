@@ -10,6 +10,10 @@ class Short
 public:
 	static const int MAX_VALUE = 32767;
 	Short(short value);
+	virtual ~Short()
+	{
+
+	}
 
 	operator short()
 	{

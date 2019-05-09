@@ -10,6 +10,10 @@ class IllegalArgumentException
 {
 public:
 	IllegalArgumentException(std::string message);
+	virtual ~IllegalArgumentException()
+	{
+
+	}
 };
 
 #endif // !__KFK_ILLEGALARGUMENTEXCEPTION_H__

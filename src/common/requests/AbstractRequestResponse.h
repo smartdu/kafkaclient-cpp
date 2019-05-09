@@ -8,6 +8,10 @@ class ByteBuffer;
 class AbstractRequestResponse
 {
 public:
+	virtual ~AbstractRequestResponse()
+	{
+
+	}
 	static ByteBuffer* serialize(Struct *headerStruct, Struct *bodyStruct);
 };
 
