@@ -6,11 +6,18 @@
 #include "Schema.h"
 #include "ByteBuffer.h"
 #include "SchemaException.h"
+#include "MetadataRequest.h"
+#include "MetadataResponse.h"
 
 ApiKeys* ApiKeys::API_VERSIONS()
 {
 	static ApiKeys *once = new ApiKeys_API_VERSIONS;
 	return once;
+}
+
+ApiKeys* ApiKeys::METADATA()
+{
+	return new ApiKeys(3, "Metadata", MetadataRequest::schemaVersions(), MetadataResponse::schemaVersions());
 }
 
 ApiKeys::ApiKeys(int id, const char* name, Schema** requestSchemas, Schema** responseSchemas)

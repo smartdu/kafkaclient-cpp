@@ -112,6 +112,7 @@
     <ClInclude Include="src\common\exceptions\BufferOverflowException.h" />
     <ClInclude Include="src\common\exceptions\BufferUnderflowException.h" />
     <ClInclude Include="src\common\exceptions\IllegalArgumentException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidMetadataException.h" />
     <ClInclude Include="src\common\exceptions\KafkaException.h" />
     <ClInclude Include="src\common\Node.h" />
     <ClInclude Include="src\common\PartitionInfo.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="src\common\requests\ApiVersionsResponse.h" />
     <ClInclude Include="src\common\requests\MetadataRequest.h" />
     <ClInclude Include="src\common\requests\MetadataResponse.h" />
+    <ClInclude Include="src\common\requests\RequestUtils.h" />
     <ClInclude Include="src\common\requests\ResponseHeader.h" />
     <ClInclude Include="src\common\resource\PatternType.h" />
     <ClInclude Include="src\common\TopicPartition.h" />
@@ -158,6 +160,7 @@
     <ClCompile Include="src\common\exceptions\BufferOverflowException.cpp" />
     <ClCompile Include="src\common\exceptions\BufferUnderflowException.cpp" />
     <ClCompile Include="src\common\exceptions\IllegalArgumentException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidMetadataException.cpp" />
     <ClCompile Include="src\common\exceptions\KafkaException.cpp" />
     <ClCompile Include="src\common\Node.cpp" />
     <ClCompile Include="src\common\PartitionInfo.cpp" />
@@ -178,6 +181,7 @@
     <ClCompile Include="src\common\requests\ApiVersionsResponse.cpp" />
     <ClCompile Include="src\common\requests\MetadataRequest.cpp" />
     <ClCompile Include="src\common\requests\MetadataResponse.cpp" />
+    <ClCompile Include="src\common\requests\RequestUtils.cpp" />
     <ClCompile Include="src\common\requests\ResponseHeader.cpp" />
     <ClCompile Include="src\common\resource\PatternType.cpp" />
     <ClCompile Include="src\common\TopicPartition.cpp" />

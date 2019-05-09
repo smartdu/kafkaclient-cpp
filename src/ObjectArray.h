@@ -16,6 +16,11 @@ public:
 		return obj[index];
 	}
 
+	operator int()
+	{
+		return length;
+	}
+
 	ObjectArray(int size);
 	virtual ~ObjectArray();
 };

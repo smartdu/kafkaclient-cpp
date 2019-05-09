@@ -5,6 +5,10 @@
 class ByteBuffer;
 class String;
 class ByteArray;
+class ObjectArray;
+#include <string>
+#include <list>
+#include <map>
 
 class Utils
 {
@@ -16,7 +20,23 @@ public:
 	static int utf8Length(String *o);
 
 	template<typename T>
-	static std::string join(std::list<T, std::allocator<T>> list, const char *separator);
+	static std::string join(std::list<T> list, const char *separator)
+	{
+		return "";
+	}
+
+	template<typename K, typename V>
+	static std::list<V> values(std::map<K, V> m)
+	{
+		std::list<V> l;
+		return l;
+	}
+
+	template<typename T>
+	static ObjectArray* toArray(std::list<T> l)
+	{
+		return NULL;
+	}
 };
 
 #endif // !__KFK_UTILS_H__

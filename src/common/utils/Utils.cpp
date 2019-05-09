@@ -1,5 +1,7 @@
 #include "Utils.h"
 #include <stdio.h>
+#include <list>
+#include <map>
 #include "ByteArray.h"
 #include "String0.h"
 
@@ -17,10 +19,4 @@ String* Utils::utf8(ByteBuffer *buffer, int length)
 int Utils::utf8Length(String *o)
 {
 	return 0;
-}
-
-template<typename T>
-std::string Utils::join(std::list<T, std::allocator<T>> list, const char *separator)
-{
-	return "";
 }

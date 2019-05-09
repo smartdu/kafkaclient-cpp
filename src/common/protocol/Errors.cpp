@@ -8,9 +8,10 @@ Errors* Errors::NONE = new Errors(0, NULL);
 Errors* Errors::TOPIC_AUTHORIZATION_FAILED = new Errors(29, "Topic authorization failed.");
 Errors* Errors::INVALID_TOPIC_EXCEPTION = new Errors(17, "The request attempted to perform an operation on an invalid topic.");
 
-Errors::Errors(int code, const char *defaultExceptionString)
+Errors::Errors(int code, const char *defaultExceptionString, KafkaException *exception)
 {
 	this->code_ = code;
+	this->exception_ = exception;
 	codeToError[code] = this;
 }
 

@@ -77,7 +77,7 @@ private:
 class TopicMetadata
 {
 public:
-	TopicMetadata(Errors *error, const char *topic, bool isInternal, std::list<PartitionMetadata> partitionMetadata);
+	TopicMetadata(Errors *error, const char *topic, bool isInternal, std::list<PartitionMetadata*> partitionMetadata);
 
 	Errors* error()
 	{
@@ -94,7 +94,7 @@ public:
 		return isInternal_;
 	}
 
-	std::list<PartitionMetadata> partitionMetadata()
+	std::list<PartitionMetadata*> partitionMetadata()
 	{
 		return partitionMetadata_;
 	}
@@ -105,7 +105,7 @@ private:
 	Errors *error_;
 	std::string topic_;
 	bool isInternal_;
-	std::list<PartitionMetadata> partitionMetadata_;
+	std::list<PartitionMetadata*> partitionMetadata_;
 };
 
 class MetadataResponse
@@ -116,8 +116,8 @@ public:
 
 	static Schema** schemaVersions();
 
-	MetadataResponse(std::list<Node> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata> topicMetadata);
-	MetadataResponse(int throttleTimeMs, std::list<Node> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata> topicMetadata);
+	MetadataResponse(std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata);
+	MetadataResponse(int throttleTimeMs, std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata);
 	MetadataResponse(Struct *s);
 
 	int throttleTimeMs()
@@ -135,19 +135,19 @@ public:
 
 	Cluster* cluster();
 
-	static PartitionInfo* partitionMetaToInfo(const char *topic, PartitionMetadata partitionMetadata);
+	static PartitionInfo* partitionMetaToInfo(const char *topic, PartitionMetadata *partitionMetadata);
 
-	std::list<Node> brokers()
+	std::list<Node*> brokers()
 	{
 		return this->brokers_;
 	}
 
-	std::list<TopicMetadata> topicMetadata()
+	std::list<TopicMetadata*> topicMetadata()
 	{
 		return this->topicMetadata_;
 	}
 
-	Node controller()
+	Node* controller()
 	{
 		return controller_;
 	}
@@ -168,7 +168,7 @@ protected:
 	virtual Struct* toStruct(short version);
 
 private:
-	std::list<Node> convertToNodes(std::map<int, Node> brokers, ObjectArray *brokerIds);
+	std::list<Node*> convertToNodes(std::map<int, Node*> brokers, ObjectArray *brokerIds);
 
 	Node* getControllerNode(int controllerId, std::list<Node*> brokers);
 
@@ -206,9 +206,9 @@ private:
 	static Schema *METADATA_RESPONSE_V7;
 
 	int throttleTimeMs_;
-	std::list<Node> brokers_;
-	Node controller_;
-	std::list<TopicMetadata> topicMetadata_;
+	std::list<Node*> brokers_;
+	Node *controller_;
+	std::list<TopicMetadata*> topicMetadata_;
 	String *clusterId_;
 };
 

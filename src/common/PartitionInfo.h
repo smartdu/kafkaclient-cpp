@@ -28,7 +28,7 @@ public:
 
 	std::list<Node*> replicas()
 	{
-		return 
+		return replicas_;
 	}
 
 	std::list<Node*> inSyncReplicas()

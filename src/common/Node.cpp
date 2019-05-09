@@ -1,5 +1,7 @@
 #include "Node.h"
 
+Node* Node::NO_NODE = new Node(-1, "", -1);
+
 Node::Node(int id, const char *host, int port)
 {
 

@@ -28,6 +28,8 @@ public:
 protected:
 	std::map<Errors*, int> errorCounts(Errors *error);
 
+	void updateErrorCounts(std::map<Errors*, int> errorCounts, Errors *error);
+
 	virtual Struct* toStruct(short version) = 0;
 };
 

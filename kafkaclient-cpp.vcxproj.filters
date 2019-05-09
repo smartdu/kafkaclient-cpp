@@ -198,6 +198,12 @@
     <ClInclude Include="src\InetSocketAddress.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidMetadataException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\requests\RequestUtils.h">
+      <Filter>Header Files\common\requestes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\common\protocol\types\Type.cpp">
@@ -331,6 +337,12 @@
     </ClCompile>
     <ClCompile Include="src\InetSocketAddress.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidMetadataException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\requests\RequestUtils.cpp">
+      <Filter>Source Files\common\requests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
