@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/smartdu/kafkaclient-cpp.svg?branch=master)](https://travis-ci.org/smartdu/kafkaclient-cpp)
 # kafkaclient-cpp
 与[Kafka](https://kafka.apache.org/)配套的c++客户端，实现Consumer和Producer，项目来源于[librdkafka](https://github.com/edenhill/librdkafka)，它是一个优秀的开源项目，我们在使用它的时候遇到一些小问题（死循环，消费数据慢，一些内存assert），在尝试阅读源码时，无法领会它的设计思想，同时在代码里用了引用计数器来释放内存，多个数据队列拷贝数据，理不清思路，尝试多次无果，所以才有这个项目的诞生，也方便自己理解Kafka设计思想。
 
@@ -32,6 +33,7 @@
 
 # 解析ApiVersions
 [version.bin](test/version.bin)在test目录下，通过Wireshark抓包后转存后的二进制文件
+
 代码如下：
 ``` c++
 char buffer[1024];
