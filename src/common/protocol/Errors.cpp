@@ -5,6 +5,8 @@ static std::map<short, Errors*> codeToError = std::map<short, Errors*>();
 
 Errors* Errors::UNKNOWN_SERVER_ERROR = new Errors(-1, "The server experienced an unexpected error when processing the request.");
 Errors* Errors::NONE = new Errors(0, NULL);
+Errors* Errors::TOPIC_AUTHORIZATION_FAILED = new Errors(29, "Topic authorization failed.");
+Errors* Errors::INVALID_TOPIC_EXCEPTION = new Errors(17, "The request attempted to perform an operation on an invalid topic.");
 
 Errors::Errors(int code, const char *defaultExceptionString)
 {

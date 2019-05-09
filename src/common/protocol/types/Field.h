@@ -97,9 +97,9 @@ public:
 
 	ComplexArray(const char *name, const char *docString);
 
-	Field* withFields(std::list<Field*> fields);
+	Field* withFields(int num, ...);
 
-	Field* nullableWithFields(std::list<Field*> fields);
+	Field* nullableWithFields(int num, ...);
 
 	Field* withFields(const char *docStringOverride, std::list<Field*> fields);
 };

@@ -26,6 +26,8 @@
   * ~~理清[Kafka协议](https://kafka.apache.org/protocol)，如何扩展协议版本，以及解析~~
   * ~~参考Kafka的源码，尝试用C++方式重写~~
   * ~~完成第一个协议解析[ApiVersions](https://kafka.apache.org/protocol#The_Messages_ApiVersions)~~
+  * 完成协议解析[Metadata](https://kafka.apache.org/protocol#The_Messages_Metadata)
+  * 处理内存问题
   * 用Wireshark抓Consumer的交互报文，实现其他协议解析
   * 构建一个简单的Consumer，实现单Partition的数据消费
   * 构建一个简单的Consumer，实现Group数据消费

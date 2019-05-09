@@ -14,6 +14,9 @@ public:
 	static String* utf8(ByteBuffer *buffer, int length);
 
 	static int utf8Length(String *o);
+
+	template<typename T>
+	static std::string join(std::list<T, std::allocator<T>> list, const char *separator);
 };
 
 #endif // !__KFK_UTILS_H__
