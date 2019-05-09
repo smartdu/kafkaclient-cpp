@@ -119,19 +119,31 @@ ComplexArray::ComplexArray(const char *name, const char *docString)
 
 Field* ComplexArray::withFields(int num, ...)
 {
-	va_list lst;
-	va_start(lst, num);
-	Schema *elementType = new Schema(num, lst);
-	va_end(lst, num);
+	std::list<Field*> fl;
+	va_list valist;
+	va_start(valist, num);
+	for (int i = 0; i < num; i++)
+	{
+		Field *def = va_arg(valist, Field*);
+		fl.push_back(def);
+	}
+	va_end(valist);
+	Schema *elementType = new Schema(fl);
 	return new Field(name.c_str(), new ArrayOf(elementType), docString.c_str(), false, NULL);
 }
 
 Field* ComplexArray::nullableWithFields(int num, ...)
 {
-	va_list lst;
-	va_start(lst, num);
-	Schema *elementType = new Schema(num, lst);
-	va_end(lst, num);
+	std::list<Field*> fl;
+	va_list valist;
+	va_start(valist, num);
+	for (int i = 0; i < num; i++)
+	{
+		Field *def = va_arg(valist, Field*);
+		fl.push_back(def);
+	}
+	va_end(valist);
+	Schema *elementType = new Schema(fl);
 	return new Field(name.c_str(), ArrayOf::nullable(elementType), docString.c_str(), false, NULL);
 }
 
