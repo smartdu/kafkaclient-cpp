@@ -31,7 +31,7 @@
   * ...
 
 # 解析ApiVersions
-[version.bin](test/version.bin)在test目录下，通过Wireshark抓包后转存后的二进制程序
+[version.bin](test/version.bin)在test目录下，通过Wireshark抓包后转存后的二进制文件
 代码如下：
 ``` c++
 char buffer[1024];
