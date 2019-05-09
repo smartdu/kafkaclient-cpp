@@ -10,6 +10,11 @@ void test()
 {
 	char buffer[1024];
 	FILE *file = fopen("version.bin", "rb");
+	if (file != NULL)
+	{
+		printf("can't find version.bin\n");
+		return;
+	}
 	int ret = fread(buffer, 1, sizeof(buffer), file);
 	fclose(file);
 
