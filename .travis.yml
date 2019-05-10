@@ -14,7 +14,6 @@ before_script:
  - ccache -s || echo "CCache is not available."
 script:
 - ./build.sh
-- npm run cover
 after_success:
 - npm run coveralls
 - bash <(curl -s https://codecov.io/bash)
