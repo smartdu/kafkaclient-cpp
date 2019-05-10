@@ -19,11 +19,13 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -83,6 +85,7 @@
     <ClInclude Include="src\Byte.h" />
     <ClInclude Include="src\ByteArray.h" />
     <ClInclude Include="src\ByteBuffer.h" />
+    <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\common\Cluster.h" />
     <ClInclude Include="src\common\ClusterResource.h" />
     <ClInclude Include="src\common\exceptions\BufferOverflowException.h" />
@@ -131,6 +134,7 @@
     <ClCompile Include="src\Byte.cpp" />
     <ClCompile Include="src\ByteArray.cpp" />
     <ClCompile Include="src\ByteBuffer.cpp" />
+    <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\common\Cluster.cpp" />
     <ClCompile Include="src\common\ClusterResource.cpp" />
     <ClCompile Include="src\common\exceptions\BufferOverflowException.cpp" />

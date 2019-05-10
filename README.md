@@ -39,7 +39,7 @@
   * ~~理清[Kafka协议](https://kafka.apache.org/protocol)，如何扩展协议版本，以及解析~~
   * ~~参考Kafka的源码，尝试用C++方式重写~~
   * ~~完成第一个协议解析[ApiVersions](https://kafka.apache.org/protocol#The_Messages_ApiVersions)~~
-  * 完成协议解析[Metadata](https://kafka.apache.org/protocol#The_Messages_Metadata)
+  * ~~完成协议解析[Metadata](https://kafka.apache.org/protocol#The_Messages_Metadata)~~
   * 处理内存问题
   * 用Wireshark抓Consumer的交互报文，实现其他协议解析
   * 构建一个简单的Consumer，实现单Partition的数据消费
@@ -114,4 +114,34 @@ api_key = 40, min_version = 0, max_version = 1
 api_key = 41, min_version = 0, max_version = 1
 api_key = 42, min_version = 0, max_version = 1
 api_key = 43, min_version = 0, max_version = 0
+</pre>
+
+# 解析Metadata
+[metadata.bin](test/metadata.bin)在test目录下，通过Wireshark抓包后转存后的二进制文件
+
+代码如下：
+``` c++
+char buffer[1024];
+FILE *file = fopen("metadata.bin", "rb");
+if (file == NULL)
+{
+	printf("can't find metadata.bin\n");
+	return;
+}
+int ret = fread(buffer, 1, sizeof(buffer), file);
+fclose(file);
+
+ByteBuffer *b = ByteBuffer::wrap(buffer + 8, ret - 8);
+short version = 7;
+
+MetadataResponse *v = MetadataResponse::parse(b, version);
+printf("cluster_id = %s\n", v->clusterId());
+printf("node_id = %d, host = %s, port = %d, rack = %s\n", v->controller()->id(), v->controller()->host(), v->controller()->port(), v->controller()->rack());
+delete v;
+```
+
+输出：
+<pre>
+cluster_id = 7CEOcQm5RByBE7211VEfoA
+node_id = 0, host = 192.168.64.121, port = 9092, rack =
 </pre>

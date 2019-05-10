@@ -17,6 +17,10 @@ public:
 
 	static String* utf8(ByteBuffer *buffer, int length);
 
+	static String* utf8(ByteBuffer *buffer);
+
+	static String* utf8(ByteBuffer *buffer, int offset, int length);
+
 	static int utf8Length(String *o);
 
 	template<typename T>
@@ -29,6 +33,8 @@ public:
 	static std::list<V> values(std::map<K, V> m)
 	{
 		std::list<V> l;
+		for (auto &iter : m)
+			l.push_back(iter.second);
 		return l;
 	}
 

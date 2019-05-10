@@ -17,7 +17,8 @@ ApiKeys* ApiKeys::API_VERSIONS()
 
 ApiKeys* ApiKeys::METADATA()
 {
-	return new ApiKeys(3, "Metadata", MetadataRequest::schemaVersions(), MetadataResponse::schemaVersions());
+	static ApiKeys *once = new ApiKeys(3, "Metadata", MetadataRequest::schemaVersions(), MetadataResponse::schemaVersions());
+	return once;
 }
 
 ApiKeys::ApiKeys(int id, const char* name, Schema** requestSchemas, Schema** responseSchemas)

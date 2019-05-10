@@ -218,7 +218,7 @@ MetadataResponse::MetadataResponse(Struct *s)
 		std::string host = *broker->get(HOST);
 		int port = *broker->get(PORT);
 		String *rack = broker->getOrElse(RACK, NULL);
-		brokers[nodeId] = new Node(nodeId, host.c_str(), port, *rack);
+		brokers[nodeId] = new Node(nodeId, host.c_str(), port, rack == NULL ? NULL : *rack);
 	}
 
 	int controllerId = *s->getOrElse(CONTROLLER_ID, NO_CONTROLLER_ID);

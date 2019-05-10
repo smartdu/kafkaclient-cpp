@@ -9,6 +9,7 @@ class String
 {
 public:
 	String(const char *value);
+	String(char *bytes, int offset, int length);
 	String(std::string &value);
 	virtual ~String()
 	{
