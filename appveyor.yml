@@ -6,7 +6,7 @@ configuration:
 
 environment:
   matrix:
-  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
     VS_VERSION: 11 2012
     VS_PLATFORM: win32
 
