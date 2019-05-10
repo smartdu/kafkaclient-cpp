@@ -26,7 +26,7 @@ std::string PartitionInfo::formatNodeIds(std::list<Node*> nodes)
 	std::string b = "[";
 	if (!nodes.empty())
 	{
-		int i = 0;
+		unsigned int i = 0;
 		for (auto iter : nodes)
 		{
 			b.append(iter->idString());

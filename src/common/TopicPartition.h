@@ -24,8 +24,8 @@ public:
 	virtual std::string toString();
 
 private:
-	int partition_;
 	std::string topic_;
+	int partition_;
 };
 
 #endif // !__KFK_TOPICPARTITION_H__
