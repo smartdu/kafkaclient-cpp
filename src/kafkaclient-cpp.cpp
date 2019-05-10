@@ -10,7 +10,7 @@ void test()
 {
 	char buffer[1024];
 	FILE *file = fopen("version.bin", "rb");
-	if (file != NULL)
+	if (file == NULL)
 	{
 		printf("can't find version.bin\n");
 		return;
