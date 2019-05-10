@@ -11,6 +11,6 @@ environment:
     VS_PLATFORM: win32
 
 build:
-  project: kafkaclient-cpp.sln
+  project: kafkaclient-cpp.vcxproj
   parallel: true
   verbosity: minimal

@@ -13,6 +13,9 @@
 
 /Debug
 /test/Debug
+/Release
+/test/Release
+/x64
 /.vs
 /.build
 /.libs

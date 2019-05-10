@@ -91,6 +91,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\common;$(ProjectDir)include;$(ProjectDir)src\common\requests;$(ProjectDir)src\common\record;$(ProjectDir)src\common\resource;$(ProjectDir)src\common\exceptions;$(ProjectDir)src;$(ProjectDir)src\common\utils;$(ProjectDir)src\common\protocol\types;$(ProjectDir)src\common\protocol;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
