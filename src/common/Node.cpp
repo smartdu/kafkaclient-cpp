@@ -56,7 +56,7 @@ bool Node::hasRack()
 
 const char* Node::rack()
 {
-	return rack_->c_str();
+	return rack_ == NULL ? NULL : rack_->c_str();
 }
 
 std::string Node::toString()

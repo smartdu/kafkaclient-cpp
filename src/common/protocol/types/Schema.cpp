@@ -7,9 +7,10 @@
 #include "ObjectArray.h"
 #include <stdarg.h>
 
-Schema::Schema(std::list<Field*> fs)
+Schema::Schema(std::list<Field*> &fs)
 {
-	this->fields_ = new BoundField*[fs.size()];
+	if (fs.size() > 0)
+		this->fields_ = new BoundField*[fs.size()];
 	this->length = fs.size();
 	int i = 0;
 	for (auto iter : fs)

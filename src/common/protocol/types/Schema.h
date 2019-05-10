@@ -15,7 +15,7 @@ class Schema
 	: public Type
 {
 public:
-	Schema(std::list<Field*> fs);
+	Schema(std::list<Field*> &fs);
 	Schema(int num, ...);
 	virtual ~Schema()
 	{

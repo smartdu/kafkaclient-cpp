@@ -20,42 +20,50 @@ bool Type::isNullable()
 
 DocumentedType* Type::BOOLEAN()
 {
-	return new DocumentType_BOOLEAN;
+	static DocumentedType *once = new DocumentType_BOOLEAN;
+	return once;
 }
 
 DocumentedType* Type::INT8()
 {
-	return new DocumentedType_INT8;
+	static DocumentedType *once = new DocumentedType_INT8;
+	return once;
 }
 
 DocumentedType* Type::INT16()
 {
-	return new DocumentedType_INT16;
+	static DocumentedType *once = new DocumentedType_INT16;
+	return once;
 }
 
 DocumentedType* Type::INT32()
 {
-	return new DocumentedType_INT32;
+	static DocumentedType *once = new DocumentedType_INT32;
+	return once;
 }
 
 DocumentedType* Type::INT64()
 {
-	return new DocumentedType_INT64;
+	static DocumentedType *once = new DocumentedType_INT64;
+	return once;
 }
 
 DocumentedType* Type::NULLABLE_BYTES()
 {
-	return new DocumentedType_NULLABLE_BYTES();
+	static DocumentedType *once = new DocumentedType_NULLABLE_BYTES;
+	return once;
 }
 
 DocumentedType* Type::STRING()
 {
-	return new DocumentedType_STRING();
+	static DocumentedType *once = new DocumentedType_STRING;
+	return once;
 }
 
 DocumentedType* Type::NULLABLE_STRING()
 {
-	return new DocumentedType_NULLABLE_STRING;
+	static DocumentedType *once = new DocumentedType_NULLABLE_STRING;
+	return once;
 }
 
 std::string DocumentedType::toString()
@@ -526,7 +534,7 @@ Object* DocumentedType_NULLABLE_BYTES::read(ByteBuffer *buffer)
 	if (size < 0)
 		return NULL;
 	if (size > buffer->remaining())
-		throw new SchemaException("Error reading bytes of size " + std::to_string(size) + ", only " + std::to_string(buffer->remaining()) + " bytes available");
+		throw SchemaException("Error reading bytes of size " + std::to_string(size) + ", only " + std::to_string(buffer->remaining()) + " bytes available");
 
 	ByteBuffer *val = buffer->slice();
 	val->limit(size);

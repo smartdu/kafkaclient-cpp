@@ -205,7 +205,7 @@ ByteBuffer::ByteBuffer(int mark, int pos, int lim, int cap)
 	if (mark >= 0)
 	{
 		if (mark > pos)
-			throw new IllegalArgumentException("mark > position: ("
+			throw IllegalArgumentException("mark > position: ("
 				+ std::to_string(mark) + " > " + std::to_string(pos) + ")");
 		this->mark_ = mark;
 	}
@@ -254,7 +254,7 @@ int ByteBuffer::nextPutIndex()
 int ByteBuffer::nextPutIndex(int nb)
 {
 	if (limit_ - position_ < nb)
-		throw new BufferOverflowException("");
+		throw BufferOverflowException("");
 	int p = position_;
 	position_ += nb;
 	return p;
