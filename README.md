@@ -6,8 +6,9 @@
 
 [lin-badge]: https://travis-ci.org/smartdu/kafkaclient-cpp.svg?branch=master "Travis build status"
 [lin-link]:  https://travis-ci.org/smartdu/kafkaclient-cpp "Travis build status"
-[win-badge]: https://ci.appveyor.com/api/projects/status/l6qulgqahcayidrf/branch/master?svg=true "AppVeyor build status"
-[win-link]:  https://ci.appveyor.com/project/miloyip/rapidjson-0fdqj/branch/master "AppVeyor build status"
+[win-badge]: https://ci.appveyor.com/api/projects/status/fild0nrwvdh172n2?svg=true
+ "AppVeyor build status"
+[win-link]:  https://ci.appveyor.com/project/smartdu/kafkaclient-cpp "AppVeyor build status"
 [cov-badge]: https://coveralls.io/repos/github/smartdu/kafkaclient-cpp/badge.svg "Coveralls coverage"
 [cov-link]:  https://coveralls.io/github/smartdu/kafkaclient-cpp "Coveralls coverage"
 
