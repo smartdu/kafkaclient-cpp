@@ -211,7 +211,7 @@ MetadataResponse::MetadataResponse(Struct *s)
 	this->throttleTimeMs_ = *s->getOrElse(CommonFields::THROTTLE_TIME_MS, DEFAULT_THROTTLE_TIME);
 	std::map<int, Node*> brokers;
 	ObjectArray *brokerStructs = s->get(BROKERS);
-	for (int i = 0; i < brokerStructs->length; i ++)
+	for (int i = 0; i < *brokerStructs; i ++)
 	{
 		Struct *broker = (Struct*)(*brokerStructs)[i];
 		int nodeId = *broker->get(NODE_ID);
@@ -227,7 +227,7 @@ MetadataResponse::MetadataResponse(Struct *s)
 
 	std::list<TopicMetadata*> topicMetadata;
 	ObjectArray *topicInfos = s->get(TOPIC_METADATA);
-	for (int i = 0; i < topicInfos->length; i++)
+	for (int i = 0; i < *topicInfos; i++)
 	{
 		Struct *topicInfo = (Struct*)(*topicInfos)[i];
 		Errors *topicError = Errors::forCode(*topicInfo->get(CommonFields::ERROR_CODE));
@@ -236,7 +236,7 @@ MetadataResponse::MetadataResponse(Struct *s)
 		std::list<PartitionMetadata*> partitionMetadata;
 
 		ObjectArray *partitionInfos = topicInfo->get(PARTITION_METADATA);
-		for (int i = 0; i < partitionInfos->length; i ++)
+		for (int i = 0; i < *partitionInfos; i ++)
 		{
 			Struct *partitionInfo = (Struct*)(*partitionInfos)[i];
 			Errors *partitionError = Errors::forCode(*partitionInfo->get(CommonFields::ERROR_CODE));
@@ -421,7 +421,7 @@ Struct* MetadataResponse::toStruct(short version)
 std::list<Node*> MetadataResponse::convertToNodes(std::map<int, Node*> brokers, ObjectArray *brokerIds)
 {
 	std::list<Node*> nodes;
-	for (int i = 0; i < brokerIds->length; i++)
+	for (int i = 0; i < *brokerIds; i++)
 	{
 		Object *brokerId = (*brokerIds)[i];
 		int id = *(Integer*)brokerId;

@@ -215,6 +215,255 @@
     <ClInclude Include="src\Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\common\exceptions\ApiException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\BrokerNotAvailableException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ClusterAuthorizationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ConcurrentTransactionsException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ControllerMovedException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\CoordinatorLoadInProgressException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\CoordinatorNotAvailableException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\CorruptRecordException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\DelegationTokenAuthorizationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\DelegationTokenDisabledException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\DelegationTokenExpiredException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\DelegationTokenNotFoundException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\DelegationTokenOwnerMismatchException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\DuplicateSequenceException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\FencedLeaderEpochException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\FetchSessionIdNotFoundException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\GroupAuthorizationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\GroupIdNotFoundException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\GroupMaxSizeReachedException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\GroupNotEmptyException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\IllegalGenerationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\IllegalSaslStateException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InconsistentGroupProtocolException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidCommitOffsetSizeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidConfigurationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidFetchSessionEpochException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidFetchSizeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidGroupIdException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidPartitionsException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidPidMappingException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidPrincipalTypeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidReplicaAssignmentException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidReplicationFactorException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidRequestException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidRequiredAcksException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidSessionTimeoutException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidTimestampException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidTopicException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidTxnStateException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\InvalidTxnTimeoutException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\KafkaStorageException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\LeaderNotAvailableException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ListenerNotFoundException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\LogDirNotFoundException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\MemberIdRequiredException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\NetworkException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\NotControllerException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\NotCoordinatorException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\NotEnoughReplicasAfterAppendException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\NotEnoughReplicasException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\NotLeaderForPartitionException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\OffsetMetadataTooLarge.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\OffsetNotAvailableException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\OffsetOutOfRangeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\OperationNotAttemptedException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\OutOfOrderSequenceException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\PolicyViolationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\PreferredLeaderNotAvailableException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ProducerFencedException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ReassignmentInProgressException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\RebalanceInProgressException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\RecordBatchTooLargeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\RecordTooLargeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\ReplicaNotAvailableException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\SaslAuthenticationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\SecurityDisabledException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\StaleBrokerEpochException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\TimeoutException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\TopicAuthorizationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\TopicDeletionDisabledException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\TopicExistsException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\TransactionalIdAuthorizationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\TransactionCoordinatorFencedException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnknownLeaderEpochException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnknownMemberIdException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnknownProducerIdException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnknownServerException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnknownTopicOrPartitionException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnsupportedByAuthenticationException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnsupportedCompressionTypeException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnsupportedForMessageFormatException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnsupportedSaslMechanismException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\exceptions\UnsupportedVersionException.h">
+      <Filter>Header Files\common\exceptions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\common\exceptions\KafkaException.cpp">
@@ -357,6 +606,255 @@
     </ClCompile>
     <ClCompile Include="src\Character.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnsupportedVersionException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnsupportedSaslMechanismException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnsupportedForMessageFormatException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnsupportedCompressionTypeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnsupportedByAuthenticationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnknownTopicOrPartitionException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnknownServerException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnknownProducerIdException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnknownMemberIdException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\UnknownLeaderEpochException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\TransactionCoordinatorFencedException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\TransactionalIdAuthorizationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\TopicExistsException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\TopicDeletionDisabledException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\TopicAuthorizationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\TimeoutException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\StaleBrokerEpochException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\SecurityDisabledException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\SaslAuthenticationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ReplicaNotAvailableException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\RecordTooLargeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\RecordBatchTooLargeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\RebalanceInProgressException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ReassignmentInProgressException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ProducerFencedException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\PreferredLeaderNotAvailableException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\PolicyViolationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\OutOfOrderSequenceException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\OperationNotAttemptedException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\OffsetOutOfRangeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\OffsetNotAvailableException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\OffsetMetadataTooLarge.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\NotLeaderForPartitionException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\NotEnoughReplicasException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\NotEnoughReplicasAfterAppendException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\NotCoordinatorException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\NotControllerException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\NetworkException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\MemberIdRequiredException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\LogDirNotFoundException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ListenerNotFoundException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\LeaderNotAvailableException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\KafkaStorageException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidTxnTimeoutException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidTxnStateException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidTopicException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidTimestampException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidSessionTimeoutException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidRequiredAcksException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidRequestException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidReplicationFactorException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidReplicaAssignmentException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidPrincipalTypeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidPidMappingException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidPartitionsException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidGroupIdException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidFetchSizeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidFetchSessionEpochException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidConfigurationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InvalidCommitOffsetSizeException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\InconsistentGroupProtocolException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\IllegalSaslStateException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\IllegalGenerationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\GroupNotEmptyException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\GroupMaxSizeReachedException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\GroupIdNotFoundException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\GroupAuthorizationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\FetchSessionIdNotFoundException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\FencedLeaderEpochException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\DuplicateSequenceException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\DelegationTokenOwnerMismatchException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\DelegationTokenNotFoundException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\DelegationTokenExpiredException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\DelegationTokenDisabledException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\DelegationTokenAuthorizationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\CorruptRecordException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\CoordinatorNotAvailableException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\CoordinatorLoadInProgressException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ControllerMovedException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ConcurrentTransactionsException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ClusterAuthorizationException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\BrokerNotAvailableException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\exceptions\ApiException.cpp">
+      <Filter>Source Files\common\exceptions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

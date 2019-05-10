@@ -38,12 +38,12 @@ void ArrayOf::write(ByteBuffer *buffer, Object *o)
 	}
 
 	ObjectArray *objs = (ObjectArray*) o;
-	int size = objs->length;
+	int size = *objs;
 	buffer->putInt(size);
 
 	for (int i = 0; i < size; i++)
 	{
-		type_->write(buffer, objs->obj[i]);
+		type_->write(buffer, (*objs)[i]);
 	}
 }
 
@@ -62,7 +62,7 @@ Object* ArrayOf::read(ByteBuffer *buffer)
 	
 	ObjectArray *objs = new ObjectArray(size);
 	for (int i = 0; i < size; i++)
-		objs->obj[i] = type_->read(buffer);
+		(*objs)[i] = type_->read(buffer);
 	return objs;
 }
 
@@ -73,8 +73,8 @@ int ArrayOf::sizeOf(Object *o)
 		return size;
 
 	ObjectArray *objs = (ObjectArray*) o;
-	for (int i = 0; i < objs->length; i++)
-		size += type_->sizeOf(objs->obj[i]);
+	for (int i = 0; i < *objs; i++)
+		size += type_->sizeOf((*objs)[i]);
 	return size;
 }
 
@@ -97,8 +97,8 @@ Object* ArrayOf::validate(Object *item)
 	}
 
 	ObjectArray *array = (ObjectArray*)item;
-	for (int i = 0; i < array->length; i++)
-		type_->validate(array->obj[i]);
+	for (int i = 0; i < *array; i++)
+		type_->validate((*array)[i]);
 	return array;
 }
 
