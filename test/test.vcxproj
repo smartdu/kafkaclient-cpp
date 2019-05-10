@@ -87,6 +87,11 @@
     </ClCompile>
     <ClCompile Include="test.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kafkaclient-cpp.vcxproj">
+      <Project>{89d1cf69-2836-4c8c-b21d-0beda9f126bb}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
