@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "../include/kafkaclient-cpp.h"
 
-#ifdef _WIN32
+#ifdef _TEST_
 #include <iostream>
 #include <io.h>
 #include <cstring>
