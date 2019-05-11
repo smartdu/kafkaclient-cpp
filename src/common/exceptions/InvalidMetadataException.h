@@ -2,18 +2,22 @@
 #define __KFK_INVALIDMETADATAEXCEPTION_H__
 
 #pragma once
-#include <string>
-#include "KafkaException.h"
+#include "ApiException.h"
 
 class InvalidMetadataException
-	: public KafkaException
+    : public ApiException
 {
 public:
-	InvalidMetadataException(std::string message);
-	virtual ~InvalidMetadataException()
-	{
+    InvalidMetadataException() : ApiException("") {}
+    InvalidMetadataException(std::string message);
+    virtual ~InvalidMetadataException()
+    {
 
-	}
+    }
+    static InvalidMetadataException* new0()
+    {
+        return new InvalidMetadataException();
+    }
 };
 
 #endif // !__KFK_INVALIDMETADATAEXCEPTION_H__

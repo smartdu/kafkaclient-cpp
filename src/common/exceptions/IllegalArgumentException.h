@@ -2,18 +2,22 @@
 #define __KFK_ILLEGALARGUMENTEXCEPTION_H__
 
 #pragma once
-#include <string>
-#include "KafkaException.h"
+#include "ApiException.h"
 
 class IllegalArgumentException
-	: public KafkaException
+    : public ApiException
 {
 public:
-	IllegalArgumentException(std::string message);
-	virtual ~IllegalArgumentException()
-	{
+    IllegalArgumentException() : ApiException("") {}
+    IllegalArgumentException(std::string message);
+    virtual ~IllegalArgumentException()
+    {
 
-	}
+    }
+    static IllegalArgumentException* new0()
+    {
+        return new IllegalArgumentException();
+    }
 };
 
 #endif // !__KFK_ILLEGALARGUMENTEXCEPTION_H__

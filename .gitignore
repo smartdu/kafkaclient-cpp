@@ -14,6 +14,8 @@
 *.opensdf
 *.sdf
 *.suo
+*.opendb
+*.db
 
 /Debug
 /test/Debug
