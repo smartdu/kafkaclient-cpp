@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 #include "../include/kafkaclient-cpp.h"
+
+#ifdef _WIN32
 #include <iostream>
 #include <io.h>
 #include <cstring>
@@ -154,6 +156,7 @@ int GetAllFilepathFromfolder(char*  Path)
     return 0;
 
 }
+#endif
 
 int main()
 {
