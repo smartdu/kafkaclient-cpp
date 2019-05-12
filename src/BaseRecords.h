@@ -2,11 +2,17 @@
 #define __KFK_BASERECORDS_H__
 
 #pragma once
+#include "Object.h"
 
 class BaseRecords
 	: public Object
 {
 public:
+	virtual ~BaseRecords()
+	{
+
+	}
+
 	virtual int sizeInBytes() = 0;
 };
 

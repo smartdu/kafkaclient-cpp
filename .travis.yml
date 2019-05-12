@@ -1,0 +1,23 @@
+language: cpp
+cache: ccache
+env:
+- ARCH=x64
+compiler:
+- gcc
+os:
+- linux
+dist: trusty
+sudo: false
+install:
+- npm install coveralls --save-dev
+before_script:
+ - ccache -s || echo "CCache is not available."
+script:
+- ./build.sh
+after_success:
+- npm run coveralls
+- bash <(curl -s https://codecov.io/bash)
+
+env:
+  global:
+    secure: "xxx"

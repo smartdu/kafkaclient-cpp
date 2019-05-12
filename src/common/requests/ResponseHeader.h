@@ -14,6 +14,10 @@ public:
 
 	ResponseHeader(Struct *s);
 	ResponseHeader(int correlationId);
+	virtual ~ResponseHeader()
+	{
+
+	}
 
 	int sizeOf();
 

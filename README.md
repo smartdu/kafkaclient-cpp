@@ -1,3 +1,17 @@
+## Build status
+
+| [Linux][lin-link] | [Windows][win-link] | [Coveralls][cov-link] |
+| :---------------: | :-----------------: | :-------------------: |
+| ![lin-badge]      | ![win-badge]        | ![cov-badge]          |
+
+[lin-badge]: https://travis-ci.org/smartdu/kafkaclient-cpp.svg?branch=master "Travis build status"
+[lin-link]:  https://travis-ci.org/smartdu/kafkaclient-cpp "Travis build status"
+[win-badge]: https://ci.appveyor.com/api/projects/status/fild0nrwvdh172n2?svg=true
+ "AppVeyor build status"
+[win-link]:  https://ci.appveyor.com/project/smartdu/kafkaclient-cpp "AppVeyor build status"
+[cov-badge]: https://coveralls.io/repos/github/smartdu/kafkaclient-cpp/badge.svg "Coveralls coverage"
+[cov-link]:  https://coveralls.io/github/smartdu/kafkaclient-cpp "Coveralls coverage"
+
 # kafkaclient-cpp
 与[Kafka](https://kafka.apache.org/)配套的c++客户端，实现Consumer和Producer，项目来源于[librdkafka](https://github.com/edenhill/librdkafka)，它是一个优秀的开源项目，我们在使用它的时候遇到一些小问题（死循环，消费数据慢，一些内存assert），在尝试阅读源码时，无法领会它的设计思想，同时在代码里用了引用计数器来释放内存，多个数据队列拷贝数据，理不清思路，尝试多次无果，所以才有这个项目的诞生，也方便自己理解Kafka设计思想。
 
@@ -25,13 +39,16 @@
   * ~~理清[Kafka协议](https://kafka.apache.org/protocol)，如何扩展协议版本，以及解析~~
   * ~~参考Kafka的源码，尝试用C++方式重写~~
   * ~~完成第一个协议解析[ApiVersions](https://kafka.apache.org/protocol#The_Messages_ApiVersions)~~
+  * ~~完成协议解析[Metadata](https://kafka.apache.org/protocol#The_Messages_Metadata)~~
+  * 处理内存问题
   * 用Wireshark抓Consumer的交互报文，实现其他协议解析
   * 构建一个简单的Consumer，实现单Partition的数据消费
   * 构建一个简单的Consumer，实现Group数据消费
   * ...
 
 # 解析ApiVersions
-[version.bin](test/version.bin)在test目录下，通过Wireshark抓包后转存后的二进制程序
+[version.bin](test/version.bin)在test目录下，通过Wireshark抓包后转存后的二进制文件
+
 代码如下：
 ``` c++
 char buffer[1024];
@@ -97,4 +114,34 @@ api_key = 40, min_version = 0, max_version = 1
 api_key = 41, min_version = 0, max_version = 1
 api_key = 42, min_version = 0, max_version = 1
 api_key = 43, min_version = 0, max_version = 0
+</pre>
+
+# 解析Metadata
+[metadata.bin](test/metadata.bin)在test目录下，通过Wireshark抓包后转存后的二进制文件
+
+代码如下：
+``` c++
+char buffer[1024];
+FILE *file = fopen("metadata.bin", "rb");
+if (file == NULL)
+{
+	printf("can't find metadata.bin\n");
+	return;
+}
+int ret = fread(buffer, 1, sizeof(buffer), file);
+fclose(file);
+
+ByteBuffer *b = ByteBuffer::wrap(buffer + 8, ret - 8);
+short version = 7;
+
+MetadataResponse *v = MetadataResponse::parse(b, version);
+printf("cluster_id = %s\n", v->clusterId());
+printf("node_id = %d, host = %s, port = %d, rack = %s\n", v->controller()->id(), v->controller()->host(), v->controller()->port(), v->controller()->rack());
+delete v;
+```
+
+输出：
+<pre>
+cluster_id = 7CEOcQm5RByBE7211VEfoA
+node_id = 0, host = 192.168.64.121, port = 9092, rack =
 </pre>

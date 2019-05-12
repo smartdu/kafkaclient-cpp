@@ -9,6 +9,10 @@ class Long
 {
 public:
 	Long(long long value);
+	virtual ~Long()
+	{
+
+	}
 
 	operator long long()
 	{

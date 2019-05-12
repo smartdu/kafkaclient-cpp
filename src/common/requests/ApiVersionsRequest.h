@@ -14,6 +14,10 @@ public:
 	ApiVersionsRequest(short version);
 	ApiVersionsRequest(short version, Short *unsupportedRequestVersion);
 	ApiVersionsRequest(Struct *s, short version);
+	virtual ~ApiVersionsRequest()
+	{
+
+	}
 
 	bool hasUnsupportedRequestVersion();
 

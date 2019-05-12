@@ -9,6 +9,10 @@ class Integer
 {
 public:
 	Integer(int value);
+	virtual ~Integer()
+	{
+
+	}
 
 	operator int()
 	{

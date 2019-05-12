@@ -18,3 +18,9 @@ std::map<Errors*, int> AbstractResponse::errorCounts(Errors *error)
 	s[error] = 1;
 	return s;
 }
+
+void AbstractResponse::updateErrorCounts(std::map<Errors*, int> errorCounts, Errors *error)
+{
+	int count = errorCounts[error];
+	errorCounts[error] = count + 1;
+}

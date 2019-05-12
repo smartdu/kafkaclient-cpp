@@ -6,6 +6,7 @@
 #include "Byte.h"
 #include "Integer.h"
 #include "Long.h"
+#include <stdarg.h>
 
 Field::Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)
 {
@@ -116,15 +117,33 @@ ComplexArray::ComplexArray(const char *name, const char *docString)
 	this->docString = docString;
 }
 
-Field* ComplexArray::withFields(std::list<Field*> fields)
+Field* ComplexArray::withFields(int num, ...)
 {
-	Schema *elementType = new Schema(fields);
+	std::list<Field*> fl;
+	va_list valist;
+	va_start(valist, num);
+	for (int i = 0; i < num; i++)
+	{
+		Field *def = va_arg(valist, Field*);
+		fl.push_back(def);
+	}
+	va_end(valist);
+	Schema *elementType = new Schema(fl);
 	return new Field(name.c_str(), new ArrayOf(elementType), docString.c_str(), false, NULL);
 }
 
-Field* ComplexArray::nullableWithFields(std::list<Field*> fields)
+Field* ComplexArray::nullableWithFields(int num, ...)
 {
-	Schema *elementType = new Schema(fields);
+	std::list<Field*> fl;
+	va_list valist;
+	va_start(valist, num);
+	for (int i = 0; i < num; i++)
+	{
+		Field *def = va_arg(valist, Field*);
+		fl.push_back(def);
+	}
+	va_end(valist);
+	Schema *elementType = new Schema(fl);
 	return new Field(name.c_str(), ArrayOf::nullable(elementType), docString.c_str(), false, NULL);
 }
 

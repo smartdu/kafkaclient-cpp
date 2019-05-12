@@ -13,11 +13,16 @@ class ApiKeys
 {
 public:
 	static ApiKeys* API_VERSIONS();
+	static ApiKeys* METADATA();
 
 	ApiKeys(int id, const char* name, Schema** requestSchemas, Schema** responseSchemas);
 	ApiKeys(int id, const char* name, bool clusterAction, Schema** requestSchemas, Schema** responseSchemas);
 	ApiKeys(int id, const char* name, bool clusterAction, char minRequiredInterBrokerMagic,
 		Schema** requestSchemas, Schema** responseSchemas);
+	virtual ~ApiKeys()
+	{
+
+	}
 
 	virtual Struct* parseRequest(short version, ByteBuffer *buffer);
 

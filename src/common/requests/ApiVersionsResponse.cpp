@@ -57,7 +57,7 @@ ApiVersionsResponse::ApiVersionsResponse(Struct *s)
 	this->error_ = Errors::forCode(*s->get(CommonFields::ERROR_CODE));
 	std::list<ApiVersion> tempApiVersions;
 	ObjectArray *oa = s->getArray(API_VERSIONS_KEY_NAME);
-	for (int i = 0; i < oa->length; i ++)
+	for (int i = 0; i < *oa; i ++)
 	{
 		Struct *apiVersionStruct = (Struct*)((*oa)[i]);
 		short apiKey = *apiVersionStruct->getShort(API_KEY_NAME);

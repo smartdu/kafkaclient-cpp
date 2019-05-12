@@ -22,6 +22,10 @@ public:
 	ApiVersion();
 	ApiVersion(ApiKeys *apiKey);
 	ApiVersion(short apiKey, short minVersion, short maxVersion);
+	virtual ~ApiVersion()
+	{
+
+	}
 
 	virtual std::string toString();
 

@@ -16,11 +16,15 @@ public:
 	bool hasDefaultValue;
 	Object *defaultValue;
 
+	Field();
 	Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);
 	Field(const char *name, Type *type, const char *docString);
 	Field(const char *name, Type *type, const char *docString, Object *defaultValue);
 	Field(const char *name, Type *type);
-	Field();
+	virtual ~Field()
+	{
+
+	}
 
 protected:
 	void init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);
@@ -93,9 +97,9 @@ public:
 
 	ComplexArray(const char *name, const char *docString);
 
-	Field* withFields(std::list<Field*> fields);
+	Field* withFields(int num, ...);
 
-	Field* nullableWithFields(std::list<Field*> fields);
+	Field* nullableWithFields(int num, ...);
 
 	Field* withFields(const char *docStringOverride, std::list<Field*> fields);
 };

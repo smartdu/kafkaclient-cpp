@@ -2,13 +2,22 @@
 #define __KFK_BUFFERUNDERFLOWEXCEPTION_H__
 
 #pragma once
-#include "KafkaException.h"
+#include "ApiException.h"
 
 class BufferUnderflowException
-	: public KafkaException
+    : public ApiException
 {
 public:
-	BufferUnderflowException(std::string message);
+    BufferUnderflowException() : ApiException("") {}
+    BufferUnderflowException(std::string message);
+    virtual ~BufferUnderflowException()
+    {
+
+    }
+    static BufferUnderflowException* new0()
+    {
+        return new BufferUnderflowException();
+    }
 };
 
 #endif // !__KFK_BUFFERUNDERFLOWEXCEPTION_H__

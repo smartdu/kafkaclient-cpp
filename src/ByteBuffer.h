@@ -59,6 +59,16 @@ public:
 	ByteBuffer* get(ByteArray *dst);
 	ByteBuffer* get(ByteArray *dst, int offset, int length);
 
+	int arrayOffset()
+	{
+		return offset_;
+	}
+
+	char* array()
+	{
+		return hb_;
+	}
+
 protected:
 	int ix(int i);
 

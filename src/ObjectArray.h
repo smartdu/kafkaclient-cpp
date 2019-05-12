@@ -8,16 +8,22 @@ class ObjectArray
 	: public Object
 {
 public:
-	int length;
-	Object **obj;
-
 	Object*& operator[](int index)
 	{
 		return obj[index];
 	}
 
+	operator int()
+	{
+		return length;
+	}
+
 	ObjectArray(int size);
 	virtual ~ObjectArray();
+
+private:
+	int length;
+	Object **obj;
 };
 
 #endif // !__KFK_OBJECTARRAY_H__

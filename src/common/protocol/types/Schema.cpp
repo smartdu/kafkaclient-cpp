@@ -7,40 +7,37 @@
 #include "ObjectArray.h"
 #include <stdarg.h>
 
-Schema::Schema(std::list<Field*> fs)
+Schema::Schema(std::list<Field*> &fs)
 {
-	this->fields_ = new BoundField*[fs.size()];
+	if (fs.size() > 0)
+		this->fields_ = new BoundField*[fs.size()];
+	this->length = fs.size();
 	int i = 0;
 	for (auto iter : fs)
 	{
 		Field *def = iter;
-		if (fieldsByName.find(def->name) == fieldsByName.end())
-		{
-			throw SchemaException("Schema contains a duplicate field: " + def->name);
-		}
-		this->fields_[i] = new BoundField(def, this, i);
-		this->fieldsByName[def->name] = this->fields_[i];
-	}
-}
-
-Schema::Schema(int num, ...)
-{
-	this->fields_ = new BoundField*[num];
-	this->length = num;
-
-	va_list valist;
-	va_start(valist, num);
-	for (int i = 0; i < num; i++)
-	{
-		Field *def = va_arg(valist, Field*);
 		if (fieldsByName.find(def->name) != fieldsByName.end())
 		{
 			throw SchemaException("Schema contains a duplicate field: " + def->name);
 		}
 		this->fields_[i] = new BoundField(def, this, i);
 		this->fieldsByName[def->name] = this->fields_[i];
+		i++;
+	}
+}
+
+Schema::Schema(int num, ...)
+{
+	va_list valist;
+	va_start(valist, num);
+	std::list<Field*> fl;
+	for (int i = 0; i < num; i++)
+	{
+		Field *def = va_arg(valist, Field*);
+		fl.push_back(def);
 	}
 	va_end(valist);
+	new (this)Schema(fl);
 }
 
 void Schema::write(ByteBuffer *buffer, Object *o)

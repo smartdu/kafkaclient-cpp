@@ -14,6 +14,10 @@ class AbstractResponse
 {
 public:
 	static const int DEFAULT_THROTTLE_TIME = 0;
+	virtual ~AbstractResponse()
+	{
+
+	}
 
 	ByteBuffer* serialize(short version, ResponseHeader *responseHeader);
 
@@ -23,6 +27,8 @@ public:
 
 protected:
 	std::map<Errors*, int> errorCounts(Errors *error);
+
+	void updateErrorCounts(std::map<Errors*, int> errorCounts, Errors *error);
 
 	virtual Struct* toStruct(short version) = 0;
 };

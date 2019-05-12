@@ -10,6 +10,10 @@ class SchemaException
 {
 public:
 	SchemaException(std::string message);
+	virtual ~SchemaException()
+	{
+
+	}
 };
 
 #endif // !__KFK_SCHEMAEXCEPTION_H__

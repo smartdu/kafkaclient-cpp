@@ -33,6 +33,10 @@ class Struct
 public:
 	Struct(Schema *schema, ObjectArray *values);
 	Struct(Schema *schema);
+	virtual ~Struct()
+	{
+
+	}
 
 	Schema* schema();
 

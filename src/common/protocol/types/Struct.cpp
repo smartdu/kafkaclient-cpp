@@ -444,7 +444,7 @@ void Struct::writeTo(ByteBuffer *buffer)
 void Struct::validateField(BoundField *field)
 {
 	if (this->schema_ != field->schema)
-		throw new SchemaException("Attempt to access field '" + field->def->name + "' from a different schema instance.");
+		throw SchemaException("Attempt to access field '" + field->def->name + "' from a different schema instance.");
 
 	int length = 0;
 	for (length = 0; (*values)[length] != NULL; length++);

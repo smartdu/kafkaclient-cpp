@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -9,46 +9,26 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{80E7F1CA-5E0C-4E36-B105-3F843E2799DC}</ProjectGuid>
+    <ProjectGuid>{89D1CF69-2836-4C8C-B21D-0BEDA9F126BB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -56,16 +36,9 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Windows\user\duwei\kafkaclient-cpp\src\common;E:\Windows\user\duwei\kafkaclient-cpp\include;E:\Windows\user\duwei\kafkaclient-cpp\src\common\requests;E:\Windows\user\duwei\kafkaclient-cpp\src\common\record;E:\Windows\user\duwei\kafkaclient-cpp\src\common\resource;E:\Windows\user\duwei\kafkaclient-cpp\src\common\excptions;E:\Windows\user\duwei\kafkaclient-cpp\src;E:\Windows\user\duwei\kafkaclient-cpp\src\common\utils;E:\Windows\user\duwei\kafkaclient-cpp\src\common\protocol\types;E:\Windows\user\duwei\kafkaclient-cpp\src\common\protocol;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -77,6 +50,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\include;.\src\common\exceptions;.\src\common\protocol;.\src\common\protocol\types;.\src\common\record;.\src\common\requests;.\src\common\resource;.\src\common\utils;.\src\common;.\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -90,6 +64,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>.\include;.\src\common\exceptions;.\src\common\protocol;.\src\common\protocol\types;.\src\common\record;.\src\common\requests;.\src\common\resource;.\src\common\utils;.\src\common;.\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -100,6 +75,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="test\version.bin" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="include\kafkaclient-cpp.h" />
     <ClInclude Include="src\BaseRecords.h" />
     <ClInclude Include="src\Bits.h" />
@@ -107,10 +85,99 @@
     <ClInclude Include="src\Byte.h" />
     <ClInclude Include="src\ByteArray.h" />
     <ClInclude Include="src\ByteBuffer.h" />
+    <ClInclude Include="src\Character.h" />
+    <ClInclude Include="src\common\Cluster.h" />
+    <ClInclude Include="src\common\ClusterResource.h" />
+    <ClInclude Include="src\common\exceptions\ApiException.h" />
+    <ClInclude Include="src\common\exceptions\BrokerNotAvailableException.h" />
     <ClInclude Include="src\common\exceptions\BufferOverflowException.h" />
     <ClInclude Include="src\common\exceptions\BufferUnderflowException.h" />
+    <ClInclude Include="src\common\exceptions\ClusterAuthorizationException.h" />
+    <ClInclude Include="src\common\exceptions\ConcurrentTransactionsException.h" />
+    <ClInclude Include="src\common\exceptions\ControllerMovedException.h" />
+    <ClInclude Include="src\common\exceptions\CoordinatorLoadInProgressException.h" />
+    <ClInclude Include="src\common\exceptions\CoordinatorNotAvailableException.h" />
+    <ClInclude Include="src\common\exceptions\CorruptRecordException.h" />
+    <ClInclude Include="src\common\exceptions\DelegationTokenAuthorizationException.h" />
+    <ClInclude Include="src\common\exceptions\DelegationTokenDisabledException.h" />
+    <ClInclude Include="src\common\exceptions\DelegationTokenExpiredException.h" />
+    <ClInclude Include="src\common\exceptions\DelegationTokenNotFoundException.h" />
+    <ClInclude Include="src\common\exceptions\DelegationTokenOwnerMismatchException.h" />
+    <ClInclude Include="src\common\exceptions\DuplicateSequenceException.h" />
+    <ClInclude Include="src\common\exceptions\FencedLeaderEpochException.h" />
+    <ClInclude Include="src\common\exceptions\FetchSessionIdNotFoundException.h" />
+    <ClInclude Include="src\common\exceptions\GroupAuthorizationException.h" />
+    <ClInclude Include="src\common\exceptions\GroupIdNotFoundException.h" />
+    <ClInclude Include="src\common\exceptions\GroupMaxSizeReachedException.h" />
+    <ClInclude Include="src\common\exceptions\GroupNotEmptyException.h" />
     <ClInclude Include="src\common\exceptions\IllegalArgumentException.h" />
+    <ClInclude Include="src\common\exceptions\IllegalGenerationException.h" />
+    <ClInclude Include="src\common\exceptions\IllegalSaslStateException.h" />
+    <ClInclude Include="src\common\exceptions\InconsistentGroupProtocolException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidCommitOffsetSizeException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidConfigurationException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidFetchSessionEpochException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidFetchSizeException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidGroupIdException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidMetadataException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidPartitionsException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidPidMappingException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidPrincipalTypeException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidReplicaAssignmentException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidReplicationFactorException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidRequestException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidRequiredAcksException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidSessionTimeoutException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidTimestampException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidTopicException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidTxnStateException.h" />
+    <ClInclude Include="src\common\exceptions\InvalidTxnTimeoutException.h" />
     <ClInclude Include="src\common\exceptions\KafkaException.h" />
+    <ClInclude Include="src\common\exceptions\KafkaStorageException.h" />
+    <ClInclude Include="src\common\exceptions\LeaderNotAvailableException.h" />
+    <ClInclude Include="src\common\exceptions\ListenerNotFoundException.h" />
+    <ClInclude Include="src\common\exceptions\LogDirNotFoundException.h" />
+    <ClInclude Include="src\common\exceptions\MemberIdRequiredException.h" />
+    <ClInclude Include="src\common\exceptions\NetworkException.h" />
+    <ClInclude Include="src\common\exceptions\NotControllerException.h" />
+    <ClInclude Include="src\common\exceptions\NotCoordinatorException.h" />
+    <ClInclude Include="src\common\exceptions\NotEnoughReplicasAfterAppendException.h" />
+    <ClInclude Include="src\common\exceptions\NotEnoughReplicasException.h" />
+    <ClInclude Include="src\common\exceptions\NotLeaderForPartitionException.h" />
+    <ClInclude Include="src\common\exceptions\OffsetMetadataTooLarge.h" />
+    <ClInclude Include="src\common\exceptions\OffsetNotAvailableException.h" />
+    <ClInclude Include="src\common\exceptions\OffsetOutOfRangeException.h" />
+    <ClInclude Include="src\common\exceptions\OperationNotAttemptedException.h" />
+    <ClInclude Include="src\common\exceptions\OutOfOrderSequenceException.h" />
+    <ClInclude Include="src\common\exceptions\PolicyViolationException.h" />
+    <ClInclude Include="src\common\exceptions\PreferredLeaderNotAvailableException.h" />
+    <ClInclude Include="src\common\exceptions\ProducerFencedException.h" />
+    <ClInclude Include="src\common\exceptions\ReassignmentInProgressException.h" />
+    <ClInclude Include="src\common\exceptions\RebalanceInProgressException.h" />
+    <ClInclude Include="src\common\exceptions\RecordBatchTooLargeException.h" />
+    <ClInclude Include="src\common\exceptions\RecordTooLargeException.h" />
+    <ClInclude Include="src\common\exceptions\ReplicaNotAvailableException.h" />
+    <ClInclude Include="src\common\exceptions\SaslAuthenticationException.h" />
+    <ClInclude Include="src\common\exceptions\SecurityDisabledException.h" />
+    <ClInclude Include="src\common\exceptions\StaleBrokerEpochException.h" />
+    <ClInclude Include="src\common\exceptions\TimeoutException.h" />
+    <ClInclude Include="src\common\exceptions\TopicAuthorizationException.h" />
+    <ClInclude Include="src\common\exceptions\TopicDeletionDisabledException.h" />
+    <ClInclude Include="src\common\exceptions\TopicExistsException.h" />
+    <ClInclude Include="src\common\exceptions\TransactionalIdAuthorizationException.h" />
+    <ClInclude Include="src\common\exceptions\TransactionCoordinatorFencedException.h" />
+    <ClInclude Include="src\common\exceptions\UnknownLeaderEpochException.h" />
+    <ClInclude Include="src\common\exceptions\UnknownMemberIdException.h" />
+    <ClInclude Include="src\common\exceptions\UnknownProducerIdException.h" />
+    <ClInclude Include="src\common\exceptions\UnknownServerException.h" />
+    <ClInclude Include="src\common\exceptions\UnknownTopicOrPartitionException.h" />
+    <ClInclude Include="src\common\exceptions\UnsupportedByAuthenticationException.h" />
+    <ClInclude Include="src\common\exceptions\UnsupportedCompressionTypeException.h" />
+    <ClInclude Include="src\common\exceptions\UnsupportedForMessageFormatException.h" />
+    <ClInclude Include="src\common\exceptions\UnsupportedSaslMechanismException.h" />
+    <ClInclude Include="src\common\exceptions\UnsupportedVersionException.h" />
+    <ClInclude Include="src\common\Node.h" />
+    <ClInclude Include="src\common\PartitionInfo.h" />
     <ClInclude Include="src\common\protocol\ApiKeys.h" />
     <ClInclude Include="src\common\protocol\CommonFields.h" />
     <ClInclude Include="src\common\protocol\Errors.h" />
@@ -127,11 +194,16 @@
     <ClInclude Include="src\common\requests\AbstractResponse.h" />
     <ClInclude Include="src\common\requests\ApiVersionsRequest.h" />
     <ClInclude Include="src\common\requests\ApiVersionsResponse.h" />
+    <ClInclude Include="src\common\requests\MetadataRequest.h" />
+    <ClInclude Include="src\common\requests\MetadataResponse.h" />
+    <ClInclude Include="src\common\requests\RequestUtils.h" />
     <ClInclude Include="src\common\requests\ResponseHeader.h" />
     <ClInclude Include="src\common\resource\PatternType.h" />
+    <ClInclude Include="src\common\TopicPartition.h" />
     <ClInclude Include="src\common\utils\Arrays.h" />
     <ClInclude Include="src\common\utils\ByteUtils.h" />
     <ClInclude Include="src\common\utils\Utils.h" />
+    <ClInclude Include="src\InetSocketAddress.h" />
     <ClInclude Include="src\Integer.h" />
     <ClInclude Include="src\Long.h" />
     <ClInclude Include="src\Object.h" />
@@ -145,10 +217,99 @@
     <ClCompile Include="src\Byte.cpp" />
     <ClCompile Include="src\ByteArray.cpp" />
     <ClCompile Include="src\ByteBuffer.cpp" />
+    <ClCompile Include="src\Character.cpp" />
+    <ClCompile Include="src\common\Cluster.cpp" />
+    <ClCompile Include="src\common\ClusterResource.cpp" />
+    <ClCompile Include="src\common\exceptions\ApiException.cpp" />
+    <ClCompile Include="src\common\exceptions\BrokerNotAvailableException.cpp" />
     <ClCompile Include="src\common\exceptions\BufferOverflowException.cpp" />
     <ClCompile Include="src\common\exceptions\BufferUnderflowException.cpp" />
+    <ClCompile Include="src\common\exceptions\ClusterAuthorizationException.cpp" />
+    <ClCompile Include="src\common\exceptions\ConcurrentTransactionsException.cpp" />
+    <ClCompile Include="src\common\exceptions\ControllerMovedException.cpp" />
+    <ClCompile Include="src\common\exceptions\CoordinatorLoadInProgressException.cpp" />
+    <ClCompile Include="src\common\exceptions\CoordinatorNotAvailableException.cpp" />
+    <ClCompile Include="src\common\exceptions\CorruptRecordException.cpp" />
+    <ClCompile Include="src\common\exceptions\DelegationTokenAuthorizationException.cpp" />
+    <ClCompile Include="src\common\exceptions\DelegationTokenDisabledException.cpp" />
+    <ClCompile Include="src\common\exceptions\DelegationTokenExpiredException.cpp" />
+    <ClCompile Include="src\common\exceptions\DelegationTokenNotFoundException.cpp" />
+    <ClCompile Include="src\common\exceptions\DelegationTokenOwnerMismatchException.cpp" />
+    <ClCompile Include="src\common\exceptions\DuplicateSequenceException.cpp" />
+    <ClCompile Include="src\common\exceptions\FencedLeaderEpochException.cpp" />
+    <ClCompile Include="src\common\exceptions\FetchSessionIdNotFoundException.cpp" />
+    <ClCompile Include="src\common\exceptions\GroupAuthorizationException.cpp" />
+    <ClCompile Include="src\common\exceptions\GroupIdNotFoundException.cpp" />
+    <ClCompile Include="src\common\exceptions\GroupMaxSizeReachedException.cpp" />
+    <ClCompile Include="src\common\exceptions\GroupNotEmptyException.cpp" />
     <ClCompile Include="src\common\exceptions\IllegalArgumentException.cpp" />
+    <ClCompile Include="src\common\exceptions\IllegalGenerationException.cpp" />
+    <ClCompile Include="src\common\exceptions\IllegalSaslStateException.cpp" />
+    <ClCompile Include="src\common\exceptions\InconsistentGroupProtocolException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidCommitOffsetSizeException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidConfigurationException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidFetchSessionEpochException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidFetchSizeException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidGroupIdException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidMetadataException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidPartitionsException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidPidMappingException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidPrincipalTypeException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidReplicaAssignmentException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidReplicationFactorException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidRequestException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidRequiredAcksException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidSessionTimeoutException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidTimestampException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidTopicException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidTxnStateException.cpp" />
+    <ClCompile Include="src\common\exceptions\InvalidTxnTimeoutException.cpp" />
     <ClCompile Include="src\common\exceptions\KafkaException.cpp" />
+    <ClCompile Include="src\common\exceptions\KafkaStorageException.cpp" />
+    <ClCompile Include="src\common\exceptions\LeaderNotAvailableException.cpp" />
+    <ClCompile Include="src\common\exceptions\ListenerNotFoundException.cpp" />
+    <ClCompile Include="src\common\exceptions\LogDirNotFoundException.cpp" />
+    <ClCompile Include="src\common\exceptions\MemberIdRequiredException.cpp" />
+    <ClCompile Include="src\common\exceptions\NetworkException.cpp" />
+    <ClCompile Include="src\common\exceptions\NotControllerException.cpp" />
+    <ClCompile Include="src\common\exceptions\NotCoordinatorException.cpp" />
+    <ClCompile Include="src\common\exceptions\NotEnoughReplicasAfterAppendException.cpp" />
+    <ClCompile Include="src\common\exceptions\NotEnoughReplicasException.cpp" />
+    <ClCompile Include="src\common\exceptions\NotLeaderForPartitionException.cpp" />
+    <ClCompile Include="src\common\exceptions\OffsetMetadataTooLarge.cpp" />
+    <ClCompile Include="src\common\exceptions\OffsetNotAvailableException.cpp" />
+    <ClCompile Include="src\common\exceptions\OffsetOutOfRangeException.cpp" />
+    <ClCompile Include="src\common\exceptions\OperationNotAttemptedException.cpp" />
+    <ClCompile Include="src\common\exceptions\OutOfOrderSequenceException.cpp" />
+    <ClCompile Include="src\common\exceptions\PolicyViolationException.cpp" />
+    <ClCompile Include="src\common\exceptions\PreferredLeaderNotAvailableException.cpp" />
+    <ClCompile Include="src\common\exceptions\ProducerFencedException.cpp" />
+    <ClCompile Include="src\common\exceptions\ReassignmentInProgressException.cpp" />
+    <ClCompile Include="src\common\exceptions\RebalanceInProgressException.cpp" />
+    <ClCompile Include="src\common\exceptions\RecordBatchTooLargeException.cpp" />
+    <ClCompile Include="src\common\exceptions\RecordTooLargeException.cpp" />
+    <ClCompile Include="src\common\exceptions\ReplicaNotAvailableException.cpp" />
+    <ClCompile Include="src\common\exceptions\SaslAuthenticationException.cpp" />
+    <ClCompile Include="src\common\exceptions\SecurityDisabledException.cpp" />
+    <ClCompile Include="src\common\exceptions\StaleBrokerEpochException.cpp" />
+    <ClCompile Include="src\common\exceptions\TimeoutException.cpp" />
+    <ClCompile Include="src\common\exceptions\TopicAuthorizationException.cpp" />
+    <ClCompile Include="src\common\exceptions\TopicDeletionDisabledException.cpp" />
+    <ClCompile Include="src\common\exceptions\TopicExistsException.cpp" />
+    <ClCompile Include="src\common\exceptions\TransactionalIdAuthorizationException.cpp" />
+    <ClCompile Include="src\common\exceptions\TransactionCoordinatorFencedException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnknownLeaderEpochException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnknownMemberIdException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnknownProducerIdException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnknownServerException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnknownTopicOrPartitionException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnsupportedByAuthenticationException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnsupportedCompressionTypeException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnsupportedForMessageFormatException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnsupportedSaslMechanismException.cpp" />
+    <ClCompile Include="src\common\exceptions\UnsupportedVersionException.cpp" />
+    <ClCompile Include="src\common\Node.cpp" />
+    <ClCompile Include="src\common\PartitionInfo.cpp" />
     <ClCompile Include="src\common\protocol\ApiKeys.cpp" />
     <ClCompile Include="src\common\protocol\CommonFields.cpp" />
     <ClCompile Include="src\common\protocol\Errors.cpp" />
@@ -164,11 +325,16 @@
     <ClCompile Include="src\common\requests\AbstractResponse.cpp" />
     <ClCompile Include="src\common\requests\ApiVersionsRequest.cpp" />
     <ClCompile Include="src\common\requests\ApiVersionsResponse.cpp" />
+    <ClCompile Include="src\common\requests\MetadataRequest.cpp" />
+    <ClCompile Include="src\common\requests\MetadataResponse.cpp" />
+    <ClCompile Include="src\common\requests\RequestUtils.cpp" />
     <ClCompile Include="src\common\requests\ResponseHeader.cpp" />
     <ClCompile Include="src\common\resource\PatternType.cpp" />
+    <ClCompile Include="src\common\TopicPartition.cpp" />
     <ClCompile Include="src\common\utils\Arrays.cpp" />
     <ClCompile Include="src\common\utils\ByteUtils.cpp" />
     <ClCompile Include="src\common\utils\Utils.cpp" />
+    <ClCompile Include="src\InetSocketAddress.cpp" />
     <ClCompile Include="src\Integer.cpp" />
     <ClCompile Include="src\kafkaclient-cpp.cpp" />
     <ClCompile Include="src\Long.cpp" />

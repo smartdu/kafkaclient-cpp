@@ -6,15 +6,22 @@
 #include <string>
 
 class KafkaException
-	: public Object
+    : public Object
 {
 public:
-	KafkaException(const char *message);
+    KafkaException(std::string message);
+    virtual ~KafkaException()
+    {
 
-	virtual std::string toString();
+    }
+
+    virtual std::string toString()
+    {
+        return message_;
+    }
 
 private:
-	std::string message_;
+    std::string message_;
 };
 
 #endif // !__KFK_KAFKAEXCEPTION_H__

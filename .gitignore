@@ -11,8 +11,18 @@
 
 *.dll
 
+*.opensdf
+*.sdf
+*.suo
+*.opendb
+*.db
+
 /Debug
 /test/Debug
+/Release
+/test/Release
+/x64
 /.vs
 /.build
 /.libs
+/ipch

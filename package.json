@@ -1,0 +1,7 @@
+{
+	"name": "kafkaclient-cpp",
+	"version": "0.0.1",
+	"scripts": {
+		"coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+	}
+}

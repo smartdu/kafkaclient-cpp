@@ -11,6 +11,8 @@ public:
 	static const char MAGIC_VALUE_V2 = 2;
 
 	static const char CURRENT_MAGIC_VALUE = MAGIC_VALUE_V2;
+
+	static const int NO_PARTITION_LEADER_EPOCH = -1;
 };
 
 #endif // !__KFK_RECORDBATCH_H__

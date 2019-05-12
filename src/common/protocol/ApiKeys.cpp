@@ -6,10 +6,18 @@
 #include "Schema.h"
 #include "ByteBuffer.h"
 #include "SchemaException.h"
+#include "MetadataRequest.h"
+#include "MetadataResponse.h"
 
 ApiKeys* ApiKeys::API_VERSIONS()
 {
 	static ApiKeys *once = new ApiKeys_API_VERSIONS;
+	return once;
+}
+
+ApiKeys* ApiKeys::METADATA()
+{
+	static ApiKeys *once = new ApiKeys(3, "Metadata", MetadataRequest::schemaVersions(), MetadataResponse::schemaVersions());
 	return once;
 }
 
@@ -33,14 +41,14 @@ void ApiKeys::init(int id, const char* name, bool clusterAction, char minRequire
 	Schema** requestSchemas, Schema** responseSchemas)
 {
 	if (id < 0)
-		throw new IllegalArgumentException("id must not be negative, id: " + id);
+		throw IllegalArgumentException("id must not be negative, id: " + id);
 	this->id = (short)id;
 	this->name = name;
 	this->clusterAction = clusterAction;
 	this->minRequiredInterBrokerMagic = minRequiredInterBrokerMagic;
 
 	/*if (requestSchemas.length != responseSchemas.length)
-		throw new IllegalStateException(requestSchemas.length + " request versions for api " + name
+		throw IllegalStateException(requestSchemas.length + " request versions for api " + name
 			+ " but " + responseSchemas.length + " response versions.");
 
 	for (int i = 0; requestSchemas[i] != NULL; ++i) {
