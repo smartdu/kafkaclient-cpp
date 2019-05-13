@@ -13,12 +13,12 @@
 #include "ByteArray.h"
 #include "String0.h"
 
-static std::list<Type*> _values_;
+extern std::list<Type*> *_t_values_;
 
 Type::Type(bool canDelete/* = true*/)
 {
     if (!canDelete)
-        _values_.push_back(this);
+        _t_values_->push_back(this);
 }
 
 bool Type::isNullable()
@@ -34,7 +34,7 @@ void Type::destroy(Type *t)
 
 std::list<Type*> Type::values()
 {
-    return _values_;
+    return *_t_values_;
 }
 
 DocumentedType* Type::BOOLEAN()

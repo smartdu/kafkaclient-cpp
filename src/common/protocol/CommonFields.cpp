@@ -2,6 +2,7 @@
 #include "PatternType.h"
 
 std::list<Field*> *_cf_values_ = new std::list<Field*>();
+std::list<Type*> *_t_values_ = new std::list<Type*>();
 
 Int32* CommonFields::THROTTLE_TIME_MS = new Int32("throttle_time_ms",
 	"Duration in milliseconds for which the request was throttled due to quota violation (Zero if the "
