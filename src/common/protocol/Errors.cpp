@@ -86,7 +86,6 @@
 #include "UnsupportedForMessageFormatException.h"
 #include "UnsupportedSaslMechanismException.h"
 #include "UnsupportedVersionException.h"
-
 #include <stdio.h>
 
 static std::map<short, Errors*> codeToError = std::map<short, Errors*>();
@@ -211,4 +210,13 @@ Errors* Errors::forCode(short code)
 short Errors::code()
 {
 	return code_;
+}
+
+void Errors::destroy()
+{
+    for (auto &iter : codeToError)
+    {
+        delete iter.second;
+    }
+    codeToError.clear();
 }

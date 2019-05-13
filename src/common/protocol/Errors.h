@@ -114,6 +114,8 @@ public:
         return exception_;
     }
 
+    static void destroy();
+
 private:
 	short code_;
     ApiException *exception_;

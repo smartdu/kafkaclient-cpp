@@ -2,6 +2,7 @@
 #include "ApiKeys.h"
 #include "Field.h"
 #include "Type.h"
+#include "Errors.h"
 #include <list>
 
 class UNINIT
@@ -26,6 +27,8 @@ public:
         {
             delete iter;
         }
+
+        Errors::destroy();
     }
 };
 
