@@ -56,7 +56,7 @@ void Field::init(const char *name, Type *type, const char *docString, bool hasDe
 	this->hasDefaultValue = hasDefaultValue;
 	this->defaultValue = defaultValue;
     this->canDelete = canDelete;
-    if (this->canDelete)
+    if (!this->canDelete)
         _values_.push_back(this);
 
 	if (hasDefaultValue)

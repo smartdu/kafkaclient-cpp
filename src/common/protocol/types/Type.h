@@ -4,6 +4,7 @@
 #pragma once
 #include <string>
 #include <memory>
+#include <list>
 #include "Object.h"
 class ByteBuffer;
 class Object;
@@ -19,10 +20,8 @@ class Type
 	: public Object
 {
 public:
-    Type(bool canDelete = true)
-    {
-        this->canDelete = canDelete;
-    }
+    friend class UNINIT;
+    Type(bool canDelete = true);
 
 	virtual void write(ByteBuffer *buffer, Object *o) = 0;
 
@@ -33,6 +32,8 @@ public:
 	virtual int sizeOf(Object *o) = 0;
 
 	virtual bool isNullable();
+
+    static std::list<Type*> values();
 
     static void destroy(Type *t);
 
@@ -66,6 +67,12 @@ class DocumentedType
 	: public Type
 {
 public:
+    DocumentedType(bool canDelete = true)
+        : Type(canDelete)
+    {
+
+    }
+
 	virtual std::string typeName() = 0;
 
 	virtual std::string documentation() = 0;

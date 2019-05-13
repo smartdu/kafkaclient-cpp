@@ -1,6 +1,7 @@
 #include "Object.h"
 #include "ApiKeys.h"
 #include "Field.h"
+#include "Type.h"
 #include <list>
 
 class UNINIT
@@ -15,6 +16,12 @@ public:
         }
 
         std::list<Field*> values2 = Field::values();
+        for (auto iter : values2)
+        {
+            delete iter;
+        }
+
+        std::list<Type*> values3 = Type::values();
         for (auto iter : values2)
         {
             delete iter;

@@ -13,6 +13,14 @@
 #include "ByteArray.h"
 #include "String0.h"
 
+static std::list<Type*> _values_;
+
+Type::Type(bool canDelete/* = true*/)
+{
+    if (!canDelete)
+        _values_.push_back(this);
+}
+
 bool Type::isNullable()
 {
 	return false;
@@ -20,8 +28,13 @@ bool Type::isNullable()
 
 void Type::destroy(Type *t)
 {
-    if (t != NULL && t->canDelete)
+    if (t != NULL)
         delete t;
+}
+
+std::list<Type*> Type::values()
+{
+    return _values_;
 }
 
 DocumentedType* Type::BOOLEAN()
