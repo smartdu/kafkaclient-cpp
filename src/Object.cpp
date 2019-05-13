@@ -3,6 +3,7 @@
 #include "Field.h"
 #include "Type.h"
 #include "Errors.h"
+#include "ResponseHeader.h"
 #include <list>
 
 class UNINIT
@@ -33,6 +34,8 @@ public:
         {
             delete iter;
         }
+
+        delete ResponseHeader::SCHEMA;
         
         Errors::destroy();
     }
