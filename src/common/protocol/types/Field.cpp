@@ -50,7 +50,9 @@ void Field::destroy(Field *f)
 
 std::list<Field*> Field::values()
 {
-    return *_cf_values_;
+    std::list<Field*> l = *_cf_values_;
+    delete _cf_values_;
+    return l;
 }
 
 void Field::init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)

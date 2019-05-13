@@ -38,8 +38,6 @@ public:
 
 	void walk(Visitor *visitor);
 
-    static std::list<Schema*> values();
-
     Schema* clone()
     {
         Type::clone();
@@ -50,6 +48,8 @@ private:
 	static void handleNode(Type *node, Visitor *visitor);
 
     virtual ~Schema();
+
+    void init(std::list<Field*> &fs);
 
 private:
 	BoundField **fields_;

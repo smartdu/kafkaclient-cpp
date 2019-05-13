@@ -19,7 +19,7 @@ Type::Type()
     : ref_(1)
     , clone_(false)
 {
-
+    _t_values_->push_back(this);
 }
 
 bool Type::isNullable()
@@ -30,6 +30,21 @@ bool Type::isNullable()
 std::list<Type*> Type::values()
 {
     return *_t_values_;
+}
+
+void Type::destroy(Type *t)
+{
+    if (t != NULL)
+    {
+        if (t->ref_ == 0 || !t->clone_)
+        {
+            delete t;
+        }
+        else
+        {
+            t->ref_--;
+        }
+    }
 }
 
 DocumentedType* Type::BOOLEAN()

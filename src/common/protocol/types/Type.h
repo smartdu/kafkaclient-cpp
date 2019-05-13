@@ -6,6 +6,7 @@
 #include <memory>
 #include <list>
 #include "Object.h"
+#include "Type.h"
 class ByteBuffer;
 class Object;
 class DocumentedType;
@@ -35,20 +36,7 @@ public:
 
     static std::list<Type*> values();
 
-    static void destroy(Type *t)
-    {
-        if (t != NULL)
-        {
-            if (t->ref_ == 0 || !t->clone_)
-            {
-                delete t;
-            }
-            else
-            {
-                t->ref_--;
-            }
-        }
-    }
+    static void destroy(Type *t);
 
     Type* clone()
     {

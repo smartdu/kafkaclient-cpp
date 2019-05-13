@@ -7,34 +7,9 @@
 #include "ObjectArray.h"
 #include <stdarg.h>
 
-static std::list<Schema*> *_values_ = NULL;
-
 Schema::Schema(std::list<Field*> &fs)
 {
-    if (_values_ == NULL)
-    {
-        _values_ = new std::list<Schema*>();
-    }
-    _values_->push_back(this);
-    ref_ = 1;
-    clone_ = false;
-    if (fs.size() > 0)
-        this->fields_ = new BoundField*[fs.size()];
-    else
-        this->fields_ = NULL;
-	this->length = fs.size();
-	int i = 0;
-	for (auto iter : fs)
-	{
-		Field *def = iter;
-		if (fieldsByName.find(def->name) != fieldsByName.end())
-		{
-			throw SchemaException("Schema contains a duplicate field: " + def->name);
-		}
-		this->fields_[i] = new BoundField(def, this, i);
-		this->fieldsByName[def->name] = this->fields_[i];
-		i++;
-	}
+    init(fs);
 }
 
 Schema::Schema(int num, ...)
@@ -48,7 +23,7 @@ Schema::Schema(int num, ...)
 		fl.push_back(def);
 	}
 	va_end(valist);
-	new (this)Schema(fl);
+    init(fl);
 }
 
 Schema::~Schema()
@@ -58,6 +33,29 @@ Schema::~Schema()
 
     if (this->fields_ != NULL)
         delete[] this->fields_;
+}
+
+void Schema::init(std::list<Field*> &fs)
+{
+    ref_ = 1;
+    clone_ = false;
+    if (fs.size() > 0)
+        this->fields_ = new BoundField*[fs.size()];
+    else
+        this->fields_ = NULL;
+    this->length = fs.size();
+    int i = 0;
+    for (auto iter : fs)
+    {
+        Field *def = iter;
+        if (fieldsByName.find(def->name) != fieldsByName.end())
+        {
+            throw SchemaException("Schema contains a duplicate field: " + def->name);
+        }
+        this->fields_[i] = new BoundField(def, this, i);
+        this->fieldsByName[def->name] = this->fields_[i];
+        i++;
+    }
 }
 
 void Schema::write(ByteBuffer *buffer, Object *o)
@@ -122,11 +120,6 @@ Object* Schema::validate(Object *item)
 void Schema::walk(Visitor *visitor)
 {
 	handleNode(this, visitor);
-}
-
-std::list<Schema*> Schema::values()
-{
-    return *_values_;
 }
 
 void Schema::handleNode(Type *node, Visitor *visitor)
