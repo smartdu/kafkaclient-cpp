@@ -7,8 +7,15 @@
 #include "ObjectArray.h"
 #include <stdarg.h>
 
+static std::list<Schema*> *_values_ = NULL;
+
 Schema::Schema(std::list<Field*> &fs)
 {
+    if (_values_ == NULL)
+    {
+        _values_ = new std::list<Schema*>();
+    }
+    _values_->push_back(this);
     ref_ = 1;
     if (fs.size() > 0)
         this->fields_ = new BoundField*[fs.size()];
@@ -114,6 +121,11 @@ Object* Schema::validate(Object *item)
 void Schema::walk(Visitor *visitor)
 {
 	handleNode(this, visitor);
+}
+
+std::list<Schema*> Schema::values()
+{
+    return *_values_;
 }
 
 void Schema::handleNode(Type *node, Visitor *visitor)

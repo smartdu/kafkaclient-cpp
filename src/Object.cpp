@@ -31,7 +31,11 @@ public:
             delete iter;
         }
 
-        Schema::destroy(ResponseHeader::SCHEMA);
+        std::list<Schema*> value5 = Schema::values();
+        for (auto iter : value5)
+        {
+            Schema::destroy(iter);
+        }
         
         Errors::destroy();
 

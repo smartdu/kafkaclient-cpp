@@ -44,6 +44,8 @@ public:
         return this;
     }
 
+    static std::list<Schema*> values();
+
     static void destroy(Schema *s)
     {
         if (s != NULL)
