@@ -25,12 +25,6 @@ public:
             delete iter;
         }
 
-        std::list<Type*> values3 = Type::values();
-        for (auto iter : values3)
-        {
-            delete iter;
-        }
-
         std::list<ComplexArray*> values4 = ComplexArray::values();
         for (auto iter : values4)
         {
@@ -42,6 +36,12 @@ public:
         Errors::destroy();
 
         delete Node::noNode();
+
+        std::list<Type*> values3 = Type::values();
+        for (auto iter : values3)
+        {
+            delete iter;
+        }
     }
 };
 
