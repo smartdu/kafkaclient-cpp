@@ -17,7 +17,6 @@ class Schema
 public:
 	Schema(std::list<Field*> &fs);
 	Schema(int num, ...);
-    virtual ~Schema();
 
 	virtual void write(ByteBuffer *buffer, Object *o);
 
@@ -39,13 +38,33 @@ public:
 
 	void walk(Visitor *visitor);
 
+    Schema* clone()
+    {
+        ref_++;
+        return this;
+    }
+
+    static void destroy(Schema *s)
+    {
+        if (s != NULL)
+        {
+            if (s->ref_ == 0)
+                delete s;
+            else
+                s->ref_--;
+        }
+    }
+
 private:
 	static void handleNode(Type *node, Visitor *visitor);
+
+    virtual ~Schema();
 
 private:
 	BoundField **fields_;
 	int length;
 	std::map<std::string, BoundField*> fieldsByName;
+    int ref_;
 };
 
 class Visitor

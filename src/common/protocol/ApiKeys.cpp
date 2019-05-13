@@ -41,23 +41,14 @@ ApiKeys::ApiKeys(int id, const char* name, bool clusterAction, char minRequiredI
 
 ApiKeys::~ApiKeys()
 {
-    std::map<Schema*, bool> delmap;
     for (int i = 0; requestSchemas[i] != NULL; ++i)
     {
-        if (!delmap[requestSchemas[i]])
-        {
-            delete requestSchemas[i];
-            delmap[requestSchemas[i]] = true;
-        }
+        Schema::destroy(requestSchemas[i]);
     }
 
     for (int i = 0; responseSchemas[i] != NULL; ++i)
     {
-        if (!delmap[responseSchemas[i]])
-        {
-            delete responseSchemas[i];
-            delmap[responseSchemas[i]] = true;
-        }
+        Schema::destroy(responseSchemas[i]);
     }
 }
 

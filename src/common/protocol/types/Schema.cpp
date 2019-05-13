@@ -9,6 +9,7 @@
 
 Schema::Schema(std::list<Field*> &fs)
 {
+    ref_ = 1;
     if (fs.size() > 0)
         this->fields_ = new BoundField*[fs.size()];
     else

@@ -48,102 +48,102 @@ Array* MetadataResponse::OFFLINE_REPLICAS = new Array("offline_replicas", Type::
 	"The set of offline replicas of this partition.");
 
 Field* MetadataResponse::METADATA_BROKER_V0 = BROKERS->withFields(3,
-	NODE_ID,
-	HOST,
-	PORT);
+	NODE_ID->clone(),
+	HOST->clone(),
+	PORT->clone());
 
 Field* MetadataResponse::PARTITION_METADATA_V0 = PARTITION_METADATA->withFields(5,
-	CommonFields::ERROR_CODE,
-	CommonFields::PARTITION_ID,
-	LEADER,
-	REPLICAS,
-	ISR);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::PARTITION_ID->clone(),
+	LEADER->clone(),
+	REPLICAS->clone(),
+	ISR->clone());
 
 Field* MetadataResponse::TOPIC_METADATA_V0 = TOPIC_METADATA->withFields(3,
-	CommonFields::ERROR_CODE,
-	CommonFields::TOPIC_NAME,
-	PARTITION_METADATA_V0);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::TOPIC_NAME->clone(),
+	PARTITION_METADATA_V0->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V0 = new Schema(2,
-	METADATA_BROKER_V0,
-	TOPIC_METADATA_V0);
+	METADATA_BROKER_V0->clone(),
+	TOPIC_METADATA_V0->clone());
 
 Field* MetadataResponse::METADATA_BROKER_V1 = BROKERS->withFields(4,
-	NODE_ID,
-	HOST,
-	PORT,
-	RACK);
+	NODE_ID->clone(),
+	HOST->clone(),
+	PORT->clone(),
+	RACK->clone());
 
 Field* MetadataResponse::TOPIC_METADATA_V1 = TOPIC_METADATA->withFields(4,
-	CommonFields::ERROR_CODE,
-	CommonFields::TOPIC_NAME,
-	IS_INTERNAL,
-	PARTITION_METADATA_V0);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::TOPIC_NAME->clone(),
+	IS_INTERNAL->clone(),
+	PARTITION_METADATA_V0->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V1 = new Schema(3,
-	METADATA_BROKER_V1,
-	CONTROLLER_ID,
-	TOPIC_METADATA_V1);
+	METADATA_BROKER_V1->clone(),
+	CONTROLLER_ID->clone(),
+	TOPIC_METADATA_V1->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V2 = new Schema(4,
-	METADATA_BROKER_V1,
-	CLUSTER_ID,
-	CONTROLLER_ID,
-	TOPIC_METADATA_V1);
+	METADATA_BROKER_V1->clone(),
+	CLUSTER_ID->clone(),
+	CONTROLLER_ID->clone(),
+	TOPIC_METADATA_V1->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V3 = new Schema(5,
-	CommonFields::THROTTLE_TIME_MS,
-	METADATA_BROKER_V1,
-	CLUSTER_ID,
-	CONTROLLER_ID,
-	TOPIC_METADATA_V1);
+	CommonFields::THROTTLE_TIME_MS->clone(),
+	METADATA_BROKER_V1->clone(),
+	CLUSTER_ID->clone(),
+	CONTROLLER_ID->clone(),
+	TOPIC_METADATA_V1->clone());
 
-Schema* MetadataResponse::METADATA_RESPONSE_V4 = METADATA_RESPONSE_V3;
+Schema* MetadataResponse::METADATA_RESPONSE_V4 = METADATA_RESPONSE_V3->clone();
 
 Field* MetadataResponse::PARTITION_METADATA_V5 = PARTITION_METADATA->withFields(6,
-	CommonFields::ERROR_CODE,
-	CommonFields::PARTITION_ID,
-	LEADER,
-	REPLICAS,
-	ISR,
-	OFFLINE_REPLICAS);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::PARTITION_ID->clone(),
+	LEADER->clone(),
+	REPLICAS->clone(),
+	ISR->clone(),
+	OFFLINE_REPLICAS->clone());
 
 Field* MetadataResponse::TOPIC_METADATA_V5 = TOPIC_METADATA->withFields(4,
-	CommonFields::ERROR_CODE,
-	CommonFields::TOPIC_NAME,
-	IS_INTERNAL,
-	PARTITION_METADATA_V5);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::TOPIC_NAME->clone(),
+	IS_INTERNAL->clone(),
+	PARTITION_METADATA_V5->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V5 = new Schema(5,
-	CommonFields::THROTTLE_TIME_MS,
-	METADATA_BROKER_V1,
-	CLUSTER_ID,
-	CONTROLLER_ID,
-	TOPIC_METADATA_V5);
+	CommonFields::THROTTLE_TIME_MS->clone(),
+	METADATA_BROKER_V1->clone(),
+	CLUSTER_ID->clone(),
+	CONTROLLER_ID->clone(),
+	TOPIC_METADATA_V5->clone());
 
-Schema* MetadataResponse::METADATA_RESPONSE_V6 = METADATA_RESPONSE_V5;
+Schema* MetadataResponse::METADATA_RESPONSE_V6 = METADATA_RESPONSE_V5->clone();
 
 Field* MetadataResponse::PARTITION_METADATA_V7 = PARTITION_METADATA->withFields(7,
-	CommonFields::ERROR_CODE,
-	CommonFields::PARTITION_ID,
-	LEADER,
-	CommonFields::LEADER_EPOCH,
-	REPLICAS,
-	ISR,
-	OFFLINE_REPLICAS);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::PARTITION_ID->clone(),
+	LEADER->clone(),
+	CommonFields::LEADER_EPOCH->clone(),
+	REPLICAS->clone(),
+	ISR->clone(),
+	OFFLINE_REPLICAS->clone());
 
 Field* MetadataResponse::TOPIC_METADATA_V7 = TOPIC_METADATA->withFields(4,
-	CommonFields::ERROR_CODE,
-	CommonFields::TOPIC_NAME,
-	IS_INTERNAL,
-	PARTITION_METADATA_V7);
+	CommonFields::ERROR_CODE->clone(),
+	CommonFields::TOPIC_NAME->clone(),
+	IS_INTERNAL->clone(),
+	PARTITION_METADATA_V7->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V7 = new Schema(5,
 	CommonFields::THROTTLE_TIME_MS,
-	METADATA_BROKER_V1,
-	CLUSTER_ID,
-	CONTROLLER_ID,
-	TOPIC_METADATA_V7);
+	METADATA_BROKER_V1->clone(),
+	CLUSTER_ID->clone(),
+	CONTROLLER_ID->clone(),
+	TOPIC_METADATA_V7->clone());
 
 PartitionMetadata::PartitionMetadata(Errors *error, int partition, Node *leader, Integer *leaderEpoch, std::list<Node*> replicas, std::list<Node*> isr, std::list<Node*> offlineReplicas)
 {

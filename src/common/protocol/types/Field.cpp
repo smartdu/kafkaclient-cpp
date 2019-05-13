@@ -10,24 +10,24 @@
 
 extern std::list<Field*> *_cf_values_;
 
-Field::Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete/* = true*/)
+Field::Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)
 {
-	init(name, type, docString, hasDefaultValue, defaultValue, canDelete);
+	init(name, type, docString, hasDefaultValue, defaultValue);
 }
 
-Field::Field(const char *name, Type *type, const char *docString, bool canDelete/* = true*/)
+Field::Field(const char *name, Type *type, const char *docString)
 {
-	init(name, type, docString, false, NULL, canDelete);
+	init(name, type, docString, false, NULL);
 }
 
-Field::Field(const char *name, Type *type, const char *docString, Object *defaultValue, bool canDelete/* = true*/)
+Field::Field(const char *name, Type *type, const char *docString, Object *defaultValue)
 {
-	init(name, type, docString, true, defaultValue, canDelete);
+	init(name, type, docString, true, defaultValue);
 }
 
 Field::Field(const char *name, Type *type)
 {
-	init(name, type, "", false, NULL, canDelete);
+	init(name, type, "", false, NULL);
 }
 
 Field::~Field()
@@ -39,8 +39,13 @@ Field::~Field()
 
 void Field::destroy(Field *f)
 {
-    if (f != NULL && f->canDelete)
-        delete f;
+    if (f != NULL)
+    {
+        if (f->ref_ == 0)
+            delete f;
+        else
+            f->ref_--;
+    }
 }
 
 std::list<Field*> Field::values()
@@ -48,83 +53,82 @@ std::list<Field*> Field::values()
     return *_cf_values_;
 }
 
-void Field::init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete)
+void Field::init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)
 {
+    ref_ = 1;
 	this->name = name;
 	this->docString = docString;
 	this->type = type;
 	this->hasDefaultValue = hasDefaultValue;
 	this->defaultValue = defaultValue;
-    this->canDelete = canDelete;
-    if (!this->canDelete)
-        _cf_values_->push_back(this);
+    _cf_values_->push_back(this);
 
 	if (hasDefaultValue)
 		type->validate(defaultValue);
 }
 
-Int8::Int8(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::INT8(), docString, false, NULL, canDelete)
+Int8::Int8(const char *name, const char *docString)
+	: Field(name, Type::INT8(), docString, false, NULL)
 {
 
 }
 
-Int8::Int8(const char *name, const char *docString, char defaultValue, bool canDelete/* = true*/)
-    : Field(name, Type::INT8(), docString, true, new Byte(defaultValue), canDelete)
+Int8::Int8(const char *name, const char *docString, char defaultValue)
+    : Field(name, Type::INT8(), docString, true, new Byte(defaultValue))
 {
 
 }
 
-Int32::Int32(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::INT32(), docString, false, NULL, canDelete)
+Int32::Int32(const char *name, const char *docString)
+	: Field(name, Type::INT32(), docString, false, NULL)
 {
 
 }
 
-Int32::Int32(const char *name, const char *docString, int defaultValue, bool canDelete/* = true*/)
-    : Field(name, Type::INT32(), docString, true, new Integer(defaultValue), canDelete)
+Int32::Int32(const char *name, const char *docString, int defaultValue)
+    : Field(name, Type::INT32(), docString, true, new Integer(defaultValue))
 {
 
 }
 
-Int64::Int64(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::INT64(), docString, false, NULL, canDelete)
+Int64::Int64(const char *name, const char *docString)
+	: Field(name, Type::INT64(), docString, false, NULL)
 {
 
 }
 
-Int64::Int64(const char *name, const char *docString, long long defaultValue, bool canDelete/* = true*/)
-    : Field(name, Type::INT32(), docString, true, new Long(defaultValue), canDelete)
+Int64::Int64(const char *name, const char *docString, long long defaultValue)
+    : Field(name, Type::INT32(), docString, true, new Long(defaultValue))
 {
 
 }
 
-Int16::Int16(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::INT16(), docString, false, NULL, canDelete)
+Int16::Int16(const char *name, const char *docString)
+	: Field(name, Type::INT16(), docString, false, NULL)
 {
 
 }
 
-Str::Str(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::STRING(), docString, false, NULL, canDelete)
+Str::Str(const char *name, const char *docString)
+	: Field(name, Type::STRING(), docString, false, NULL)
 {
 
 }
 
-NullableStr::NullableStr(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::NULLABLE_STRING(), docString, false, NULL, canDelete)
+NullableStr::NullableStr(const char *name, const char *docString)
+	: Field(name, Type::NULLABLE_STRING(), docString, false, NULL)
 {
 
 }
 
-Bool::Bool(const char *name, const char *docString, bool canDelete/* = true*/)
-	: Field(name, Type::BOOLEAN(), docString, false, NULL, canDelete)
+Bool::Bool(const char *name, const char *docString)
+	: Field(name, Type::BOOLEAN(), docString, false, NULL)
 {
 
 }
 
-Array::Array(const char *name, Type *elementType, const char *docString, bool canDelete/* = true*/)
-	: Field(name, new ArrayOf(elementType), docString, false, NULL, canDelete)
+Array::Array(const char *name, Type *elementType, const char *docString)
+	: Field(name, new ArrayOf(elementType), docString, false, NULL)
 {
 
 }

@@ -31,7 +31,7 @@ public:
             delete iter;
         }
 
-        delete ResponseHeader::SCHEMA;
+        Schema::destroy(ResponseHeader::SCHEMA);
         
         Errors::destroy();
 

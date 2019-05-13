@@ -23,15 +23,15 @@ Schema* ApiVersionsResponse::API_VERSIONS_V0 = new Schema(3,
 	new Field(MAX_VERSION_KEY_NAME, Type::INT16(), "Maximum supported version."));
 
 Schema* ApiVersionsResponse::API_VERSIONS_RESPONSE_V0 = new Schema(2,
-	CommonFields::ERROR_CODE,
-	new Field(API_VERSIONS_KEY_NAME, new ArrayOf(API_VERSIONS_V0), "API versions supported by the broker."));
+	CommonFields::ERROR_CODE->clone(),
+	new Field(API_VERSIONS_KEY_NAME, new ArrayOf(API_VERSIONS_V0->clone()), "API versions supported by the broker."));
 
 Schema* ApiVersionsResponse::API_VERSIONS_RESPONSE_V1 = new Schema(3,
-	CommonFields::ERROR_CODE,
-	new Field(API_VERSIONS_KEY_NAME, new ArrayOf(API_VERSIONS_V0), "API versions supported by the broker."),
-	CommonFields::THROTTLE_TIME_MS);
+	CommonFields::ERROR_CODE->clone(),
+	new Field(API_VERSIONS_KEY_NAME, new ArrayOf(API_VERSIONS_V0->clone()), "API versions supported by the broker."),
+	CommonFields::THROTTLE_TIME_MS->clone());
 
-Schema* ApiVersionsResponse::API_VERSIONS_RESPONSE_V2 = API_VERSIONS_RESPONSE_V1;
+Schema* ApiVersionsResponse::API_VERSIONS_RESPONSE_V2 = API_VERSIONS_RESPONSE_V1->clone();
 
 ApiVersionsResponse* ApiVersionsResponse::defaultApiVersionsResponse_ = NULL;
 

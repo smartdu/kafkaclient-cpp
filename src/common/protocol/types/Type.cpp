@@ -15,11 +15,10 @@
 
 extern std::list<Type*> *_t_values_;
 
-Type::Type(bool canDelete/* = true*/)
-    : canDelete_(canDelete)
+Type::Type()
+    : ref_(1)
 {
-    if (!canDelete_)
-        _t_values_->push_back(this);
+
 }
 
 bool Type::isNullable()
@@ -29,8 +28,13 @@ bool Type::isNullable()
 
 void Type::destroy(Type *t)
 {
-    if (t != NULL && t->canDelete_)
-        delete t;
+    if (t != NULL)
+    {
+        if (t->ref_ == 0)
+            delete t;
+        else
+            t->ref_--;
+    }
 }
 
 std::list<Type*> Type::values()

@@ -21,7 +21,7 @@ class Type
 {
 public:
     friend class UNINIT;
-    Type(bool canDelete = true);
+    Type();
 
 	virtual void write(ByteBuffer *buffer, Object *o) = 0;
 
@@ -36,6 +36,12 @@ public:
     static std::list<Type*> values();
 
     static void destroy(Type *t);
+
+    Type* clone()
+    {
+        ref_++;
+        return this;
+    }
 
 public:
 	static DocumentedType* BOOLEAN();
@@ -60,19 +66,13 @@ protected:
 
     }
 
-    bool canDelete_;
+    int ref_;
 };
 
 class DocumentedType
 	: public Type
 {
 public:
-    DocumentedType(bool canDelete = true)
-        : Type(canDelete)
-    {
-
-    }
-
 	virtual std::string typeName() = 0;
 
 	virtual std::string documentation() = 0;
@@ -84,11 +84,6 @@ class DocumentType_BOOLEAN
 	: public DocumentedType
 {
 public:
-    DocumentType_BOOLEAN()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -106,11 +101,6 @@ class DocumentedType_INT8
 	: public DocumentedType
 {
 public:
-    DocumentedType_INT8()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -128,11 +118,6 @@ class DocumentedType_INT16
 	: public DocumentedType
 {
 public:
-    DocumentedType_INT16()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -150,11 +135,6 @@ class DocumentedType_INT32
 	: public DocumentedType
 {
 public:
-    DocumentedType_INT32()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -172,11 +152,6 @@ class DocumentedType_UNSIGNED_INT32
 	: public DocumentedType
 {
 public:
-    DocumentedType_UNSIGNED_INT32()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -194,11 +169,6 @@ class DocumentedType_INT64
 	: public DocumentedType
 {
 public:
-    DocumentedType_INT64()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -216,11 +186,6 @@ class DocumentedType_STRING
 	: public DocumentedType
 {
 public:
-    DocumentedType_STRING()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -238,11 +203,6 @@ class DocumentedType_NULLABLE_STRING
 	: public DocumentedType
 {
 public:
-    DocumentedType_NULLABLE_STRING()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual bool isNullable()
 	{
 		return true;
@@ -265,11 +225,6 @@ class DocumentedType_BYTES
 	: public DocumentedType
 {
 public:
-    DocumentedType_BYTES()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -287,11 +242,6 @@ class DocumentedType_NULLABLE_BYTES
 	: public DocumentedType
 {
 public:
-    DocumentedType_NULLABLE_BYTES()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual bool isNullable()
 	{
 		return true;
@@ -314,11 +264,6 @@ class DocumentedType_RECORDS
 	: public DocumentedType
 {
 public:
-    DocumentedType_RECORDS()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual bool isNullable()
 	{
 		return true;
@@ -341,11 +286,6 @@ class DocumentedType_VARINT
 	: public DocumentedType
 {
 public:
-    DocumentedType_VARINT()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
@@ -363,11 +303,6 @@ class DocumentedType_VARLONG
 	: public DocumentedType
 {
 public:
-    DocumentedType_VARLONG()
-        : DocumentedType(false)
-    {
-    }
-
 	virtual void write(ByteBuffer *buffer, Object *o);
 
 	virtual Object* read(ByteBuffer *buffer);
