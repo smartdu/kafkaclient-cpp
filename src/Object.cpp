@@ -30,12 +30,6 @@ public:
         {
             delete iter;
         }
-
-        std::list<Schema*> value5 = Schema::values();
-        for (auto iter : value5)
-        {
-            Schema::destroy(iter);
-        }
         
         Errors::destroy();
 

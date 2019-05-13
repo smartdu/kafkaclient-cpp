@@ -17,6 +17,7 @@ Schema::Schema(std::list<Field*> &fs)
     }
     _values_->push_back(this);
     ref_ = 1;
+    clone_ = false;
     if (fs.size() > 0)
         this->fields_ = new BoundField*[fs.size()];
     else

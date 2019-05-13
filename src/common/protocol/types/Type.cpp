@@ -17,6 +17,7 @@ extern std::list<Type*> *_t_values_;
 
 Type::Type()
     : ref_(1)
+    , clone_(false)
 {
 
 }
@@ -24,17 +25,6 @@ Type::Type()
 bool Type::isNullable()
 {
 	return false;
-}
-
-void Type::destroy(Type *t)
-{
-    if (t != NULL)
-    {
-        if (t->ref_ == 0)
-            delete t;
-        else
-            t->ref_--;
-    }
 }
 
 std::list<Type*> Type::values()

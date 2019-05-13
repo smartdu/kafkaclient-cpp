@@ -35,11 +35,25 @@ public:
 
     static std::list<Type*> values();
 
-    static void destroy(Type *t);
+    static void destroy(Type *t)
+    {
+        if (t != NULL)
+        {
+            if (t->ref_ == 0 || !t->clone_)
+            {
+                delete t;
+            }
+            else
+            {
+                t->ref_--;
+            }
+        }
+    }
 
     Type* clone()
     {
         ref_++;
+        clone_ = true;
         return this;
     }
 
@@ -63,16 +77,20 @@ public:
 protected:
     virtual ~Type()
     {
-
     }
 
     int ref_;
+    bool clone_;
 };
 
 class DocumentedType
 	: public Type
 {
 public:
+    DocumentedType()
+    {
+
+    }
 	virtual std::string typeName() = 0;
 
 	virtual std::string documentation() = 0;

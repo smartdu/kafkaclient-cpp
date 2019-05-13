@@ -38,23 +38,12 @@ public:
 
 	void walk(Visitor *visitor);
 
-    Schema* clone()
-    {
-        ref_++;
-        return this;
-    }
-
     static std::list<Schema*> values();
 
-    static void destroy(Schema *s)
+    Schema* clone()
     {
-        if (s != NULL)
-        {
-            if (s->ref_ == 0)
-                delete s;
-            else
-                s->ref_--;
-        }
+        Type::clone();
+        return this;
     }
 
 private:
@@ -66,7 +55,6 @@ private:
 	BoundField **fields_;
 	int length;
 	std::map<std::string, BoundField*> fieldsByName;
-    int ref_;
 };
 
 class Visitor
