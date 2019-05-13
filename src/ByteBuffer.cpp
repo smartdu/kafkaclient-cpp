@@ -11,7 +11,7 @@
 
 ByteBuffer::~ByteBuffer()
 {
-	if (hb_ != NULL)
+	if (hb_ != NULL && free_)
 		free(hb_);
 }
 
@@ -19,7 +19,9 @@ ByteBuffer* ByteBuffer::allocate(int capacity)
 {
 	if (capacity < 0)
 		throw IllegalArgumentException("");
-	return new ByteBuffer(capacity, capacity);
+	ByteBuffer *b = new ByteBuffer(capacity, capacity);
+    b->free_ = true;
+    return b;
 }
 
 int ByteBuffer::position()
@@ -196,6 +198,7 @@ ByteBuffer::ByteBuffer(int mark, int pos, int lim, int cap)
 {
 	mark_ = -1;
 	bigEndian_ = true;
+    free_ = false;
 
 	if (cap < 0)
 		throw IllegalArgumentException("Negative capacity: " + cap);

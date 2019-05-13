@@ -100,6 +100,7 @@ private:
 	bool bigEndian_;
 
 	char *hb_;
+    bool free_;             // 是否需要释放hb_
 };
 
 #endif // !__KFK_BYTEBUFFER_H__
