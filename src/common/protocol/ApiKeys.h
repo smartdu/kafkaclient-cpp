@@ -57,6 +57,8 @@ public:
 	Schema** requestSchemas;
 	Schema** responseSchemas;
 	bool requiresDelayedAllocation;
+
+    static std::list<ApiKeys*> values_;
 };
 
 class ApiKeys_API_VERSIONS

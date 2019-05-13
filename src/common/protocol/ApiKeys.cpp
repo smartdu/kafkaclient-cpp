@@ -9,7 +9,7 @@
 #include "MetadataRequest.h"
 #include "MetadataResponse.h"
 
-static std::list<ApiKeys*> _values_;
+std::list<ApiKeys*> ApiKeys::values_ = std::list<ApiKeys*>();
 
 ApiKeys* ApiKeys::API_VERSIONS()
 {
@@ -86,7 +86,7 @@ void ApiKeys::init(int id, const char* name, bool clusterAction, char minRequire
 	this->requestSchemas = requestSchemas;
 	this->responseSchemas = responseSchemas;
 
-    _values_.push_back(this);
+    values_.push_back(this);
 }
 
 Struct* ApiKeys::parseRequest(short version, ByteBuffer *buffer)
@@ -128,7 +128,7 @@ bool ApiKeys::isVersionSupported(short apiVersion)
 
 std::list<ApiKeys*> ApiKeys::values()
 {
-    return _values_;
+    return values_;
 }
 
 Struct* ApiKeys::parseResponse(short version, ByteBuffer *buffer, short fallbackVersion)
