@@ -15,16 +15,19 @@ public:
 	Type *type;
 	bool hasDefaultValue;
 	Object *defaultValue;
+    bool canDelete;
 
-	Field();
-	Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);
-	Field(const char *name, Type *type, const char *docString);
-	Field(const char *name, Type *type, const char *docString, Object *defaultValue);
+	Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete = true);
+	Field(const char *name, Type *type, const char *docString, bool canDelete = true);
+	Field(const char *name, Type *type, const char *docString, Object *defaultValue, bool canDelete = true);
 	Field(const char *name, Type *type);
-    virtual ~Field();
+
+    static void destroy(Field *f);
 
 protected:
-	void init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);
+	void init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete);
+
+    virtual ~Field();
 };
 
 class Int8

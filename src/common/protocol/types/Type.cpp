@@ -18,6 +18,12 @@ bool Type::isNullable()
 	return false;
 }
 
+void Type::destroy(Type *t)
+{
+    if (t != NULL && t->canDelete)
+        delete t;
+}
+
 DocumentedType* Type::BOOLEAN()
 {
 	static DocumentedType *once = new DocumentType_BOOLEAN;

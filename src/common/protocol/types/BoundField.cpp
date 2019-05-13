@@ -12,8 +12,7 @@ BoundField::BoundField(Field *def, Schema *schema, int index)
 
 BoundField::~BoundField()
 {
-    if (def != NULL)
-        delete def;
+    Field::destroy(def);
 }
 
 std::string BoundField::toString()

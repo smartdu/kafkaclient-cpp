@@ -21,8 +21,7 @@ ArrayOf::ArrayOf(Type *type, bool nullable)
 
 ArrayOf::~ArrayOf()
 {
-    if (type_ != NULL)
-        delete type_;
+    Type::destroy(type_);
 }
 
 ArrayOf* ArrayOf::nullable(Type *type)
