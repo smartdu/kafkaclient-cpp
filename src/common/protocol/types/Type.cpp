@@ -45,49 +45,49 @@ std::list<Type*> Type::values()
 DocumentedType* Type::BOOLEAN()
 {
 	static DocumentedType *once = new DocumentType_BOOLEAN;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::INT8()
 {
 	static DocumentedType *once = new DocumentedType_INT8;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::INT16()
 {
 	static DocumentedType *once = new DocumentedType_INT16;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::INT32()
 {
 	static DocumentedType *once = new DocumentedType_INT32;
-	return once;
+	return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::INT64()
 {
 	static DocumentedType *once = new DocumentedType_INT64;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::NULLABLE_BYTES()
 {
 	static DocumentedType *once = new DocumentedType_NULLABLE_BYTES;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::STRING()
 {
 	static DocumentedType *once = new DocumentedType_STRING;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 DocumentedType* Type::NULLABLE_STRING()
 {
 	static DocumentedType *once = new DocumentedType_NULLABLE_STRING;
-	return once;
+    return (DocumentedType*)once->clone();
 }
 
 std::string DocumentedType::toString()
