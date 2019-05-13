@@ -129,14 +129,14 @@ Array::Array(const char *name, Type *elementType, const char *docString, bool ca
 
 }
 
-static std::list<ComplexArray*> _ca_values_;
+static std::list<ComplexArray*> *_ca_values_;
 
 ComplexArray::ComplexArray(const char *name, const char *docString)
 {
 	this->name = name;
 	this->docString = docString;
 
-    _ca_values_.push_back(this);
+    _ca_values_->push_back(this);
 }
 
 ComplexArray::~ComplexArray()
@@ -182,5 +182,5 @@ Field* ComplexArray::withFields(const char *docStringOverride, std::list<Field*>
 
 std::list<ComplexArray*> ComplexArray::values()
 {
-    return _ca_values_;
+    return *_ca_values_;
 }
