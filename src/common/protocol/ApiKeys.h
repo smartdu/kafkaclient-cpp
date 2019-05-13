@@ -3,6 +3,7 @@
 
 #pragma once
 #include <string>
+#include <list>
 #include "Object.h"
 class Schema;
 class Struct;
@@ -19,10 +20,7 @@ public:
 	ApiKeys(int id, const char* name, bool clusterAction, Schema** requestSchemas, Schema** responseSchemas);
 	ApiKeys(int id, const char* name, bool clusterAction, char minRequiredInterBrokerMagic,
 		Schema** requestSchemas, Schema** responseSchemas);
-	virtual ~ApiKeys()
-	{
-
-	}
+    virtual ~ApiKeys();
 
 	virtual Struct* parseRequest(short version, ByteBuffer *buffer);
 
@@ -37,6 +35,8 @@ public:
 	short oldestVersion();
 
 	bool isVersionSupported(short apiVersion);
+
+    static std::list<ApiKeys*> values();
 
 protected:
 	void init(int id, const char* name, bool clusterAction, char minRequiredInterBrokerMagic,

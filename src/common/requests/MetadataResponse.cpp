@@ -156,6 +156,12 @@ PartitionMetadata::PartitionMetadata(Errors *error, int partition, Node *leader,
 	this->offlineReplicas_ = offlineReplicas;
 }
 
+PartitionMetadata::~PartitionMetadata()
+{
+    if (leaderEpoch_ != NULL)
+        delete leaderEpoch_;
+}
+
 std::string PartitionMetadata::toString()
 {
 	return "(type=PartitionMetadata"
@@ -174,6 +180,14 @@ TopicMetadata::TopicMetadata(Errors *error, const char *topic, bool isInternal, 
 	this->topic_ = topic;
 	this->isInternal_ = isInternal;
 	this->partitionMetadata_ = partitionMetadata;
+}
+
+TopicMetadata::~TopicMetadata()
+{
+    for (auto iter : partitionMetadata_)
+    {
+        delete iter;
+    }
 }
 
 std::string TopicMetadata::toString()
@@ -264,6 +278,21 @@ MetadataResponse::MetadataResponse(Struct *s)
 	this->brokers_ = Utils::values(brokers);
 	this->controller_ = getControllerNode(controllerId, Utils::values(brokers));
 	this->topicMetadata_ = topicMetadata;
+
+    delete s;
+}
+
+MetadataResponse::~MetadataResponse()
+{
+    for (auto iter : topicMetadata_)
+    {
+        delete iter;
+    }
+
+    for (auto iter : brokers_)
+    {
+        delete iter;
+    }
 }
 
 std::map<std::string, Errors*> MetadataResponse::errors()

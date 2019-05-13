@@ -29,7 +29,9 @@ void test_version()
 	{
 		printf("api_key = %d, min_version = %d, max_version = %d\n", iter.apiKey, iter.minVersion, iter.maxVersion);
 	}
+
 	delete v;
+    delete b;
 }
 
 void test_metadata()
@@ -50,7 +52,9 @@ void test_metadata()
 	MetadataResponse *v = MetadataResponse::parse(b, version);
 	printf("cluster_id = %s\n", v->clusterId());
 	printf("node_id = %d, host = %s, port = %d, rack = %s\n", v->controller()->id(), v->controller()->host(), v->controller()->port(), v->controller()->rack());
-	delete v;
+	
+    delete v;
+    delete b;
 }
 
 void test()

@@ -66,6 +66,8 @@ ApiVersionsResponse::ApiVersionsResponse(Struct *s)
 		tempApiVersions.push_back(ApiVersion(apiKey, minVersion, maxVersion));
 	}
 	this->apiKeyToApiVersion = buildApiKeyToApiVersion(tempApiVersions);
+
+    delete s;
 }
 
 ApiVersionsResponse* ApiVersionsResponse::apiVersionsResponse(int throttleTimeMs, char maxMagic)

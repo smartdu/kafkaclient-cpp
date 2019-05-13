@@ -9,6 +9,8 @@
 #include "MetadataRequest.h"
 #include "MetadataResponse.h"
 
+static std::list<ApiKeys*> _values_;
+
 ApiKeys* ApiKeys::API_VERSIONS()
 {
 	static ApiKeys *once = new ApiKeys_API_VERSIONS;
@@ -35,6 +37,19 @@ ApiKeys::ApiKeys(int id, const char* name, bool clusterAction, char minRequiredI
 	Schema** requestSchemas, Schema** responseSchemas)
 {
 	init(id, name, clusterAction, minRequiredInterBrokerMagic, requestSchemas, responseSchemas);
+}
+
+ApiKeys::~ApiKeys()
+{
+    for (int i = 0; requestSchemas[i] != NULL; ++i)
+    {
+        delete requestSchemas[i];
+    }
+
+    for (int i = 0; responseSchemas[i] != NULL; ++i)
+    {
+        delete responseSchemas[i];
+    }
 }
 
 void ApiKeys::init(int id, const char* name, bool clusterAction, char minRequiredInterBrokerMagic,
@@ -70,6 +85,8 @@ void ApiKeys::init(int id, const char* name, bool clusterAction, char minRequire
 	this->requiresDelayedAllocation = requestRetainsBufferReference;
 	this->requestSchemas = requestSchemas;
 	this->responseSchemas = responseSchemas;
+
+    _values_.push_back(this);
 }
 
 Struct* ApiKeys::parseRequest(short version, ByteBuffer *buffer)
@@ -107,6 +124,11 @@ short ApiKeys::oldestVersion()
 bool ApiKeys::isVersionSupported(short apiVersion)
 {
 	return apiVersion >= oldestVersion() && apiVersion <= latestVersion();
+}
+
+std::list<ApiKeys*> ApiKeys::values()
+{
+    return _values_;
 }
 
 Struct* ApiKeys::parseResponse(short version, ByteBuffer *buffer, short fallbackVersion)

@@ -40,6 +40,13 @@ Schema::Schema(int num, ...)
 	new (this)Schema(fl);
 }
 
+Schema::~Schema()
+{
+    for (int i = 0; i < length; i++)
+        delete this->fields_[i];
+    delete[] this->fields_;
+}
+
 void Schema::write(ByteBuffer *buffer, Object *o)
 {
 

@@ -21,6 +21,7 @@ class PartitionMetadata
 {
 public:
 	PartitionMetadata(Errors *error, int partition, Node *leader, Integer *leaderEpoch, std::list<Node*> replicas, std::list<Node*> isr, std::list<Node*> offlineReplicas);
+    virtual ~PartitionMetadata();
 
 	Errors* error()
 	{
@@ -78,6 +79,7 @@ class TopicMetadata
 {
 public:
 	TopicMetadata(Errors *error, const char *topic, bool isInternal, std::list<PartitionMetadata*> partitionMetadata);
+    virtual ~TopicMetadata();
 
 	Errors* error()
 	{
@@ -119,6 +121,7 @@ public:
 	MetadataResponse(std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata);
 	MetadataResponse(int throttleTimeMs, std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata);
 	MetadataResponse(Struct *s);
+    virtual ~MetadataResponse();
 
 	int throttleTimeMs()
 	{

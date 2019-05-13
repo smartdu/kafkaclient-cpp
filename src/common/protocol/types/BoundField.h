@@ -15,10 +15,7 @@ public:
 	Schema *schema;
 
 	BoundField(Field *def, Schema *schema, int index);
-	virtual ~BoundField()
-	{
-
-	}
+    virtual ~BoundField();
 
 	virtual std::string toString();
 };

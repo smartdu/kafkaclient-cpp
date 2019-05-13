@@ -23,7 +23,10 @@ public:
 	Field(const char *name, Type *type);
 	virtual ~Field()
 	{
-
+        if (defaultValue != NULL)
+            delete defaultValue;
+        if (type != NULL)
+            delete type;
 	}
 
 protected:

@@ -27,6 +27,12 @@ Struct::Struct(Schema *schema)
 	this->values = new ObjectArray(this->schema_->numFields());
 }
 
+Struct::~Struct()
+{
+    if (this->values)
+        delete this->values;
+}
+
 Schema* Struct::schema()
 {
 	return this->schema_;

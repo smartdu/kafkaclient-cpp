@@ -15,7 +15,8 @@ public:
 	ArrayOf(Type *type, bool nullable);
 	virtual ~ArrayOf()
 	{
-
+        if (type_ != NULL)
+            delete type_;
 	}
 
 	static ArrayOf* nullable(Type *type);

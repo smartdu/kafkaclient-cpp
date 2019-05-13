@@ -10,6 +10,12 @@ BoundField::BoundField(Field *def, Schema *schema, int index)
 	this->index = index;
 }
 
+BoundField::~BoundField()
+{
+    if (def != NULL)
+        delete def;
+}
+
 std::string BoundField::toString()
 {
 	return def->name + ":" + def->type->toString();
