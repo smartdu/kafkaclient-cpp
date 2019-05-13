@@ -10,6 +10,7 @@ class Object;
 class Field
 {
 public:
+    friend class UNINIT;
 	std::string name;
 	std::string docString;
 	Type *type;
@@ -24,6 +25,8 @@ public:
 
     static void destroy(Field *f);
 
+    static std::list<Field*> values();
+
 protected:
 	void init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete);
 
@@ -34,59 +37,59 @@ class Int8
 	: public Field
 {
 public:
-	Int8(const char *name, const char *docString);
-	Int8(const char *name, const char *docString, char defaultValue);
+	Int8(const char *name, const char *docString, bool canDelete = true);
+	Int8(const char *name, const char *docString, char defaultValue, bool canDelete = true);
 };
 
 class Int32
 	: public Field
 {
 public:
-	Int32(const char *name, const char *docString);
-	Int32(const char *name, const char *docString, int defaultValue);
+	Int32(const char *name, const char *docString, bool canDelete = true);
+	Int32(const char *name, const char *docString, int defaultValue, bool canDelete = true);
 };
 
 class Int64
 	: public Field
 {
 public:
-	Int64(const char *name, const char *docString);
-	Int64(const char *name, const char *docString, long long defaultValue);
+	Int64(const char *name, const char *docString, bool canDelete = true);
+	Int64(const char *name, const char *docString, long long defaultValue, bool canDelete = true);
 };
 
 class Int16
 	: public Field
 {
 public:
-	Int16(const char *name, const char *docString);
+	Int16(const char *name, const char *docString, bool canDelete = true);
 };
 
 class Str
 	: public Field
 {
 public:
-	Str(const char *name, const char *docString);
+	Str(const char *name, const char *docString, bool canDelete = true);
 };
 
 class NullableStr
 	: public Field
 {
 public:
-	NullableStr(const char *name, const char *docString);
+	NullableStr(const char *name, const char *docString, bool canDelete = true);
 };
 
 class Bool
 	: public Field
 {
 public:
-	Bool(const char *name, const char *docString);
+	Bool(const char *name, const char *docString, bool canDelete = true);
 };
 
 class Array
 	: public Field
 {
 public:
-	Array(const char *name, Type *elementType, const char *docString);
+	Array(const char *name, Type *elementType, const char *docString, bool canDelete = true);
 };
 
 class ComplexArray
