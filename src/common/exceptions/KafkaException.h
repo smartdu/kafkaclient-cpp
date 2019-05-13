@@ -20,7 +20,7 @@ public:
         return message_;
     }
 
-private:
+protected:
     std::string message_;
 };
 

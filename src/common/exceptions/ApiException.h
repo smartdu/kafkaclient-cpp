@@ -13,6 +13,11 @@ public:
     {
 
     }
+
+    void message(const char *message)
+    {
+        message_ = message;
+    }
 };
 
 #endif // !__KFK_APIEXCEPTION_H__

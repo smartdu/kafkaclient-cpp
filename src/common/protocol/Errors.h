@@ -4,7 +4,7 @@
 #pragma once
 #include <map>
 #include "Object.h"
-class KafkaException;
+#include "ApiException.h"
 
 class Errors
 	: public Object
@@ -94,24 +94,33 @@ public:
 	static Errors* PREFERRED_LEADER_NOT_AVAILABLE;
 	static Errors* GROUP_MAX_SIZE_REACHED;
 
-	Errors(int code, const char *defaultExceptionString, KafkaException *exception = NULL);
+	Errors(int code, const char *defaultExceptionString, ApiException *exception = NULL);
 	virtual ~Errors()
 	{
-
+		if (exception_ != NULL)
+			delete exception_;
 	}
 
 	static Errors* forCode(short code);
 
 	short code();
 
-	KafkaException* exception()
+    ApiException* exception()
 	{
 		return exception_;
 	}
 
+    ApiException* exception(const char *message)
+    {
+        if (message == NULL)
+            return exception_;
+        exception_->message(message);
+        return exception_;
+    }
+
 private:
 	short code_;
-	KafkaException *exception_;
+    ApiException *exception_;
 };
 
 #endif // !__KFK_ERRORS_H__

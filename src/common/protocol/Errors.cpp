@@ -182,7 +182,7 @@ Errors* Errors::MEMBER_ID_REQUIRED = new Errors(79, "The group member needs to h
 Errors* Errors::PREFERRED_LEADER_NOT_AVAILABLE = new Errors(80, "The preferred leader was not available", PreferredLeaderNotAvailableException::new0());
 Errors* Errors::GROUP_MAX_SIZE_REACHED = new Errors(81, "The consumer group has reached its max size.", GroupMaxSizeReachedException::new0());
 
-Errors::Errors(int code, const char *defaultExceptionString, KafkaException *exception)
+Errors::Errors(int code, const char *defaultExceptionString, ApiException *exception)
 {
 	this->code_ = code;
 	this->exception_ = exception;
