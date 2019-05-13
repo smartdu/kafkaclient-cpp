@@ -4,6 +4,7 @@
 #include "Type.h"
 #include "Errors.h"
 #include "ResponseHeader.h"
+#include "Schema.h"
 #include <list>
 
 class UNINIT
