@@ -106,6 +106,8 @@ public:
 	Field* nullableWithFields(int num, ...);
 
 	Field* withFields(const char *docStringOverride, std::list<Field*> fields);
+
+    static std::list<ComplexArray*> values();
 };
 
 #endif // !__KFK_FIELD_H__
