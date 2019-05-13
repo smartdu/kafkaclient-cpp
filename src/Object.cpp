@@ -5,6 +5,7 @@
 #include "Errors.h"
 #include "ResponseHeader.h"
 #include "Schema.h"
+#include "Node.h"
 #include <list>
 
 class UNINIT
@@ -39,6 +40,8 @@ public:
         delete ResponseHeader::SCHEMA;
         
         Errors::destroy();
+
+        delete Node::noNode();
     }
 };
 
