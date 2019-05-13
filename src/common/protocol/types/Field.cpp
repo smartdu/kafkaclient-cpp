@@ -160,6 +160,7 @@ Field* ComplexArray::withFields(int num, ...)
 	}
 	va_end(valist);
 	Schema *elementType = new Schema(fl);
+    Schema::destroy(elementType);
 	return new Field(name.c_str(), new ArrayOf(elementType), docString.c_str(), false, NULL);
 }
 
@@ -175,12 +176,14 @@ Field* ComplexArray::nullableWithFields(int num, ...)
 	}
 	va_end(valist);
 	Schema *elementType = new Schema(fl);
+    Schema::destroy(elementType);
 	return new Field(name.c_str(), ArrayOf::nullable(elementType), docString.c_str(), false, NULL);
 }
 
 Field* ComplexArray::withFields(const char *docStringOverride, std::list<Field*> fields)
 {
 	Schema *elementType = new Schema(fields);
+    Schema::destroy(elementType);
 	return new Field(name.c_str(), new ArrayOf(elementType), docStringOverride, false, NULL);
 }
 
