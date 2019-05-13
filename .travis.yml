@@ -10,6 +10,7 @@ dist: trusty
 sudo: false
 install:
 - npm install coveralls --save-dev
+- apt install -y valgrind
 before_script:
  - ccache -s || echo "CCache is not available."
 script:
