@@ -125,6 +125,11 @@ ComplexArray::ComplexArray(const char *name, const char *docString)
 	this->docString = docString;
 }
 
+ComplexArray::~ComplexArray()
+{
+
+}
+
 Field* ComplexArray::withFields(int num, ...)
 {
 	std::list<Field*> fl;

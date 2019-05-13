@@ -93,6 +93,7 @@ public:
 	std::string docString;
 
 	ComplexArray(const char *name, const char *docString);
+    virtual ~ComplexArray();
 
 	Field* withFields(int num, ...);
 
