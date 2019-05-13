@@ -19,6 +19,12 @@ ArrayOf::ArrayOf(Type *type, bool nullable)
 	this->nullable_ = nullable;
 }
 
+ArrayOf::~ArrayOf()
+{
+    if (type_ != NULL)
+        delete type_;
+}
+
 ArrayOf* ArrayOf::nullable(Type *type)
 {
 	return new ArrayOf(type, true);

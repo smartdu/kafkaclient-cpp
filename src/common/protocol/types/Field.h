@@ -21,13 +21,7 @@ public:
 	Field(const char *name, Type *type, const char *docString);
 	Field(const char *name, Type *type, const char *docString, Object *defaultValue);
 	Field(const char *name, Type *type);
-	virtual ~Field()
-	{
-        if (defaultValue != NULL)
-            delete defaultValue;
-        if (type != NULL)
-            delete type;
-	}
+    virtual ~Field();
 
 protected:
 	void init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue);

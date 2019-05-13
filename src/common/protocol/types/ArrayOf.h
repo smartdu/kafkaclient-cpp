@@ -13,11 +13,7 @@ class ArrayOf
 public:
 	ArrayOf(Type *type);
 	ArrayOf(Type *type, bool nullable);
-	virtual ~ArrayOf()
-	{
-        if (type_ != NULL)
-            delete type_;
-	}
+    virtual ~ArrayOf();
 
 	static ArrayOf* nullable(Type *type);
 

@@ -95,11 +95,7 @@ public:
 	static Errors* GROUP_MAX_SIZE_REACHED;
 
 	Errors(int code, const char *defaultExceptionString, ApiException *exception = NULL);
-	virtual ~Errors()
-	{
-		if (exception_ != NULL)
-			delete exception_;
-	}
+    virtual ~Errors();
 
 	static Errors* forCode(short code);
 

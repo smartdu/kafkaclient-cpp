@@ -33,6 +33,14 @@ Field::Field()
 	init("", NULL, "", false, NULL);
 }
 
+Field::~Field()
+{
+    if (defaultValue != NULL)
+        delete defaultValue;
+    if (type != NULL)
+        delete type;
+}
+
 void Field::init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)
 {
 	this->name = name;

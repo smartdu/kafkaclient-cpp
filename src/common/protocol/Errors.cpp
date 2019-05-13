@@ -189,6 +189,12 @@ Errors::Errors(int code, const char *defaultExceptionString, ApiException *excep
 	codeToError[code] = this;
 }
 
+Errors::~Errors()
+{
+    if (exception_ != NULL)
+        delete exception_;
+}
+
 Errors* Errors::forCode(short code)
 {
 	Errors *error = codeToError[code];
