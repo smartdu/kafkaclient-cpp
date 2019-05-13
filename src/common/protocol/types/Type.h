@@ -60,7 +60,7 @@ protected:
 
     }
 
-    bool canDelete;
+    bool canDelete_;
 };
 
 class DocumentedType
