@@ -18,9 +18,9 @@ const char* ApiVersionsResponse::MIN_VERSION_KEY_NAME = "min_version";
 const char* ApiVersionsResponse::MAX_VERSION_KEY_NAME = "max_version";
 
 Schema* ApiVersionsResponse::API_VERSIONS_V0 = new Schema(3,
-	new Field(API_KEY_NAME, Type::INT16(), "API key."),
-	new Field(MIN_VERSION_KEY_NAME, Type::INT16(), "Minimum supported version."),
-	new Field(MAX_VERSION_KEY_NAME, Type::INT16(), "Maximum supported version."));
+	new Field(API_KEY_NAME, Type::INT16()->clone(), "API key."),
+	new Field(MIN_VERSION_KEY_NAME, Type::INT16()->clone(), "Minimum supported version."),
+	new Field(MAX_VERSION_KEY_NAME, Type::INT16()->clone(), "Maximum supported version."));
 
 Schema* ApiVersionsResponse::API_VERSIONS_RESPONSE_V0 = new Schema(2,
 	CommonFields::ERROR_CODE->clone(),

@@ -40,11 +40,11 @@ Bool* MetadataResponse::IS_INTERNAL = new Bool("is_internal",
 
 Int32* MetadataResponse::LEADER = new Int32("leader",
 	"The id of the broker acting as leader for this partition.");
-Array* MetadataResponse::REPLICAS = new Array("replicas", Type::INT32(),
+Array* MetadataResponse::REPLICAS = new Array("replicas", Type::INT32()->clone(),
 	"The set of all nodes that host this partition.");
-Array* MetadataResponse::ISR = new Array("isr", Type::INT32(),
+Array* MetadataResponse::ISR = new Array("isr", Type::INT32()->clone(),
 	"The set of nodes that are in sync with the leader for this partition.");
-Array* MetadataResponse::OFFLINE_REPLICAS = new Array("offline_replicas", Type::INT32(),
+Array* MetadataResponse::OFFLINE_REPLICAS = new Array("offline_replicas", Type::INT32()->clone(),
 	"The set of offline replicas of this partition.");
 
 Field* MetadataResponse::METADATA_BROKER_V0 = BROKERS->withFields(3,

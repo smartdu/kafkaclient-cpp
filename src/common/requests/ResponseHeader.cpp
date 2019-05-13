@@ -5,7 +5,7 @@
 #include "Integer.h"
 
 Schema* ResponseHeader::SCHEMA = new Schema(1,
-	new Field("correlation_id", Type::INT32(), "The user-supplied value passed in with the request"));
+	new Field("correlation_id", Type::INT32()->clone(), "The user-supplied value passed in with the request"));
 
 BoundField* ResponseHeader::CORRELATION_KEY_FIELD = SCHEMA->get("correlation_id");
 

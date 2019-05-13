@@ -68,61 +68,61 @@ void Field::init(const char *name, Type *type, const char *docString, bool hasDe
 }
 
 Int8::Int8(const char *name, const char *docString)
-	: Field(name, Type::INT8(), docString, false, NULL)
+	: Field(name, Type::INT8()->clone(), docString, false, NULL)
 {
 
 }
 
 Int8::Int8(const char *name, const char *docString, char defaultValue)
-    : Field(name, Type::INT8(), docString, true, new Byte(defaultValue))
+    : Field(name, Type::INT8()->clone(), docString, true, new Byte(defaultValue))
 {
 
 }
 
 Int32::Int32(const char *name, const char *docString)
-	: Field(name, Type::INT32(), docString, false, NULL)
+	: Field(name, Type::INT32()->clone(), docString, false, NULL)
 {
 
 }
 
 Int32::Int32(const char *name, const char *docString, int defaultValue)
-    : Field(name, Type::INT32(), docString, true, new Integer(defaultValue))
+    : Field(name, Type::INT32()->clone(), docString, true, new Integer(defaultValue))
 {
 
 }
 
 Int64::Int64(const char *name, const char *docString)
-	: Field(name, Type::INT64(), docString, false, NULL)
+	: Field(name, Type::INT64()->clone(), docString, false, NULL)
 {
 
 }
 
 Int64::Int64(const char *name, const char *docString, long long defaultValue)
-    : Field(name, Type::INT32(), docString, true, new Long(defaultValue))
+    : Field(name, Type::INT32()->clone(), docString, true, new Long(defaultValue))
 {
 
 }
 
 Int16::Int16(const char *name, const char *docString)
-	: Field(name, Type::INT16(), docString, false, NULL)
+	: Field(name, Type::INT16()->clone(), docString, false, NULL)
 {
 
 }
 
 Str::Str(const char *name, const char *docString)
-	: Field(name, Type::STRING(), docString, false, NULL)
+	: Field(name, Type::STRING()->clone(), docString, false, NULL)
 {
 
 }
 
 NullableStr::NullableStr(const char *name, const char *docString)
-	: Field(name, Type::NULLABLE_STRING(), docString, false, NULL)
+	: Field(name, Type::NULLABLE_STRING()->clone(), docString, false, NULL)
 {
 
 }
 
 Bool::Bool(const char *name, const char *docString)
-	: Field(name, Type::BOOLEAN(), docString, false, NULL)
+	: Field(name, Type::BOOLEAN()->clone(), docString, false, NULL)
 {
 
 }

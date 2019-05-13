@@ -8,10 +8,10 @@
 const char* MetadataRequest::TOPICS_KEY_NAME = "topics";
 
 Schema* MetadataRequest::METADATA_REQUEST_V0 = new Schema(1,
-	new Field(TOPICS_KEY_NAME, new ArrayOf(Type::STRING()), "An array of topics to fetch metadata for. If no topics are specified fetch metadata for all topics."));
+	new Field(TOPICS_KEY_NAME, new ArrayOf(Type::STRING()->clone()), "An array of topics to fetch metadata for. If no topics are specified fetch metadata for all topics."));
 
 Schema* MetadataRequest::METADATA_REQUEST_V1 = new Schema(1,
-	new Field(TOPICS_KEY_NAME, ArrayOf::nullable(Type::STRING()), "An array of topics to fetch metadata for. If the topics array is null fetch metadata for all topics."));
+	new Field(TOPICS_KEY_NAME, ArrayOf::nullable(Type::STRING()->clone()), "An array of topics to fetch metadata for. If the topics array is null fetch metadata for all topics."));
 
 Schema* MetadataRequest::METADATA_REQUEST_V2 = METADATA_REQUEST_V1->clone();
 
@@ -22,7 +22,7 @@ Bool* MetadataRequest::ALLOW_AUTO_TOPIC_CREATION = new Bool("allow_auto_topic_cr
 	"don't exist will be created by the broker. Otherwise, no topics will be created by the broker.");
 
 Schema* MetadataRequest::METADATA_REQUEST_V4 = new Schema(2,
-	new Field(TOPICS_KEY_NAME, ArrayOf::nullable(Type::STRING()), "An array of topics to fetch metadata for. "
+	new Field(TOPICS_KEY_NAME, ArrayOf::nullable(Type::STRING()->clone()), "An array of topics to fetch metadata for. "
 		"If the topics array is null fetch metadata for all topics."),
 	ALLOW_AUTO_TOPIC_CREATION->clone());
 
