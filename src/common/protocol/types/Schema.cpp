@@ -9,8 +9,10 @@
 
 Schema::Schema(std::list<Field*> &fs)
 {
-	if (fs.size() > 0)
-		this->fields_ = new BoundField*[fs.size()];
+    if (fs.size() > 0)
+        this->fields_ = new BoundField*[fs.size()];
+    else
+        this->fields_ = NULL;
 	this->length = fs.size();
 	int i = 0;
 	for (auto iter : fs)
@@ -44,7 +46,9 @@ Schema::~Schema()
 {
     for (int i = 0; i < length; i++)
         delete this->fields_[i];
-    delete[] this->fields_;
+
+    if (this->fields_ != NULL)
+        delete[] this->fields_;
 }
 
 void Schema::write(ByteBuffer *buffer, Object *o)

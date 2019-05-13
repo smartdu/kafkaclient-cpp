@@ -1,6 +1,8 @@
 #include "CommonFields.h"
 #include "PatternType.h"
 
+std::list<Field*> _cf_values_;
+
 Int32* CommonFields::THROTTLE_TIME_MS = new Int32("throttle_time_ms",
 	"Duration in milliseconds for which the request was throttled due to quota violation (Zero if the "
 	"request did not violate any quota)", 0, false);

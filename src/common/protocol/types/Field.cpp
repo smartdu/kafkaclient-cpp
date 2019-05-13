@@ -8,7 +8,7 @@
 #include "Long.h"
 #include <stdarg.h>
 
-static std::list<Field*> _values_;
+extern std::list<Field*> _cf_values_;
 
 Field::Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete/* = true*/)
 {
@@ -45,7 +45,7 @@ void Field::destroy(Field *f)
 
 std::list<Field*> Field::values()
 {
-    return _values_;
+    return _cf_values_;
 }
 
 void Field::init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue, bool canDelete)
@@ -57,7 +57,7 @@ void Field::init(const char *name, Type *type, const char *docString, bool hasDe
 	this->defaultValue = defaultValue;
     this->canDelete = canDelete;
     if (!this->canDelete)
-        _values_.push_back(this);
+        _cf_values_.push_back(this);
 
 	if (hasDefaultValue)
 		type->validate(defaultValue);

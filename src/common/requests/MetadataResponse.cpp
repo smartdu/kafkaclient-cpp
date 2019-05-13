@@ -237,7 +237,7 @@ MetadataResponse::MetadataResponse(Struct *s)
 
 	int controllerId = *s->getOrElse(CONTROLLER_ID, NO_CONTROLLER_ID);
 
-	this->clusterId_ = s->getOrElse(CLUSTER_ID, NULL);
+	this->clusterId_ = new String(*s->getOrElse(CLUSTER_ID, NULL));
 
 	std::list<TopicMetadata*> topicMetadata;
 	ObjectArray *topicInfos = s->get(TOPIC_METADATA);
