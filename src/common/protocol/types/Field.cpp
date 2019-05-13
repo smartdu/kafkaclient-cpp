@@ -129,7 +129,7 @@ Array::Array(const char *name, Type *elementType, const char *docString, bool ca
 
 }
 
-static std::list<ComplexArray*> *_ca_values_;
+static std::list<ComplexArray*> *_ca_values_ = new std::list<ComplexArray*>();
 
 ComplexArray::ComplexArray(const char *name, const char *docString)
 {
