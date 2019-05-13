@@ -26,6 +26,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src/common/resource)
 include_directories(${CMAKE_SOURCE_DIR}/src/common/utils)
 
 set(HEADER_FILE ${CMAKE_SOURCE_DIR}/include/kafkaclient-cpp.h)
+set(TEST_FILE ${CMAKE_SOURCE_DIR}/test/version.bin ${CMAKE_SOURCE_DIR}/test/metadata.bin)
 file(GLOB_RECURSE SOURCE_FILE ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
 add_library(${OUTPUT_NAME}${D_SUFFIX} SHARED ${SOURCE_FILE})
@@ -39,3 +40,6 @@ add_executable(test${D_SUFFIX} ${CMAKE_SOURCE_DIR}/test/test.cpp)
 target_link_libraries(test${D_SUFFIX}
 	${OUTPUT_NAME}${D_SUFFIX})
 install(TARGETS test${D_SUFFIX} DESTINATION bin)
+
+#
+install(FILES ${TEST_FILE} DESTINATION bin)
