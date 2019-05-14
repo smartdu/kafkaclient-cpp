@@ -215,6 +215,7 @@
     <ClInclude Include="src\String0.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\A.cpp" />
     <ClCompile Include="src\Bits.cpp" />
     <ClCompile Include="src\Boolean.cpp" />
     <ClCompile Include="src\Byte.cpp" />

@@ -510,4 +510,7 @@ void MetadataResponse::destroy()
     Field::destroy(PARTITION_METADATA_V7);
     Field::destroy(TOPIC_METADATA_V7);
     Schema::destroy(METADATA_RESPONSE_V7);
+    DELETE_OBJ(BROKERS);
+    DELETE_OBJ(TOPIC_METADATA);
+    DELETE_OBJ(PARTITION_METADATA);
 }

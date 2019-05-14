@@ -37,8 +37,6 @@ public:
 
 	bool isVersionSupported(short apiVersion);
 
-    static std::list<ApiKeys*> values();
-
 protected:
 	void init(int id, const char* name, bool clusterAction, char minRequiredInterBrokerMagic,
 		Schema** requestSchemas, Schema** responseSchemas);
@@ -58,8 +56,6 @@ public:
 	Schema** requestSchemas;
 	Schema** responseSchemas;
 	bool requiresDelayedAllocation;
-
-    static std::list<ApiKeys*> values_;
 };
 
 class ApiKeys_API_VERSIONS

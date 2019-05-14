@@ -13,12 +13,19 @@
 #include "ByteArray.h"
 #include "String0.h"
 
-extern std::list<Type*> *_t_values_;
+extern std::list<Type*> _t_values_;
+UNINIT_BEGIN(Type)
+    for (auto iter : _t_values_)
+    {
+        Type::destroy(iter);
+    }
+_t_values_.clear();
+UNINIT_END(Type)
 
 Type::Type()
     : ref_(1)
 {
-    _t_values_->push_back(this);
+    _t_values_.push_back(this);
 
     /*static FILE *file = fopen("D:\\type.txt", "wb");
     static int count = 1;
@@ -29,14 +36,6 @@ Type::Type()
 bool Type::isNullable()
 {
 	return false;
-}
-
-std::list<Type*> Type::values()
-{
-    std::list<Type*> l = *_t_values_;
-    delete _t_values_;
-    _t_values_ = NULL;
-    return l;
 }
 
 void Type::destroy(Type *t)

@@ -186,6 +186,6 @@ void OffsetFetchResponse::destroy()
     Field::destroy(TOPICS_V5);
     Schema::destroy(OFFSET_FETCH_RESPONSE_V5);
 
-    delete UNKNOWN_PARTITION;
-    delete UNAUTHORIZED_PARTITION;
+    DELETE_OBJ(UNKNOWN_PARTITION);
+    DELETE_OBJ(UNAUTHORIZED_PARTITION);
 }

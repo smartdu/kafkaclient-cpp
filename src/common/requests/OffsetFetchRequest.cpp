@@ -179,4 +179,8 @@ void OffsetFetchRequest::destroy()
     Schema::destroy(OFFSET_FETCH_REQUEST_V3);
     Schema::destroy(OFFSET_FETCH_REQUEST_V4);
     Schema::destroy(OFFSET_FETCH_REQUEST_V5);
+
+    DELETE_OBJ(TOPICS);
+    DELETE_OBJ(PARTITIONS);
+
 }

@@ -11,7 +11,14 @@
 #include "OffsetFetchRequest.h"
 #include "OffsetFetchResponse.h"
 
-std::list<ApiKeys*> ApiKeys::values_ = std::list<ApiKeys*>();
+extern std::list<ApiKeys*> _k_values_;
+UNINIT_BEGIN(ApiKeys)
+    for (auto iter : _k_values_)
+    {
+        delete iter;
+    }
+    _k_values_.clear();
+UNINIT_END(ApiKeys)
 
 ApiKeys* ApiKeys::API_VERSIONS()
 {
@@ -95,7 +102,7 @@ void ApiKeys::init(int id, const char* name, bool clusterAction, char minRequire
 	this->requestSchemas = requestSchemas;
 	this->responseSchemas = responseSchemas;
 
-    values_.push_back(this);
+    _k_values_.push_back(this);
 }
 
 Struct* ApiKeys::parseRequest(short version, ByteBuffer *buffer)
@@ -133,11 +140,6 @@ short ApiKeys::oldestVersion()
 bool ApiKeys::isVersionSupported(short apiVersion)
 {
 	return apiVersion >= oldestVersion() && apiVersion <= latestVersion();
-}
-
-std::list<ApiKeys*> ApiKeys::values()
-{
-    return values_;
 }
 
 Struct* ApiKeys::parseResponse(short version, ByteBuffer *buffer, short fallbackVersion)

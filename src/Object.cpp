@@ -15,53 +15,20 @@
 #include "Node.h"
 #include <list>
 
-class UNINIT
-{
-public:
-    virtual ~UNINIT()
-    {
-        Type::destroy();
-        CommonFields::destroy();
-        ApiVersionsRequest::destroy();
-        ApiVersionsResponse::destroy();
-        MetadataRequest::destroy();
-        MetadataResponse::destroy();
-        OffsetFetchRequest::destroy();
-        OffsetFetchResponse::destroy();
+UNINIT_BEGIN(Object)
+    Type::destroy();
+    CommonFields::destroy();
+    ApiVersionsRequest::destroy();
+    ApiVersionsResponse::destroy();
+    MetadataRequest::destroy();
+    MetadataResponse::destroy();
+    OffsetFetchRequest::destroy();
+    OffsetFetchResponse::destroy();
 
-        std::list<ApiKeys*> values1 = ApiKeys::values();
-        for (auto iter : values1)
-        {
-            delete iter;
-        }
-
-        std::list<Field*> values2 = Field::values();
-        for (auto iter : values2)
-        {
-            Field::destroy(iter);
-        }
-
-        std::list<ComplexArray*> values4 = ComplexArray::values();
-        for (auto iter : values4)
-        {
-            delete iter;
-        }
-
-        std::list<Type*> values3 = Type::values();
-        for (auto iter : values3)
-        {
-            Type::destroy(iter);
-        }
-
-        Schema::destroy(ResponseHeader::SCHEMA);
-
-        Errors::destroy();
-
-        delete Node::noNode();
-    }
-};
-
-UNINIT __UNINIT__;
+    Schema::destroy(ResponseHeader::SCHEMA);
+    Errors::destroy();
+    delete Node::noNode();
+UNINIT_END(Object)
 
 std::string Object::toString()
 {

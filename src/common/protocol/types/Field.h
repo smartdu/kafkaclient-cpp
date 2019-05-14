@@ -24,8 +24,6 @@ public:
 
     static void destroy(Field *f);
 
-    static std::list<Field*> values();
-
     Field* clone()
     {
         ref_++;

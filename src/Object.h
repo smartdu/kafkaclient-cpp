@@ -4,6 +4,24 @@
 #pragma once
 #include <string>
 
+#define UNINIT_BEGIN(t)    \
+class UNINIT##t    \
+{   \
+public: \
+    virtual ~UNINIT##t()   \
+    {
+
+#define UNINIT_END(t)   \
+}}; UNINIT##t _UNINIT_;
+
+#define DELETE_OBJ(obj) \
+    do \
+    {   \
+        if (obj != NULL)    \
+            delete obj; \
+        obj = NULL; \
+    } while (0);
+
 class Object
 {
 public:

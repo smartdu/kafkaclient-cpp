@@ -874,5 +874,8 @@
     <ClCompile Include="src\common\utils\CollectionUtils.cpp">
       <Filter>Source Files\common\utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\A.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

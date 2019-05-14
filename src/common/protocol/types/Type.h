@@ -21,7 +21,6 @@ class Type
 	: public Object
 {
 public:
-    friend class UNINIT;
     Type();
 
 	virtual void write(ByteBuffer *buffer, Object *o) = 0;
@@ -33,8 +32,6 @@ public:
 	virtual int sizeOf(Object *o) = 0;
 
 	virtual bool isNullable();
-
-    static std::list<Type*> values();
 
     static void destroy(Type *t);
 

@@ -8,7 +8,14 @@
 #include "Long.h"
 #include <stdarg.h>
 
-extern std::list<Field*> *_cf_values_;
+extern std::list<Field*> _f_values_;
+UNINIT_BEGIN(Field)
+    for (auto iter : _f_values_)
+    {
+        Field::destroy(iter);
+    }
+    _f_values_.clear();
+UNINIT_END(Field)
 
 Field::Field(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)
 {
@@ -57,14 +64,6 @@ void Field::destroy(Field *f)
     }
 }
 
-std::list<Field*> Field::values()
-{
-    std::list<Field*> l = *_cf_values_;
-    delete _cf_values_;
-    _cf_values_ = NULL;
-    return l;
-}
-
 void Field::init(const char *name, Type *type, const char *docString, bool hasDefaultValue, Object *defaultValue)
 {
     ref_ = 1;
@@ -73,7 +72,7 @@ void Field::init(const char *name, Type *type, const char *docString, bool hasDe
 	this->type = type;
 	this->hasDefaultValue = hasDefaultValue;
 	this->defaultValue = defaultValue;
-    _cf_values_->push_back(this);
+    _f_values_.push_back(this);
 
 	if (hasDefaultValue)
 		type->validate(defaultValue);
@@ -150,14 +149,10 @@ Array::Array(const char *name, Type *elementType, const char *docString)
 
 }
 
-static std::list<ComplexArray*> *_ca_values_ = new std::list<ComplexArray*>();
-
 ComplexArray::ComplexArray(const char *name, const char *docString)
 {
 	this->name = name;
 	this->docString = docString;
-
-    _ca_values_->push_back(this);
 
     /*static FILE *file = fopen("D:\\complex.txt", "wb");
     static int count = 1;
@@ -216,12 +211,4 @@ Field* ComplexArray::withFields(const char *docStringOverride, int num, ...)
     va_end(valist);
 	Schema *elementType = new Schema(fl);
 	return new Field(name.c_str(), new ArrayOf(elementType), docStringOverride, false, NULL);
-}
-
-std::list<ComplexArray*> ComplexArray::values()
-{
-    std::list<ComplexArray*> l = *_ca_values_;
-    delete _ca_values_;
-    _ca_values_ = NULL;
-    return l;
 }
