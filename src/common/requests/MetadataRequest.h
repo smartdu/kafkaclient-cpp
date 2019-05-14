@@ -10,6 +10,8 @@ class MetadataRequest
 public:
 	static Schema** schemaVersions();
 
+    static void destroy();
+
 private:
 	static const char *TOPICS_KEY_NAME;
 	static Schema *METADATA_REQUEST_V0;

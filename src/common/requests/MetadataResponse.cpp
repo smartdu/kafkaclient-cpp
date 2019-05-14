@@ -139,7 +139,7 @@ Field* MetadataResponse::TOPIC_METADATA_V7 = TOPIC_METADATA->withFields(4,
 	PARTITION_METADATA_V7->clone());
 
 Schema* MetadataResponse::METADATA_RESPONSE_V7 = new Schema(5,
-	CommonFields::THROTTLE_TIME_MS,
+	CommonFields::THROTTLE_TIME_MS->clone(),
 	METADATA_BROKER_V1->clone(),
 	CLUSTER_ID->clone(),
 	CONTROLLER_ID->clone(),
@@ -208,16 +208,12 @@ Schema** MetadataResponse::schemaVersions()
 
 MetadataResponse::MetadataResponse(std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata)
 {
-	new (this)MetadataResponse(DEFAULT_THROTTLE_TIME, brokers, clusterId, controllerId, topicMetadata);
+	init(DEFAULT_THROTTLE_TIME, brokers, clusterId, controllerId, topicMetadata);
 }
 
 MetadataResponse::MetadataResponse(int throttleTimeMs, std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata)
 {
-	this->throttleTimeMs_ = throttleTimeMs;
-	this->brokers_ = brokers;
-	this->controller_ = getControllerNode(controllerId, brokers);
-	this->topicMetadata_ = topicMetadata;
-	this->clusterId_ = new String(clusterId);
+    init(throttleTimeMs, brokers, clusterId, controllerId, topicMetadata);
 }
 
 MetadataResponse::MetadataResponse(Struct *s)
@@ -470,4 +466,45 @@ Node* MetadataResponse::getControllerNode(int controllerId, std::list<Node*> bro
 			return iter;
 	}
 	return NULL;
+}
+
+void MetadataResponse::init(int throttleTimeMs, std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata)
+{
+    this->throttleTimeMs_ = throttleTimeMs;
+    this->brokers_ = brokers;
+    this->controller_ = getControllerNode(controllerId, brokers);
+    this->topicMetadata_ = topicMetadata;
+    this->clusterId_ = new String(clusterId);
+}
+
+void MetadataResponse::destroy()
+{
+    Field::destroy(CLUSTER_ID);
+    Field::destroy(CONTROLLER_ID);
+    Field::destroy(NODE_ID);
+    Field::destroy(HOST);
+    Field::destroy(PORT);
+    Field::destroy(RACK);
+    Field::destroy(IS_INTERNAL);
+    Field::destroy(LEADER);
+    Field::destroy(REPLICAS);
+    Field::destroy(ISR);
+    Field::destroy(OFFLINE_REPLICAS);
+    Field::destroy(METADATA_BROKER_V0);
+    Field::destroy(PARTITION_METADATA_V0);
+    Field::destroy(TOPIC_METADATA_V0);
+    Schema::destroy(METADATA_RESPONSE_V0);
+    Field::destroy(METADATA_BROKER_V1);
+    Field::destroy(TOPIC_METADATA_V1);
+    Schema::destroy(METADATA_RESPONSE_V1);
+    Schema::destroy(METADATA_RESPONSE_V2);
+    Schema::destroy(METADATA_RESPONSE_V3);
+    Schema::destroy(METADATA_RESPONSE_V4);
+    Field::destroy(PARTITION_METADATA_V5);
+    Field::destroy(TOPIC_METADATA_V5);
+    Schema::destroy(METADATA_RESPONSE_V5);
+    Schema::destroy(METADATA_RESPONSE_V6);
+    Field::destroy(PARTITION_METADATA_V7);
+    Field::destroy(TOPIC_METADATA_V7);
+    Schema::destroy(METADATA_RESPONSE_V7);
 }

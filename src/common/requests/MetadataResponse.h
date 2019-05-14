@@ -167,8 +167,12 @@ public:
 		return version >= 6;
 	}
 
+    static void destroy();
+
 protected:
 	virtual Struct* toStruct(short version);
+
+    void init(int throttleTimeMs, std::list<Node*> brokers, const char *clusterId, int controllerId, std::list<TopicMetadata*> topicMetadata);
 
 private:
 	std::list<Node*> convertToNodes(std::map<int, Node*> brokers, ObjectArray *brokerIds);

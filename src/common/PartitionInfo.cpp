@@ -2,17 +2,22 @@
 
 PartitionInfo::PartitionInfo(const char *topic, int partition, Node *leader, std::list<Node*> replicas, std::list<Node*> inSyncReplicas)
 {
-	new (this)PartitionInfo(topic, partition, leader, replicas, inSyncReplicas, std::list<Node*>());
+	init(topic, partition, leader, replicas, inSyncReplicas, std::list<Node*>());
 }
 
 PartitionInfo::PartitionInfo(const char *topic, int partition, Node *leader, std::list<Node*> replicas, std::list<Node*> inSyncReplicas, std::list<Node*> offlineReplicas)
 {
-	this->topic_ = topic;
-	this->partition_ = partition;
-	this->leader_ = leader;
-	this->replicas_ = replicas;
-	this->inSyncReplicas_ = inSyncReplicas;
-	this->offlineReplicas_ = offlineReplicas;
+    init(topic, partition, leader, replicas, inSyncReplicas, offlineReplicas);
+}
+
+void PartitionInfo::init(const char *topic, int partition, Node *leader, std::list<Node*> replicas, std::list<Node*> inSyncReplicas, std::list<Node*> offlineReplicas)
+{
+    this->topic_ = topic;
+    this->partition_ = partition;
+    this->leader_ = leader;
+    this->replicas_ = replicas;
+    this->inSyncReplicas_ = inSyncReplicas;
+    this->offlineReplicas_ = offlineReplicas;
 }
 
 std::string PartitionInfo::toString()

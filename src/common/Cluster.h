@@ -108,6 +108,15 @@ private:
 		std::set<std::string> internalTopics,
 		Node *controller);
 
+    void init(const char *clusterId,
+        bool isBootstrapConfigured,
+        std::list<Node*> nodes,
+        std::list<PartitionInfo*> partitions,
+        std::set<std::string> unauthorizedTopics,
+        std::set<std::string> invalidTopics,
+        std::set<std::string> internalTopics,
+        Node *controller);
+
 private:
 	bool isBootstrapConfigured_;
 	std::list<Node*> nodes_;

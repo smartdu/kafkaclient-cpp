@@ -32,6 +32,11 @@ Field::Field(const char *name, Type *type)
 
 Field::~Field()
 {
+    /*static FILE *file = fopen("D:\\field0.txt", "wb");
+    static int count = 1;
+    fprintf(file, "Field %p, %d, name = %s\n", this, count++, name.c_str());
+    fflush(file);*/
+
     if (defaultValue != NULL)
         delete defaultValue;
     Type::destroy(type);
@@ -42,9 +47,13 @@ void Field::destroy(Field *f)
     if (f != NULL)
     {
         if (f->ref_ == 0)
+        {
             delete f;
+        }
         else
+        {
             f->ref_--;
+        }
     }
 }
 
@@ -67,6 +76,11 @@ void Field::init(const char *name, Type *type, const char *docString, bool hasDe
 
 	if (hasDefaultValue)
 		type->validate(defaultValue);
+
+    /*static FILE *file = fopen("D:\\field.txt", "wb");
+    static int count = 1;
+    fprintf(file, "Field %p, %d, name = %s\n", this, count++, name);
+    fflush(file);*/
 }
 
 Int8::Int8(const char *name, const char *docString)
@@ -143,11 +157,19 @@ ComplexArray::ComplexArray(const char *name, const char *docString)
 	this->docString = docString;
 
     _ca_values_->push_back(this);
+
+    /*static FILE *file = fopen("D:\\complex.txt", "wb");
+    static int count = 1;
+    fprintf(file, "ComplexArray %p, count = %d\n", this, count++);
+    fflush(file);*/
 }
 
 ComplexArray::~ComplexArray()
 {
-
+    /*static FILE *file = fopen("D:\\complex0.txt", "wb");
+    static int count = 1;
+    fprintf(file, "~ComplexArray %p, count = %d\n", this, count++);
+    fflush(file);*/
 }
 
 Field* ComplexArray::withFields(int num, ...)

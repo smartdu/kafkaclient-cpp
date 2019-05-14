@@ -45,6 +45,8 @@ public:
 	static Int64* COMMITTED_OFFSET;
 	static NullableStr* COMMITTED_METADATA;
 	static Int32* COMMITTED_LEADER_EPOCH;
+
+    static void destroy();
 };
 
 #endif // !__KFK_COMMONFIELDS_H__

@@ -20,6 +20,11 @@ Type::Type()
     , clone_(false)
 {
     _t_values_->push_back(this);
+
+    /*static FILE *file = fopen("D:\\type.txt", "wb");
+    static int count = 1;
+    fprintf(file, "Type %p, %d\n", this, count++);
+    fflush(file);*/
 }
 
 bool Type::isNullable()
@@ -45,6 +50,18 @@ void Type::destroy(Type *t)
             t->ref_--;
         }
     }
+}
+
+void Type::destroy()
+{
+    Type::destroy(Type::BOOLEAN());
+    Type::destroy(Type::INT8());
+    Type::destroy(Type::INT16());
+    Type::destroy(Type::INT32());
+    Type::destroy(Type::INT64());
+    Type::destroy(Type::NULLABLE_BYTES());
+    Type::destroy(Type::STRING());
+    Type::destroy(Type::NULLABLE_STRING());
 }
 
 DocumentedType* Type::BOOLEAN()

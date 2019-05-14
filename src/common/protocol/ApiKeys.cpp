@@ -41,7 +41,8 @@ ApiKeys::ApiKeys(int id, const char* name, bool clusterAction, char minRequiredI
 
 ApiKeys::~ApiKeys()
 {
-    for (int i = 0; requestSchemas[i] != NULL; ++i)
+    // Schema¼Ì³ÐType£¬ÓÉTypeÎö¹¹
+    /*for (int i = 0; requestSchemas[i] != NULL; ++i)
     {
         Schema::destroy(requestSchemas[i]);
     }
@@ -49,7 +50,7 @@ ApiKeys::~ApiKeys()
     for (int i = 0; responseSchemas[i] != NULL; ++i)
     {
         Schema::destroy(responseSchemas[i]);
-    }
+    }*/
 }
 
 void ApiKeys::init(int id, const char* name, bool clusterAction, char minRequiredInterBrokerMagic,

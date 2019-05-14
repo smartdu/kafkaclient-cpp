@@ -46,6 +46,8 @@ public:
 private:
 	std::string formatNodeIds(std::list<Node*> nodes);
 
+    void init(const char *topic, int partition, Node *leader, std::list<Node*> replicas, std::list<Node*> inSyncReplicas, std::list<Node*> offlineReplicas);
+
 private:
 	std::string topic_;
 	int partition_;

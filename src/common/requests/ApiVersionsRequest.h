@@ -23,8 +23,12 @@ public:
 
 	static ApiVersionsRequest* parse(ByteBuffer *buffer, short version);
 
+    static void destroy();
+
 protected:
 	virtual Struct* toStruct();
+
+    void init(short version, Short *unsupportedRequestVersion);
 
 private:
 	static Schema *API_VERSIONS_REQUEST_V0;

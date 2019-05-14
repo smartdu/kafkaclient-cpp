@@ -4,7 +4,12 @@
 #include "Type.h"
 #include "Errors.h"
 #include "ResponseHeader.h"
+#include "MetadataRequest.h"
+#include "MetadataResponse.h"
+#include "ApiVersionsRequest.h"
+#include "ApiVersionsResponse.h"
 #include "Schema.h"
+#include "CommonFields.h"
 #include "Node.h"
 #include <list>
 
@@ -13,6 +18,13 @@ class UNINIT
 public:
     virtual ~UNINIT()
     {
+        Type::destroy();
+        CommonFields::destroy();
+        ApiVersionsRequest::destroy();
+        ApiVersionsResponse::destroy();
+        MetadataRequest::destroy();
+        MetadataResponse::destroy();
+
         std::list<ApiKeys*> values1 = ApiKeys::values();
         for (auto iter : values1)
         {

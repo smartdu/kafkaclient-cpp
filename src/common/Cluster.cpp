@@ -9,7 +9,7 @@ Cluster::Cluster(const char *clusterId,
 	std::set<std::string> unauthorizedTopics,
 	std::set<std::string> internalTopics)
 {
-	new (this)Cluster(clusterId, false, nodes, partitions, unauthorizedTopics, std::set<std::string>(), internalTopics, NULL);
+    init(clusterId, false, nodes, partitions, unauthorizedTopics, std::set<std::string>(), internalTopics, NULL);
 }
 
 Cluster::Cluster(const char *clusterId,
@@ -19,7 +19,7 @@ Cluster::Cluster(const char *clusterId,
 	std::set<std::string> internalTopics,
 	Node *controller)
 {
-	new (this)Cluster(clusterId, false, nodes, partitions, unauthorizedTopics, std::set<std::string>(), internalTopics, controller);
+    init(clusterId, false, nodes, partitions, unauthorizedTopics, std::set<std::string>(), internalTopics, controller);
 }
 
 Cluster::Cluster(const char *clusterId,
@@ -30,7 +30,7 @@ Cluster::Cluster(const char *clusterId,
 	std::set<std::string> internalTopics,
 	Node *controller)
 {
-	new (this)Cluster(clusterId, false, nodes, partitions, unauthorizedTopics, invalidTopics, internalTopics, controller);
+    init(clusterId, false, nodes, partitions, unauthorizedTopics, invalidTopics, internalTopics, controller);
 }
 
 Cluster::Cluster(const char *clusterId,
@@ -42,39 +42,51 @@ Cluster::Cluster(const char *clusterId,
 	std::set<std::string> internalTopics,
 	Node *controller)
 {
-	this->isBootstrapConfigured_ = isBootstrapConfigured;
-	this->clusterResource_ = new ClusterResource(clusterId);
-	this->nodes_ = nodes;
+    init(clusterId, isBootstrapConfigured, nodes, partitions, unauthorizedTopics, invalidTopics, internalTopics, controller);
+}
 
-	std::map<int, Node*> tmpNodesById;
-	for (auto iter : nodes)
-		tmpNodesById[iter->id()] = iter;
-	this->nodesById_ = tmpNodesById;
+void Cluster::init(const char *clusterId,
+    bool isBootstrapConfigured,
+    std::list<Node*> nodes,
+    std::list<PartitionInfo*> partitions,
+    std::set<std::string> unauthorizedTopics,
+    std::set<std::string> invalidTopics,
+    std::set<std::string> internalTopics,
+    Node *controller)
+{
+    this->isBootstrapConfigured_ = isBootstrapConfigured;
+    this->clusterResource_ = new ClusterResource(clusterId);
+    this->nodes_ = nodes;
 
-	std::map<TopicPartition*, PartitionInfo*> tmpPartitionsByTopicPartition;
-	std::map<std::string, std::list<PartitionInfo*>> tmpPartitionsByTopic;
-	std::map<std::string, std::list<PartitionInfo*>> tmpAvailablePartitionsByTopic;
-	std::map<int, std::list<PartitionInfo*>> tmpPartitionsByNode;
-	for (PartitionInfo *p : partitions)
-	{
-		tmpPartitionsByTopicPartition[new TopicPartition(p->topic(), p->partition())] = p;
+    std::map<int, Node*> tmpNodesById;
+    for (auto iter : nodes)
+        tmpNodesById[iter->id()] = iter;
+    this->nodesById_ = tmpNodesById;
 
-		tmpPartitionsByTopic[p->topic()].push_back(p);
-		if (p->leader() != NULL)
-		{
-			tmpAvailablePartitionsByTopic[p->topic()].push_back(p);
-			tmpPartitionsByNode[p->leader()->id()].push_back(p);
-		}
-	}
-	this->partitionsByTopicPartition_ = tmpPartitionsByTopicPartition;
-	this->partitionsByTopic_ = tmpPartitionsByTopic;
-	this->availablePartitionsByTopic_ = tmpAvailablePartitionsByTopic;
-	this->partitionsByNode_ = tmpPartitionsByNode;
+    std::map<TopicPartition*, PartitionInfo*> tmpPartitionsByTopicPartition;
+    std::map<std::string, std::list<PartitionInfo*>> tmpPartitionsByTopic;
+    std::map<std::string, std::list<PartitionInfo*>> tmpAvailablePartitionsByTopic;
+    std::map<int, std::list<PartitionInfo*>> tmpPartitionsByNode;
+    for (PartitionInfo *p : partitions)
+    {
+        tmpPartitionsByTopicPartition[new TopicPartition(p->topic(), p->partition())] = p;
 
-	this->unauthorizedTopics_ = unauthorizedTopics;
-	this->invalidTopics_ = invalidTopics;
-	this->internalTopics_ = internalTopics;
-	this->controller_ = controller;
+        tmpPartitionsByTopic[p->topic()].push_back(p);
+        if (p->leader() != NULL)
+        {
+            tmpAvailablePartitionsByTopic[p->topic()].push_back(p);
+            tmpPartitionsByNode[p->leader()->id()].push_back(p);
+        }
+    }
+    this->partitionsByTopicPartition_ = tmpPartitionsByTopicPartition;
+    this->partitionsByTopic_ = tmpPartitionsByTopic;
+    this->availablePartitionsByTopic_ = tmpAvailablePartitionsByTopic;
+    this->partitionsByNode_ = tmpPartitionsByNode;
+
+    this->unauthorizedTopics_ = unauthorizedTopics;
+    this->invalidTopics_ = invalidTopics;
+    this->internalTopics_ = internalTopics;
+    this->controller_ = controller;
 }
 
 Cluster* Cluster::empty()

@@ -38,6 +38,8 @@ public:
 
     static void destroy(Type *t);
 
+    static void destroy();
+
     Type* clone()
     {
         ref_++;
@@ -65,6 +67,10 @@ public:
 protected:
     virtual ~Type()
     {
+        /*static FILE *file = fopen("D:\\type0.txt", "wb");
+        static int count = 1;
+        fprintf(file, "~Type %p, %d\n", this, count++);
+        fflush(file);*/
     }
 
     int ref_;

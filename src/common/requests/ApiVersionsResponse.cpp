@@ -198,3 +198,11 @@ void ApiVersion::init(short apiKey, short minVersion, short maxVersion)
 	this->minVersion = minVersion;
 	this->maxVersion = maxVersion;
 }
+
+void ApiVersionsResponse::destroy()
+{
+    Schema::destroy(API_VERSIONS_V0);
+    Schema::destroy(API_VERSIONS_RESPONSE_V0);
+    Schema::destroy(API_VERSIONS_RESPONSE_V1);
+    Schema::destroy(API_VERSIONS_RESPONSE_V2);
+}

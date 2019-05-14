@@ -63,6 +63,8 @@ public:
 
 	virtual bool shouldClientThrottle(short version);
 
+    static void destroy();
+
 protected:
 	virtual Struct* toStruct(short version);
 

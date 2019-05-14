@@ -15,19 +15,20 @@ Schema** ApiVersionsRequest::schemaVersions()
 }
 
 ApiVersionsRequest::ApiVersionsRequest(short version)
+    : AbstractRequest()
 {
-	new (this)ApiVersionsRequest(version, NULL);
+    init(version, NULL);
 }
 
 ApiVersionsRequest::ApiVersionsRequest(short version, Short *unsupportedRequestVersion)
 	: AbstractRequest()
 {
-	this->unsupportedRequestVersion = unsupportedRequestVersion;
+    init(version, unsupportedRequestVersion);
 }
 
 ApiVersionsRequest::ApiVersionsRequest(Struct *s, short version)
 {
-	new (this)ApiVersionsRequest(version, NULL);
+    init(version, NULL);
 }
 
 bool ApiVersionsRequest::hasUnsupportedRequestVersion()
@@ -43,4 +44,16 @@ ApiVersionsRequest* ApiVersionsRequest::parse(ByteBuffer *buffer, short version)
 Struct* ApiVersionsRequest::toStruct()
 {
 	return new Struct(ApiKeys::API_VERSIONS()->requestSchema(version()));
+}
+
+void ApiVersionsRequest::init(short version, Short *unsupportedRequestVersion)
+{
+    this->unsupportedRequestVersion = unsupportedRequestVersion;
+}
+
+void ApiVersionsRequest::destroy()
+{
+    Schema::destroy(API_VERSIONS_REQUEST_V0);
+    Schema::destroy(API_VERSIONS_REQUEST_V1);
+    Schema::destroy(API_VERSIONS_REQUEST_V2);
 }

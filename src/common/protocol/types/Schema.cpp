@@ -33,6 +33,11 @@ Schema::~Schema()
 
     if (this->fields_ != NULL)
         delete[] this->fields_;
+
+    /*static FILE *file = fopen("D:\\schema0.txt", "wb");
+    static int count = 1;
+    fprintf(file, "~Schema, %p, count = %d\n", this, count++);
+    fflush(file);*/
 }
 
 void Schema::init(std::list<Field*> &fs)
@@ -56,6 +61,11 @@ void Schema::init(std::list<Field*> &fs)
         this->fieldsByName[def->name] = this->fields_[i];
         i++;
     }
+
+    /*static FILE *file = fopen("D:\\schema.txt", "wb");
+    static int count = 1;
+    fprintf(file, "Schema, %p, count = %d\n", this, count++);
+    fflush(file);*/
 }
 
 void Schema::write(ByteBuffer *buffer, Object *o)

@@ -55,3 +55,42 @@ Int32* CommonFields::COMMITTED_LEADER_EPOCH = new Int32("leader_epoch",
 	"The leader epoch, if provided is derived from the last consumed record. "
 	"This is used by the consumer to check for log truncation and to ensure partition "
 	"metadata is up to date following a group rebalance.");
+
+void CommonFields::destroy()
+{
+    Field::destroy(THROTTLE_TIME_MS);
+    Field::destroy(TOPIC_NAME);
+    Field::destroy(PARTITION_ID);
+    Field::destroy(ERROR_CODE);
+    Field::destroy(ERROR_MESSAGE);
+    Field::destroy(LEADER_EPOCH);
+    Field::destroy(CURRENT_LEADER_EPOCH);
+
+    Field::destroy(GROUP_ID);
+    Field::destroy(GENERATION_ID);
+    Field::destroy(MEMBER_ID);
+
+    Field::destroy(TRANSACTIONAL_ID);
+    Field::destroy(NULLABLE_TRANSACTIONAL_ID);
+    Field::destroy(PRODUCER_ID);
+    Field::destroy(PRODUCER_EPOCH);
+
+    Field::destroy(RESOURCE_TYPE);
+    Field::destroy(RESOURCE_NAME);
+    Field::destroy(RESOURCE_NAME_FILTER);
+    Field::destroy(RESOURCE_PATTERN_TYPE);
+    Field::destroy(RESOURCE_PATTERN_TYPE_FILTER);
+    Field::destroy(PRINCIPAL);
+    Field::destroy(PRINCIPAL_FILTER);
+    Field::destroy(HOST);
+    Field::destroy(HOST_FILTER);
+    Field::destroy(OPERATION);
+    Field::destroy(PERMISSION_TYPE);
+
+    Field::destroy(PRINCIPAL_TYPE);
+    Field::destroy(PRINCIPAL_NAME);
+
+    Field::destroy(COMMITTED_OFFSET);
+    Field::destroy(COMMITTED_METADATA);
+    Field::destroy(COMMITTED_LEADER_EPOCH);
+}

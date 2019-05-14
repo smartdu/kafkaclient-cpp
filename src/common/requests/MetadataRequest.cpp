@@ -38,3 +38,16 @@ Schema** MetadataRequest::schemaVersions()
 		METADATA_REQUEST_V4, METADATA_REQUEST_V5, METADATA_REQUEST_V6, METADATA_REQUEST_V7, NULL };
 	return schemas;
 }
+
+void MetadataRequest::destroy()
+{
+    Schema::destroy(METADATA_REQUEST_V0);
+    Schema::destroy(METADATA_REQUEST_V1);
+    Schema::destroy(METADATA_REQUEST_V2);
+    Schema::destroy(METADATA_REQUEST_V3);
+    Field::destroy(ALLOW_AUTO_TOPIC_CREATION);
+    Schema::destroy(METADATA_REQUEST_V4);
+    Schema::destroy(METADATA_REQUEST_V5);
+    Schema::destroy(METADATA_REQUEST_V6);
+    Schema::destroy(METADATA_REQUEST_V7);
+}
