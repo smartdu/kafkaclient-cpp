@@ -42,16 +42,18 @@ public:
         {
             delete iter;
         }
-        
-        Errors::destroy();
-
-        delete Node::noNode();
 
         std::list<Type*> values3 = Type::values();
         for (auto iter : values3)
         {
             Type::destroy(iter);
         }
+
+        Schema::destroy(ResponseHeader::SCHEMA);
+
+        Errors::destroy();
+
+        delete Node::noNode();
     }
 };
 
