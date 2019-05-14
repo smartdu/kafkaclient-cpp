@@ -43,7 +43,6 @@ Schema::~Schema()
 void Schema::init(std::list<Field*> &fs)
 {
     ref_ = 1;
-    clone_ = false;
     if (fs.size() > 0)
         this->fields_ = new BoundField*[fs.size()];
     else

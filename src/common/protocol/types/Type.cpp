@@ -17,7 +17,6 @@ extern std::list<Type*> *_t_values_;
 
 Type::Type()
     : ref_(1)
-    , clone_(false)
 {
     _t_values_->push_back(this);
 
@@ -44,7 +43,7 @@ void Type::destroy(Type *t)
 {
     if (t != NULL)
     {
-        if (t->ref_ == 0 || !t->clone_)
+        if (t->ref_ == 0)
         {
             delete t;
         }

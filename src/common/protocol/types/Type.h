@@ -43,7 +43,6 @@ public:
     Type* clone()
     {
         ref_++;
-        clone_ = true;
         return this;
     }
 
@@ -74,7 +73,6 @@ protected:
     }
 
     int ref_;
-    bool clone_;
 };
 
 class DocumentedType
