@@ -199,6 +199,7 @@ ByteBuffer::ByteBuffer(int mark, int pos, int lim, int cap)
 	mark_ = -1;
 	bigEndian_ = true;
     free_ = false;
+    position_ = 0;
 
 	if (cap < 0)
 		throw IllegalArgumentException("Negative capacity: " + cap);
