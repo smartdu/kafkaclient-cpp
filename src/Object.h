@@ -12,7 +12,7 @@ public: \
     {
 
 #define UNINIT_END(t)   \
-}}; UNINIT##t _UNINIT_;
+}}; static UNINIT##t _UNINIT##t_;
 
 #define DELETE_OBJ(obj) \
     do \
