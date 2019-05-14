@@ -2,6 +2,10 @@
 
 Node* Node::NO_NODE = new Node(-1, "", -1);
 
+UNINIT_BEGIN(Node)
+    delete Node::noNode();
+UNINIT_END(Node)
+
 Node::Node(int id, const char *host, int port)
 {
 

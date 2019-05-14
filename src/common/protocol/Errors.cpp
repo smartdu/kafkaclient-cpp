@@ -89,6 +89,9 @@
 #include <stdio.h>
 
 static std::map<short, Errors*> codeToError = std::map<short, Errors*>();
+UNINIT_BEGIN(Errors)
+    Errors::destroy();
+UNINIT_END(Errors)
 
 Errors* Errors::UNKNOWN_SERVER_ERROR = new Errors(-1, "The server experienced an unexpected error when processing the request.", UnknownServerException::new0());
 Errors* Errors::NONE = new Errors(0, NULL);

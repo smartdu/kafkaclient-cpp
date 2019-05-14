@@ -7,6 +7,10 @@
 Schema* ResponseHeader::SCHEMA = new Schema(1,
 	new Field("correlation_id", Type::INT32()->clone(), "The user-supplied value passed in with the request"));
 
+UNINIT_BEGIN(ResponseHeader)
+    Schema::destroy(ResponseHeader::SCHEMA);
+UNINIT_END(ResponseHeader)
+
 BoundField* ResponseHeader::CORRELATION_KEY_FIELD = SCHEMA->get("correlation_id");
 
 ResponseHeader::ResponseHeader(Struct *s)
