@@ -39,7 +39,7 @@ class OffsetFetchResponse
 {
 public:
     static const long INVALID_OFFSET = -1L;
-    static const const char *NO_METADATA;
+    static const char *NO_METADATA;
     static PartitionData *UNKNOWN_PARTITION;
     static PartitionData *UNAUTHORIZED_PARTITION;
 
