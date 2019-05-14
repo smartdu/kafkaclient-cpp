@@ -113,7 +113,7 @@ public:
 
 	Field* nullableWithFields(int num, ...);
 
-	Field* withFields(const char *docStringOverride, std::list<Field*> fields);
+	Field* withFields(const char *docStringOverride, int num, ...);
 
     static std::list<ComplexArray*> values();
 };

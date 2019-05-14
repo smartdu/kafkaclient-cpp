@@ -114,6 +114,8 @@ public:
         return exception_;
     }
 
+    static Errors* forException(ApiException *t);
+
     static void destroy();
 
 private:

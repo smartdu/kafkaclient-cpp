@@ -15,6 +15,7 @@ class ApiKeys
 public:
 	static ApiKeys* API_VERSIONS();
 	static ApiKeys* METADATA();
+    static ApiKeys* OFFSET_FETCH();
 
 	ApiKeys(int id, const char* name, Schema** requestSchemas, Schema** responseSchemas);
 	ApiKeys(int id, const char* name, bool clusterAction, Schema** requestSchemas, Schema** responseSchemas);

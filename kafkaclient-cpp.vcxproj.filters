@@ -464,6 +464,15 @@
     <ClInclude Include="src\common\exceptions\UnsupportedVersionException.h">
       <Filter>Header Files\common\exceptions</Filter>
     </ClInclude>
+    <ClInclude Include="src\common\requests\OffsetFetchResponse.h">
+      <Filter>Header Files\common\requests</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\requests\OffsetFetchRequest.h">
+      <Filter>Header Files\common\requests</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\utils\CollectionUtils.h">
+      <Filter>Header Files\common\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\common\exceptions\KafkaException.cpp">
@@ -855,6 +864,15 @@
     </ClCompile>
     <ClCompile Include="src\common\exceptions\ApiException.cpp">
       <Filter>Source Files\common\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\requests\OffsetFetchResponse.cpp">
+      <Filter>Source Files\common\requests</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\requests\OffsetFetchRequest.cpp">
+      <Filter>Source Files\common\requests</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\utils\CollectionUtils.cpp">
+      <Filter>Source Files\common\utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

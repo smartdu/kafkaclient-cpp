@@ -212,6 +212,11 @@ short Errors::code()
 	return code_;
 }
 
+Errors* Errors::forException(ApiException *t)
+{
+    return UNKNOWN_SERVER_ERROR;
+}
+
 void Errors::destroy()
 {
     for (auto &iter : codeToError)

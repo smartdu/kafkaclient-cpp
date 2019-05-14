@@ -3,12 +3,15 @@
 
 #pragma once
 #include "AbstractRequestResponse.h"
+class ApiKeys;
 
 class AbstractRequest
 	: public AbstractRequestResponse
 {
 public:
 	AbstractRequest();
+    AbstractRequest(ApiKeys *api, short version);
+
 	virtual ~AbstractRequest()
 	{
 

@@ -8,6 +8,8 @@
 #include "SchemaException.h"
 #include "MetadataRequest.h"
 #include "MetadataResponse.h"
+#include "OffsetFetchRequest.h"
+#include "OffsetFetchResponse.h"
 
 std::list<ApiKeys*> ApiKeys::values_ = std::list<ApiKeys*>();
 
@@ -21,6 +23,12 @@ ApiKeys* ApiKeys::METADATA()
 {
 	static ApiKeys *once = new ApiKeys(3, "Metadata", MetadataRequest::schemaVersions(), MetadataResponse::schemaVersions());
 	return once;
+}
+
+ApiKeys* ApiKeys::OFFSET_FETCH()
+{
+    static ApiKeys *once = new ApiKeys(9, "OffsetFetch", OffsetFetchRequest::schemaVersions(), OffsetFetchResponse::schemaVersions());
+    return once;
 }
 
 ApiKeys::ApiKeys(int id, const char* name, Schema** requestSchemas, Schema** responseSchemas)
