@@ -15,11 +15,12 @@
 
 extern std::list<Type*> _t_values_;
 UNINIT_BEGIN(Type)
+    Type::destroy();
     for (auto iter : _t_values_)
     {
         Type::destroy(iter);
     }
-_t_values_.clear();
+    _t_values_.clear();
 UNINIT_END(Type)
 
 Type::Type()

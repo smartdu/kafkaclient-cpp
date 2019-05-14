@@ -16,7 +16,6 @@
 #include <list>
 
 UNINIT_BEGIN(Object)
-    Type::destroy();
     CommonFields::destroy();
     ApiVersionsRequest::destroy();
     ApiVersionsResponse::destroy();
