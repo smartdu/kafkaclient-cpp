@@ -9,7 +9,7 @@ add_definitions(-fPIC)
 add_definitions(-Wno-write-strings)
 add_definitions(-std=c++11)
 
-if(CMAKE_BUILD_TYPE MATCHES "Release")
+if(CMAKE_BUILD_TYPE MATCHES "Debug")
     add_definitions(-fsanitize=address -fno-omit-frame-pointer)
     link_libraries(asan)
 endif()
