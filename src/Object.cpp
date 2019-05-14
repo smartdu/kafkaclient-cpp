@@ -24,10 +24,6 @@ UNINIT_BEGIN(Object)
     MetadataResponse::destroy();
     OffsetFetchRequest::destroy();
     OffsetFetchResponse::destroy();
-
-    Schema::destroy(ResponseHeader::SCHEMA);
-    Errors::destroy();
-    delete Node::noNode();
 UNINIT_END(Object)
 
 std::string Object::toString()
