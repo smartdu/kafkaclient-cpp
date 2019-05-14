@@ -34,7 +34,10 @@ bool Type::isNullable()
 
 std::list<Type*> Type::values()
 {
-    return *_t_values_;
+    std::list<Type*> l = *_t_values_;
+    delete _t_values_;
+    _t_values_ = NULL;
+    return l;
 }
 
 void Type::destroy(Type *t)

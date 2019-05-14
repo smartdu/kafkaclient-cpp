@@ -289,6 +289,9 @@ MetadataResponse::~MetadataResponse()
     {
         delete iter;
     }
+
+    if (this->clusterId_ != NULL)
+        delete this->clusterId_;
 }
 
 std::map<std::string, Errors*> MetadataResponse::errors()

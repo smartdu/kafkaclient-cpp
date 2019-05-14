@@ -61,6 +61,7 @@ std::list<Field*> Field::values()
 {
     std::list<Field*> l = *_cf_values_;
     delete _cf_values_;
+    _cf_values_ = NULL;
     return l;
 }
 
@@ -210,5 +211,8 @@ Field* ComplexArray::withFields(const char *docStringOverride, std::list<Field*>
 
 std::list<ComplexArray*> ComplexArray::values()
 {
-    return *_ca_values_;
+    std::list<ComplexArray*> l = *_ca_values_;
+    delete _ca_values_;
+    _ca_values_ = NULL;
+    return l;
 }
