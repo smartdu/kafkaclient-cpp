@@ -8,6 +8,8 @@ add_definitions(-D__LINUX64__)
 add_definitions(-fPIC)
 add_definitions(-Wno-write-strings)
 add_definitions(-std=c++11)
+#add_definitions(-fsanitize=address -fno-omit-frame-pointer)
+#link_libraries(asan)
 
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -fPIC -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -fPIC -O2 -Wall")

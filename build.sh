@@ -3,7 +3,7 @@
 PWD=`cd $(dirname $0); pwd`
 KPWD=$PWD
 
-rm -rf .libs .build
+//rm -rf .libs .build
 mkdir -p .libs .build
 cd $PWD/.build
 
