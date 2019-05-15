@@ -59,9 +59,9 @@ ApiVersionsResponse::ApiVersionsResponse(Struct *s)
 	for (int i = 0; i < *oa; i ++)
 	{
 		Struct *apiVersionStruct = (Struct*)((*oa)[i]);
-		short apiKey = *apiVersionStruct->getShort(API_KEY_NAME);
-		short minVersion = *apiVersionStruct->getShort(MIN_VERSION_KEY_NAME);
-		short maxVersion = *apiVersionStruct->getShort(MAX_VERSION_KEY_NAME);
+        short apiKey = *apiVersionStruct->getShort(apiVersionStruct->schema()->get(0));
+		short minVersion = *apiVersionStruct->getShort(apiVersionStruct->schema()->get(1));
+		short maxVersion = *apiVersionStruct->getShort(apiVersionStruct->schema()->get(2));
         apiKeyToApiVersion[apiKey] = ApiVersion(apiKey, minVersion, maxVersion);
 	}
 
