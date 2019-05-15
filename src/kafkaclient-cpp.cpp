@@ -7,6 +7,21 @@
 #include "IllegalArgumentException.h"
 #include "MetadataResponse.h"
 #include "Node.h"
+#ifdef _WIN32
+#include <Windows.h>
+#pragma comment(lib, "winmm.lib")
+#else
+#include <sys/times.h>
+#endif
+
+int tick_count()
+{
+#ifdef _WIN32
+    return timeGetTime();
+#else
+    return 10 * times(NULL);
+#endif
+}
 
 void test_version()
 {
@@ -23,14 +38,21 @@ void test_version()
 	ByteBuffer *b = ByteBuffer::wrap(buffer + 8, ret - 8);
 	short version = 2;
 
-	ApiVersionsResponse *v = ApiVersionsResponse::parse(b, version);
-	std::list<ApiVersion> versions = v->apiVersions();
-	for (auto iter : versions)
-	{
-		printf("api_key = %d, min_version = %d, max_version = %d\n", iter.apiKey, iter.minVersion, iter.maxVersion);
-	}
-
-	delete v;
+    int begin = tick_count();
+    int count = 10000;
+    for (int i = 0; i < count; i++)
+    {
+        b->rewind();
+        ApiVersionsResponse *v = ApiVersionsResponse::parse(b, version);
+        //std::list<ApiVersion> versions = v->apiVersions();
+        /*for (auto iter : versions)
+        {
+            printf("api_key = %d, min_version = %d, max_version = %d\n", iter.apiKey, iter.minVersion, iter.maxVersion);
+        }*/
+        delete v;
+    }
+    int end = tick_count();
+    printf("parse version cost = %dp/ms\n", count / (end - begin));
     delete b;
 }
 

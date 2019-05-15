@@ -71,7 +71,7 @@ protected:
 	void init(int throttleTimeMs, Errors *error, std::list<ApiVersion> apiVersions);
 
 private:
-	std::map<short, ApiVersion> buildApiKeyToApiVersion(std::list<ApiVersion> apiVersions);
+    void buildApiKeyToApiVersion(std::map<short, ApiVersion> &apiKeyToApiVersion, std::list<ApiVersion> &apiVersions);
 
 private:
 	static const char* API_VERSIONS_KEY_NAME;

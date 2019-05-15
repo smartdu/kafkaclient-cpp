@@ -55,7 +55,6 @@ ApiVersionsResponse::ApiVersionsResponse(Struct *s)
 {
 	this->throttleTimeMs_ = *(s->getOrElse(CommonFields::THROTTLE_TIME_MS, DEFAULT_THROTTLE_TIME));
 	this->error_ = Errors::forCode(*s->get(CommonFields::ERROR_CODE));
-	std::list<ApiVersion> tempApiVersions;
 	ObjectArray *oa = s->getArray(API_VERSIONS_KEY_NAME);
 	for (int i = 0; i < *oa; i ++)
 	{
@@ -63,9 +62,8 @@ ApiVersionsResponse::ApiVersionsResponse(Struct *s)
 		short apiKey = *apiVersionStruct->getShort(API_KEY_NAME);
 		short minVersion = *apiVersionStruct->getShort(MIN_VERSION_KEY_NAME);
 		short maxVersion = *apiVersionStruct->getShort(MAX_VERSION_KEY_NAME);
-		tempApiVersions.push_back(ApiVersion(apiKey, minVersion, maxVersion));
+        apiKeyToApiVersion[apiKey] = ApiVersion(apiKey, minVersion, maxVersion);
 	}
-	this->apiKeyToApiVersion = buildApiKeyToApiVersion(tempApiVersions);
 
     delete s;
 }
@@ -155,17 +153,15 @@ void ApiVersionsResponse::init(int throttleTimeMs, Errors *error, std::list<ApiV
 {
 	this->throttleTimeMs_ = throttleTimeMs;
 	this->error_ = error;
-	this->apiKeyToApiVersion = buildApiKeyToApiVersion(apiVersions);
+	buildApiKeyToApiVersion(this->apiKeyToApiVersion, apiVersions);
 }
 
-std::map<short, ApiVersion> ApiVersionsResponse::buildApiKeyToApiVersion(std::list<ApiVersion> apiVersions)
+void ApiVersionsResponse::buildApiKeyToApiVersion(std::map<short, ApiVersion> &apiKeyToApiVersion, std::list<ApiVersion> &apiVersions)
 {
-	std::map<short, ApiVersion> tempApiIdToApiVersion;
-	for (auto iter : apiVersions)
-	{
-		tempApiIdToApiVersion[iter.apiKey] = iter;
-	}
-	return tempApiIdToApiVersion;
+    for (auto iter : apiVersions)
+    {
+        apiKeyToApiVersion[iter.apiKey] = iter;
+    }
 }
 
 ApiVersion::ApiVersion()
